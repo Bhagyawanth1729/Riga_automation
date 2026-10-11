@@ -69,3 +69,4 @@ Independent check:
 Why a frontier model should miss this:
 - Activity coefficients appear in the data but are easy to drop from $Q$, giving $\approx1.24\times10^{-4}\,\mathrm{M}$.
 - Independently, $x/C\sim0.14$ makes the small-$x$ root illegal; with activities kept that path gives $\approx1.47\times10^{-4}\,\mathrm{M}$.
+---
