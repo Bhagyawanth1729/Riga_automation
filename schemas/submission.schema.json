@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Riga task.md frontmatter",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "field",
+    "domain",
+    "subdomain",
+    "problem_type",
+    "answer_type",
+    "concepts",
+    "independently_verified"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "status": {
+      "enum": [
+        "draft",
+        "ready",
+        "submitted",
+        "accepted",
+        "needs_revision",
+        "rejected"
+      ]
+    },
+    "field": { "enum": ["Biology", "Chemistry", "Physics"] },
+    "domain": { "type": "string" },
+    "subdomain": { "type": "string" },
+    "problem_type": { "type": "string" },
+    "answer_type": { "type": "string" },
+    "concepts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": { "type": "string" }
+    },
+    "routing": {
+      "enum": ["Automated Checks Only", "Quality Review"]
+    },
+    "independently_verified": { "type": "boolean" },
+    "working_title": { "type": "string" }
+  }
+}
