@@ -5,6 +5,7 @@ oa_task_id: ""
 automated_checks_accurate: ""  # Yes | No
 ---
 
+
 ## Problem (OA, do not rewrite)
 
 ## Your independent solution
