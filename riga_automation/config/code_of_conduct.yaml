@@ -1,0 +1,75 @@
+# Project Riga — Expert Code of Conduct (codified for automation)
+# Violations can trigger removal from the project.
+
+violations:
+
+  spam:
+    label: Spam
+    description: >-
+      Pattern of short, repetitive, or templated submissions lacking original
+      engagement; high-volume low-value content.
+    automatable_signals:
+      - submission_cross_similarity_above_threshold
+      - template_placeholder_residue
+      - minimal_edit_cluster
+    threshold_similarity: 0.85   # Jaccard 5-gram default
+
+  plagiarism:
+    label: Plagiarism
+    description: >-
+      Content resembling external sources or other experts' work; copied or
+      reworded prompt/solution text.
+    automatable_signals:
+      - known_corpus_hash_match
+      - known_corpus_high_similarity
+    reference: keep a local hash store of submitted/known texts
+
+  llm_usage:
+    label: LLM Usage
+    description: >-
+      Any sign of LLM-generated prompts/solutions/feedback, other than
+      external spell/grammar checkers.
+    automatable_signals:
+      - llm_boilerplate_phrases
+      - per_submission_manual_attestation_required
+
+  repeated_rejections:
+    label: Repeated Rejections
+    description: Quality issues persisting despite support/corrective feedback.
+    automatable_signals:
+      - consecutive_needs_revision_count_above_n
+    threshold_count: 3
+
+  low_aht:
+    label: Low AHT
+    description: >-
+      Completion times that suggest speed over quality. Careful, detailed work
+      is expected.
+    automatable_signals:
+      - median_active_time_below_threshold_per_complexity
+    threshold_note: >-
+      Time is tracked passively (created/modified); not automatically rejected,
+      flagged for human context.
+
+  frustrated_expert:
+    label: Frustrated Expert
+    description: Negativity/frustration toward Snorkel team or ECs (Slack/platform).
+    automatable_signals: []   # human-review only
+
+  insidious_expert:
+    label: Insidious Expert
+    description: Soliciting or recruiting toward external platforms/agendas.
+    automatable_signals: []   # human-review only
+
+  inappropriate_expert:
+    label: Inappropriate Expert
+    description: Inappropriate, disrespectful, unprofessional communication.
+    automatable_signals: []   # human-review only
+
+notes:
+  - >-
+      Rejections are reserved for clear spam, low effort, or ignoring project
+      rules; quality issues route to Needs Revision with actionable feedback.
+  - >-
+      Attestation: every submission must be accompanied by a human authorship
+      attestation (no LLM used in content; verified independently).

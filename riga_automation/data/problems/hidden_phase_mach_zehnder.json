@@ -1,0 +1,53 @@
+{
+  "title": "Hidden-phase Mach-Zehnder Bayesian posterior",
+  "prompt_latex": "A single photon is injected into input mode 1 of a Mach--Zehnder interferometer built from two identical lossless 50:50 beam splitters. Each beam splitter transforms the input creation operators $(a_1^\\dagger, a_2^\\dagger)$ into output operators $(b_1^\\dagger, b_2^\\dagger)$ by $b_1^\\dagger = \\frac{1}{\\sqrt{2}}(a_1^\\dagger + i a_2^\\dagger)$ and $b_2^\\dagger = \\frac{1}{\\sqrt{2}}(i a_1^\\dagger + a_2^\\dagger)$. Between the two beam splitters, a phase shifter in internal mode 2 applies a phase factor $e^{i\\phi}$ to the one-photon component occupying that mode, where $\\phi$ is chosen once, uniformly at random, from the set $\\left\\{0, \\frac{\\pi}{2}\\right\\}$ and is not revealed to the experimenter. The detectors at the two output ports are ideal photon-number-resolving detectors with unit efficiency. In a single realization of the experiment, exactly one photon is detected at output port 1 and no photon is detected at output port 2. Given this measurement outcome, compute the posterior probability that $\\phi = 0$. Express the answer as a fraction in lowest terms.",
+  "solution_steps": [
+    {
+      "number": 1,
+      "content": "Step 1\nThe input state is $a_1^\\dagger|0\\rangle = |1_1 0_2\\rangle$. Applying the beam-splitter 1 transformation to $a_1^\\dagger$ gives $\\frac{1}{\\sqrt{2}}(b_1^\\dagger + i b_2^\\dagger)|0\\rangle$, i.e. the internal-mode state is $\\frac{1}{\\sqrt{2}}\\left(|1_1 0_2\\rangle + i |0_1 1_2\\rangle\\right)$.",
+      "key_results": [],
+      "assumptions": []
+    },
+    {
+      "number": 2,
+      "content": "Step 2\nThe phase shifter maps $|0_1 1_2\\rangle \\to e^{i\\phi}|0_1 1_2\\rangle$, so the state entering beam splitter 2 is $\\frac{1}{\\sqrt{2}}\\left(b_1^\\dagger + i e^{i\\phi} b_2^\\dagger\\right)|0\\rangle$. Inverting the beam-splitter transformation for beam splitter 2 with output-mode operators $(c_1^\\dagger, c_2^\\dagger)$ gives $b_1^\\dagger = \\frac{1}{\\sqrt{2}}(c_1^\\dagger - i c_2^\\dagger)$ and $b_2^\\dagger = \\frac{1}{\\sqrt{2}}(c_2^\\dagger - i c_1^\\dagger)$. Substituting and collecting the coefficient of $c_1^\\dagger$ yields the output-port-1 amplitude $A_1(\\phi) = \\frac{1}{2}\\left(1 + e^{i\\phi}\\right)$, so the conditional detection probability is $P(1_1 \\mid \\phi) = |A_1(\\phi)|^2 = \\frac{1}{4}\\left(2 + 2\\cos\\phi\\right) = \\cos^2\\frac{\\phi}{2}$.",
+      "key_results": [],
+      "assumptions": []
+    },
+    {
+      "number": 3,
+      "content": "Step 3\nEvaluating, $P(1_1 \\mid \\phi = 0) = \\cos^2 0 = 1$ and $P(1_1 \\mid \\phi = \\tfrac{\\pi}{2}) = \\cos^2\\tfrac{\\pi}{4} = \\frac{1}{2}$. Because the hidden phase is a classical random variable (each hidden branch is itself coherent, so amplitudes are squared within a branch before mixing), the posterior is a Bayesian update over the two branches with uniform priors: $P(\\phi = 0 \\mid 1_1) = \\frac{P(1_1 \\mid \\phi=0)}{P(1_1 \\mid \\phi=0) + P(1_1 \\mid \\phi=\\frac{\\pi}{2})} = \\frac{1}{1 + \\frac{1}{2}} = \\frac{2}{3}$.\n\nFinal Answer: $\\boxed{\\frac{2}{3}}$",
+      "key_results": [],
+      "assumptions": []
+    }
+  ],
+  "answer": "$\\frac{2}{3}$",
+  "classification": {
+    "subject": "physics",
+    "domain": "Quantum Mechanics",
+    "subdomain": "Quantum optics",
+    "domain_explanation": "This problem involves single-photon Fock states, beam-splitter unitaries, and a Bayesian posterior over a hidden quantum phase, which are part of Physics, Quantum Mechanics. The problem also involves interferometric phase optics, which is part of Physics, Optics. However, the optical elements enter only through their unitary action on quantum states and the core task is quantum amplitude interference plus Bayesian inference, so Quantum Mechanics is the more appropriate domain.",
+    "difficulty": "hard",
+    "reasoning_types": [
+      "multi_step_deduction",
+      "quantitative_reasoning",
+      "conceptual_synthesis"
+    ],
+    "problem_type": "Derivation with exact numeric result",
+    "answer_type": "Exact rational number",
+    "concepts": [
+      "Beam splitter unitary",
+      "Single-photon Fock states",
+      "Multipath interference",
+      "Hidden-variable Bayesian inference"
+    ]
+  },
+  "author_notes": "Authoring pattern 1.1 (bridge QM + Bayesian inference) + 1.4 (hidden iterated stage; classical-probability shortcut gives 1/2 not 2/3). Verify on >=2 frontier models in the platform and mark stumps_verified.",
+  "status": "draft",
+  "llm_test_results": [],
+  "stumps_verified": false,
+  "id": "8d833cfe152d",
+  "created": "2026-10-02T15:00:49.660958+00:00",
+  "modified": "2026-10-02T15:00:49.660990+00:00",
+  "version": 1
+}

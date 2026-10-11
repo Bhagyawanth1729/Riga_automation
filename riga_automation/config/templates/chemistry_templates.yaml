@@ -1,0 +1,692 @@
+﻿# Chemistry Problem Templates
+
+templates:
+
+  # Template 1: Reaction kinetics with complex mechanism
+  - id: "chem_kinetics_complex"
+    name: "Multi-Step Reaction Mechanism with Pre-equilibrium and Rate-Determining Step"
+    subject: chemistry
+    topics: [physical_chemistry, kinetics, catalysis]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, symbolic_manipulation, approximation_hierarchy]
+    difficulty_range: [medium, hard, expert]
+    failure_patterns: [approximation_hierarchy, competing_pathways, unit_trap_mixed_systems]
+    description: |
+      Complex reaction mechanism with pre-equilibrium, steady-state approximation, and
+      rate-determining step identification. Requires deriving rate law and identifying
+      conditions for each approximation validity.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} The gas-phase reaction \ce{2NO + O2 -> 2NO2} proceeds via the mechanism:
+      \begin{align*}
+      \ce{NO + NO &<=>[$k_1$][$k_{-1}$] N2O2} \quad &\text{(fast equilibrium)} \\
+      \ce{N2O2 + O2 &->[$k_2$] 2NO2} \quad &\text{(slow)}
+      \end{align*}
+      At \SI{298}{\kelvin}, $K_1 = k_1/k_{-1} = \SI{1.2e3}{\per\molar}$, $k_2 = \SI{2.5e6}{\per\molar\per\second}$.
+      The activation energies are $E_{a,1} = \SI{15}{\kilo\joule\per\mole}$,
+      $E_{a,-1} = \SI{25}{\kilo\joule\per\mole}$, $E_{a,2} = \SI{50}{\kilo\joule\per\mole}$.
+      
+      (a) Derive the rate law for \ce{NO2} formation using the pre-equilibrium approximation.
+      (b) What is the effective activation energy $E_{a,\text{eff}}$ for the overall reaction?
+      (c) At what temperature does the steady-state approximation for \ce{N2O2} become necessary
+      (i.e., when does $k_{-1} \approx k_2[\ce{O2}]$)? Assume $[\ce{O2}] = \SI{0.1}{\molar}$.
+      
+      \textbf{Solution Steps:}
+      1. Write equilibrium expression for fast step: $K_1 = [\ce{N2O2}]/[\ce{NO}]^2$
+      2. Rate = $k_2[\ce{N2O2}][\ce{O2}] = k_2 K_1 [\ce{NO}]^2[\ce{O2}]$
+      3. $E_{a,\text{eff}} = \Delta H_1 + E_{a,2} = (E_{a,1} - E_{a,-1}) + E_{a,2}$
+      4. Set $k_{-1} = k_2[\ce{O2}]$, use Arrhenius to solve for T
+      5. Numerical evaluation
+      
+      \end{document}
+    concepts:
+      - Pre-equilibrium approximation
+      - Steady-state approximation
+      - Arrhenius equation
+      - Effective activation energy
+      - Rate-determining step
+    literature_anchors:
+      - "Laidler (1987) Chemical Kinetics"
+      - "Steinfeld & Francisco (1999) Chemical Kinetics and Dynamics"
+    variability_axes:
+      - mechanism_type: [pre_equilibrium, steady_state, mixed]
+      - n_steps: [2, 3, 4]
+      - Ea_range: [10, 50, 100]  # kJ/mol
+      - concentration_regime: [low_O2, high_O2]
+
+  # Template 2: Transition state theory with tunneling
+  - id: "chem_tst_tunneling"
+    name: "Transition State Theory with Quantum Tunneling Correction"
+    subject: chemistry
+    topics: [physical_chemistry, quantum_chemistry, kinetics]
+    reasoning_types: [quantitative_reasoning, symbolic_manipulation, limiting_case_analysis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [limiting_case_counterintuitive, cross_domain_synthesis, nonstandard_coordinates]
+    description: |
+      TST rate constant with Wigner/Eckart tunneling correction. H/D isotope effects.
+      Requires understanding of partition functions, imaginary frequency, tunneling probability.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} Consider the hydrogen transfer reaction \ce{H + H2 -> H2 + H} with a
+      symmetric barrier of height $V_0 = \SI{40}{\kilo\joule\per\mole}$ and width
+      characterized by an imaginary frequency $\nu^\ddagger = \SI{1500i}{\per\centi\meter}$.
+      
+      (a) Calculate the classical TST rate constant at \SI{300}{\kelvin} assuming
+      a transition state with one translational and two rotational degrees of freedom
+      (moment of inertia $I = \SI{4.6e-47}{\kilo\gram\meter\squared}$).
+      (b) Apply the Wigner tunneling correction $\kappa(T) = 1 + \frac{1}{24}(h\nu^\ddagger/k_B T)^2$
+      and calculate the corrected rate.
+      (c) For the deuterium analogue \ce{D + D2}, the imaginary frequency scales as $\nu^\ddagger_D = \nu^\ddagger_H/\sqrt{2}$.
+      Calculate the kinetic isotope effect $k_H/k_D$ at \SI{300}{\kelvin} including tunneling.
+      (d) At what temperature does tunneling contribute >50% to the rate enhancement?
+      
+      \textbf{Solution Steps:}
+      1. TST rate: $k = \kappa \frac{k_B T}{h} \frac{Q^\ddagger}{Q_H Q_{H_2}} e^{-V_0/RT}$
+      2. Compute partition functions (translational, rotational, vibrational)
+      3. Apply Wigner correction for H and D
+      4. Compute KIE = $(k_H/k_D)_\text{classical} \times (\kappa_H/\kappa_D)$
+      5. Solve $\kappa(T) > 1.5$ for temperature
+      
+      \end{document}
+    concepts:
+      - Transition state theory
+      - Quantum tunneling (Wigner correction)
+      - Kinetic isotope effects
+      - Partition functions
+      - Imaginary frequency
+    literature_anchors:
+      - "Truhlar & Garrett (1984) Annu Rev Phys Chem"
+      - "Bell (1980) The Tunnel Effect in Chemistry"
+    variability_axes:
+      - V0: [30, 40, 50, 60]  # kJ/mol
+      - nu_imag: [1000, 1500, 2000]  # i cm^-1
+      - isotope: [H/D, H/T, D/T]
+      - correction_type: [Wigner, Eckart, Bell]
+
+  # Template 3: Electrochemical kinetics
+  - id: "chem_electrochemical"
+    name: "Butler-Volmer Kinetics with Mass Transport Limitation"
+    subject: chemistry
+    topics: [electrochemistry, physical_chemistry, analytical_chemistry]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, dimensional_analysis, graph_interpretation]
+    difficulty_range: [medium, hard]
+    failure_patterns: [unit_trap_mixed_systems, limiting_case_counterintuitive, cross_domain_synthesis]
+    description: |
+      Electrode kinetics with Butler-Volmer equation, Tafel analysis, and diffusion limitation.
+      Requires combining kinetic and mass transport equations, identifying limiting current.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} For the reduction \ce{Fe^{3+} + e- -> Fe^{2+}} at a platinum electrode,
+      the standard rate constant is $k^0 = \SI{1e-3}{\centi\meter\per\second}$,
+      transfer coefficient $\alpha = 0.5$, and formal potential $E^{0'} = \SI{0.77}{\volt}$ vs SHE.
+      Diffusion coefficients: $D_{\ce{Fe^{3+}}} = D_{\ce{Fe^{2+}}} = \SI{7e-6}{\centi\meter\squared\per\second}$.
+      Bulk concentration $C^* = \SI{1}{\milli\molar}$. Electrode area $A = \SI{0.1}{\centi\meter\squared}$.
+      
+      (a) Write the Butler-Volmer equation for current density $j$ as a function of overpotential $\eta$.
+      (b) Calculate the exchange current density $j_0$.
+      (c) Derive the limiting current density $j_\text{lim}$ for a rotating disk electrode
+      at rotation rate $\omega = \SI{1600}{\rpm}$ (kinematic viscosity $\nu = \SI{0.01}{\centi\meter\squared\per\second}$).
+      (d) At what overpotential does the current reach 90% of $j_\text{lim}$?
+      
+      \textbf{Solution Steps:}
+      1. Butler-Volmer: $j = j_0(e^{\alpha F\eta/RT} - e^{-(1-\alpha)F\eta/RT})$
+      2. $j_0 = F k^0 C^*$ (for equal D, $C_\ce{Fe^{3+}} = C_\ce{Fe^{2+}} = C^*/2$ at $E^{0'}$)
+      3. Levich equation: $j_\text{lim} = 0.62 n F D^{2/3} \omega^{1/2} \nu^{-1/6} C^*$
+      4. Combine kinetic + mass transport: $1/j = 1/j_\text{kin} + 1/j_\text{lim}$
+      5. Solve for $\eta$ when $j = 0.9 j_\text{lim}$
+      
+      \end{document}
+    concepts:
+      - Butler-Volmer equation
+      - Exchange current density
+      - Levich equation (RDE)
+      - KouteckÃ½-Levich analysis
+      - Mass transport limitation
+    literature_anchors:
+      - "Bard & Faulkner (2001) Electrochemical Methods"
+      - "Newman & Thomas-Alyea (2004) Electrochemical Systems"
+    variability_axes:
+      - alpha: [0.3, 0.5, 0.7]
+      - k0: [1e-4, 1e-3, 1e-2]  # cm/s
+      - rotation_rate: [400, 1600, 3600]  # rpm
+      - n_electrons: [1, 2]
+
+  # Template 4: Spectroscopy - NMR coupling
+  - id: "chem_nmr_coupling"
+    name: "NMR Spectral Analysis with Second-Order Effects"
+    subject: chemistry
+    topics: [analytical_chemistry, physical_chemistry, spectroscopy]
+    reasoning_types: [quantitative_reasoning, graph_interpretation, symbolic_manipulation, conceptual_synthesis]
+    difficulty_range: [medium, hard]
+    failure_patterns: [nonstandard_coordinates, cross_domain_synthesis, literature_grounded]
+    description: |
+      Second-order NMR spectra (AB, AX, ABX systems). Chemical shift difference vs coupling.
+      Requires diagonalization of Hamiltonian matrix, understanding of strong vs weak coupling.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} An \ce{AB} spin system has chemical shifts $\nu_A = \SI{300}{\hertz}$,
+      $\nu_B = \SI{320}{\hertz}$ (relative to TMS) and coupling constant $J_{AB} = \SI{15}{\hertz}$
+      at a spectrometer frequency of \SI{400}{\mega\hertz}.
+      
+      (a) Calculate the chemical shift difference $\Delta\nu$ in Hz and ppm. Is this a weakly
+      or strongly coupled system?
+      (b) Diagonalize the Hamiltonian to find the four energy levels and transition frequencies.
+      (c) Calculate the relative intensities of the four lines.
+      (d) How would the spectrum change if $\nu_B = \SI{500}{\hertz}$ (weak coupling limit)?
+      
+      \textbf{Solution Steps:}
+      1. $\Delta\nu = |\nu_A - \nu_B| = \SI{20}{\hertz}$, $\Delta\nu/J = 1.33$ (strong coupling)
+      2. Hamiltonian matrix in $\{\alpha\alpha, \alpha\beta, \beta\alpha, \beta\beta\}$ basis
+      3. Find eigenvalues, compute transition frequencies and intensities
+      4. Weak coupling limit: two doublets at $\nu_A \pm J/2$, $\nu_B \pm J/2$
+      
+      \end{document}
+    concepts:
+      - NMR Hamiltonian
+      - AB spin system
+      - Strong vs weak coupling
+      - Second-order spectra
+      - Transition intensities
+    literature_anchors:
+      - "Levitt (2008) Spin Dynamics"
+      - "Keeler (2010) Understanding NMR Spectroscopy"
+    variability_axes:
+      - delta_nu: [10, 20, 50, 100]  # Hz
+      - J: [5, 15, 30]  # Hz
+      - system: [AB, AX, ABX, AMX]
+      - field: [300, 400, 600, 800]  # MHz
+
+  # Template 5: Organometallic catalysis
+  - id: "chem_organometallic"
+    name: "Catalytic Cycle Analysis with Resting State Identification"
+    subject: chemistry
+    topics: [inorganic_chemistry, catalysis, organometallic]
+    reasoning_types: [multi_step_deduction, experimental_design, quantitative_reasoning, conceptual_synthesis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [cross_domain_synthesis, experimental_confounder, approximation_hierarchy]
+    description: |
+      Full catalytic cycle with multiple intermediates. Identify resting state, turnover-limiting step,
+      derive rate law. Requires understanding of oxidative addition, reductive elimination, etc.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} A palladium-catalyzed cross-coupling follows the cycle:
+      \begin{enumerate}
+      \item \ce{Pd(0)L2 + ArX ->[$k_1$] Pd(II)(Ar)(X)L2} (oxidative addition)
+      \item \ce{Pd(II)(Ar)(X)L2 + R-M ->[$k_2$] Pd(II)(Ar)(R)L2 + MX} (transmetalation)
+      \item \ce{Pd(II)(Ar)(R)L2 ->[$k_3$] Pd(0)L2 + Ar-R} (reductive elimination)
+      \end{enumerate}
+      where L = phosphine ligand, M = metal (e.g., B, Zn, Sn). Under steady state,
+      the resting state is the Pd(II)(Ar)(X)L2 intermediate. Given $k_1 = \SI{1e3}{\per\molar\per\second}$,
+      $k_2 = \SI{5e2}{\per\molar\per\second}$, $k_3 = \SI{10}{\per\second}$, $[\ce{ArX}]_0 = \SI{0.1}{\molar}$,
+      $[\ce{R-M}]_0 = \SI{0.2}{\molar}$, catalyst loading \SI{1}{\milli\molar}.
+      
+      (a) Derive the rate law for product formation under steady-state approximation.
+      (b) Identify the turnover-limiting step and calculate the turnover frequency (TOF).
+      (c) If ligand dissociation \ce{Pd(0)L2 <=> Pd(0)L + L} with $K_d = \SI{1e-4}{\molar}$
+      precedes oxidative addition, how does the rate law change?
+      
+      \textbf{Solution Steps:}
+      1. Write steady-state equations for each intermediate
+      2. Identify resting state (highest concentration intermediate)
+      3. Rate = $k_3[\ce{Pd(II)(Ar)(R)L2}]$; express in terms of known concentrations
+      4. TOF = rate / [catalyst]_total
+      5. Add pre-equilibrium for ligand dissociation
+      
+      \end{document}
+    concepts:
+      - Catalytic cycle analysis
+      - Steady-state approximation
+      - Resting state identification
+      - Oxidative addition / reductive elimination
+      - Turnover frequency
+    literature_anchors:
+      - "Hartwig (2010) Organotransition Metal Chemistry"
+      - "Nicolaou et al. (2005) Cross-Coupling Reactions"
+    variability_axes:
+      - metal: [Pd, Ni, Cu, Rh]
+      - ligand_type: [phosphine, NHC, pincer]
+      - rate_limiting_step: [OA, TM, RE]
+      - pre_equilibrium: [true, false]
+
+  # Template 6: Photochemistry
+  - id: "chem_photochemistry"
+    name: "Photochemical Quantum Yield with Competing Pathways"
+    subject: chemistry
+    topics: [photochemistry, physical_chemistry, materials_chemistry]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, competing_pathways]
+    difficulty_range: [medium, hard]
+    failure_patterns: [competing_pathways, approximation_hierarchy, dimensional_analysis]
+    description: |
+      Excited state kinetics with fluorescence, intersystem crossing, quenching, reaction.
+      Quantum yield derivation, Stern-Volmer analysis.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} A photosensitizer \ce{S} absorbs light ($\epsilon = \SI{5e4}{\per\molar\per\centi\meter}$ at \SI{450}{\nano\meter})
+      forming singlet excited state \ce{^1S^*} which decays via:
+      \begin{align*}
+      \ce{^1S^* &->[$k_f$] S + h\nu_f} \quad &\text{(fluorescence, } \tau_f = \SI{5}{\nano\second}\text{)} \\
+      \ce{^1S^* &->[$k_{isc}$] ^3S^*} \quad &\text{(intersystem crossing)} \\
+      \ce{^1S^* + Q &->[$k_q$] S + Q} \quad &\text{(quenching)}
+      \end{align*}
+      Triplet \ce{^3S^*} decays via phosphorescence ($\tau_p = \SI{10}{\micro\second}$) or
+      energy transfer to substrate \ce{A} ($k_{et}[\ce{A}]$) forming product \ce{P}.
+      
+      Given $k_{isc} = \SI{2e8}{\per\second}$, $k_q = \SI{2e9}{\per\molar\per\second}$,
+      $k_{et} = \SI{1e9}{\per\molar\per\second}$, $[\ce{Q}] = \SI{0.1}{\molar}$, $[\ce{A}] = \SI{0.01}{\molar}$.
+      
+      (a) Calculate the fluorescence quantum yield $\Phi_f$.
+      (b) Calculate the triplet quantum yield $\Phi_T$.
+      (c) Calculate the overall product quantum yield $\Phi_P$.
+      (d) Derive the Stern-Volmer equation for $\Phi_f$ vs $[\ce{Q}]$.
+      
+      \textbf{Solution Steps:}
+      1. $k_f = 1/\tau_f$, total singlet decay rate $k_S = k_f + k_{isc} + k_q[\ce{Q}]$
+      2. $\Phi_f = k_f/k_S$, $\Phi_T = k_{isc}/k_S$
+      3. Triplet decay: $k_T = 1/\tau_p + k_{et}[\ce{A}]$, $\Phi_P = \Phi_T \cdot (k_{et}[\ce{A}]/k_T)$
+      4. Stern-Volmer: $\Phi_{f,0}/\Phi_f = 1 + K_{SV}[\ce{Q}]$ with $K_{SV} = k_q \tau_f$
+      
+      \end{document}
+    concepts:
+      - Excited state kinetics
+      - Quantum yields
+      - Stern-Volmer quenching
+      - Intersystem crossing
+      - Energy transfer
+    literature_anchors:
+      - "Turro et al. (2010) Modern Molecular Photochemistry"
+      - "Lakowicz (2006) Principles of Fluorescence Spectroscopy"
+    variability_axes:
+      - n_pathways: [3, 4, 5]
+      - quencher_type: [dynamic, static, combined]
+      - tau_range: [ns, us, ms]
+      - quantum_yield_target: [fluorescence, phosphorescence, product]
+
+  # Template 7: Computational chemistry - DFT
+  - id: "chem_dft"
+    name: "DFT Functional Selection and Basis Set Convergence"
+    subject: chemistry
+    topics: [computational_chemistry, quantum_chemistry, physical_chemistry]
+    reasoning_types: [quantitative_reasoning, experimental_design, conceptual_synthesis, literature_grounded]
+    difficulty_range: [hard, expert]
+    failure_patterns: [literature_recent, cross_domain_synthesis, approximation_hierarchy]
+    description: |
+      Choosing appropriate DFT functional/basis set for a given property. Error analysis,
+      basis set extrapolation, functional dependence. Requires knowledge of Jacob's ladder.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} You want to compute the reaction barrier for \ce{CH4 + OH -> CH3 + H2O}
+      using DFT. The CCSD(T)/CBS benchmark barrier is \SI{6.5}{\kilo\calorie\per\mole}.
+      
+      (a) Explain why B3LYP/6-31G(d) typically underestimates this barrier.
+      (b) Using the following data, estimate the basis set limit for the barrier with the
+      M06-2X functional using a two-point extrapolation:
+      \begin{align*}
+      \text{M06-2X/6-31G(d)} &: \SI{4.2}{\kilo\calorie\per\mole} \\
+      \text{M06-2X/6-311+G(2d,p)} &: \SI{5.8}{\kilo\calorie\per\mole}
+      \end{align*}
+      Assume $E_X = E_\infty + A/X^3$ where $X$ is the cardinal number (2 for DZ, 3 for TZ).
+      (c) The reaction involves significant radical character. Which rung of Jacob's ladder
+      (LDA, GGA, meta-GGA, hybrid, double-hybrid) is most appropriate and why?
+      (d) If you include D3 dispersion correction, how does it affect the barrier for this reaction?
+      
+      \textbf{Solution Steps:}
+      1. B3LYP error: self-interaction error, delocalization error for radicals
+      2. Extrapolation: solve $E_2 = E_\infty + A/8$, $E_3 = E_\infty + A/27$ for $E_\infty$
+      3. Radical reactions need exact exchange (hybrid) or double-hybrid for static correlation
+      4. D3 correction: small effect on barrier (reactants and TS both non-covalent), but may stabilize pre-reactive complex
+      
+      \end{document}
+    concepts:
+      - Jacob's ladder of DFT functionals
+      - Basis set extrapolation
+      - Self-interaction error
+      - Dispersion corrections
+      - Benchmarking against CCSD(T)
+    literature_anchors:
+      - "Goerigk et al. (2017) Phys Chem Chem Phys"
+      - "Grimme et al. (2011) J Chem Phys (D3)"
+      - "Peverati & Truhlar (2012) Phil Trans R Soc A (M06-2X)"
+    variability_axes:
+      - reaction_type: [barrier, binding_energy, geometry, frequency]
+      - functionals: [B3LYP, PBE, M06-2X, wB97X-D, DSD-PBEP86]
+      - basis_sets: [DZ, TZ, QZ, CBS]
+      - property: [energy, gradient, hessian, NMR, UV-Vis]
+
+  # Template 8: Supramolecular chemistry
+  - id: "chem_supramolecular"
+    name: "Host-Guest Binding with Cooperativity and Allostery"
+    subject: chemistry
+    topics: [supramolecular, physical_chemistry, analytical_chemistry]
+    reasoning_types: [quantitative_reasoning, multi_step_deduction, graph_interpretation, conceptual_synthesis]
+    difficulty_range: [medium, hard]
+    failure_patterns: [cross_domain_synthesis, approximation_hierarchy, allosteric_coupling]
+    description: |
+      Multi-site binding with cooperativity. Hill equation, Adair-Klotz, MWC model.
+      ITC or NMR titration data analysis.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} A macrocyclic host \ce{H} has two identical binding sites for guest \ce{G}.
+      Binding is cooperative: the first binding constant is $K_1 = \SI{1e3}{\per\molar}$,
+      and the second is $K_2 = \SI{1e5}{\per\molar}$ (positive cooperativity).
+      
+      (a) Write the Adair-Klotz binding polynomial and derive the fractional saturation $\bar{Y}$.
+      (b) Calculate the Hill coefficient $n_H$ at half-saturation.
+      (c) An allosteric effector \ce{E} binds to a separate site with $K_E = \SI{1e4}{\per\molar}$
+      and increases both $K_1$ and $K_2$ by a factor of 10 when bound. Derive $\bar{Y}$ as a
+      function of $[\ce{G}]$ and $[\ce{E}]$.
+      (d) Sketch the binding isotherms ($\bar{Y}$ vs $[\ce{G}]$) for $[\ce{E}] = 0$, $K_E^{-1}$, $10K_E^{-1}$.
+      
+      \textbf{Solution Steps:}
+      1. Binding polynomial: $P = 1 + 2K_1[\ce{G}] + K_1K_2[\ce{G}]^2$
+      2. $\bar{Y} = (K_1[\ce{G}] + K_1K_2[\ce{G}]^2)/P$
+      3. $n_H = \frac{d\ln(\bar{Y}/(1-\bar{Y}))}{d\ln[\ce{G}]}$ at $\bar{Y}=0.5$
+      4. MWC model for effector: partition functions for T and R states
+      5. Plot isotherms showing shift
+      
+      \end{document}
+    concepts:
+      - Adair-Klotz binding
+      - Cooperativity (positive/negative)
+      - Hill coefficient
+      - MWC allosteric model
+      - Binding isotherms
+    literature_anchors:
+      - "Wyman & Gill (1990) Binding and Linkage"
+      - "Lehn (1995) Supramolecular Chemistry"
+    variability_axes:
+      - n_sites: [2, 3, 4]
+      - cooperativity: [positive, negative, noncooperative]
+      - model: [Adair, MWC, KNF]
+      - effector: [activator, inhibitor, none]
+
+  # Template 9: Materials chemistry - MOFs
+  - id: "chem_mof"
+    name: "Metal-Organic Framework Gas Adsorption and Selectivity"
+    subject: chemistry
+    topics: [materials_chemistry, physical_chemistry, analytical_chemistry]
+    reasoning_types: [quantitative_reasoning, graph_interpretation, dimensional_analysis, experimental_design]
+    difficulty_range: [medium, hard]
+    failure_patterns: [unit_trap_mixed_systems, graph_interpretation, cross_domain_synthesis]
+    description: |
+      Gas adsorption isotherms (Langmuir, BET, Dubinin-Astakhov). Selectivity from
+      pure-component isotherms. Working capacity, regenerability.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} A MOF adsorbs \ce{CO2} and \ce{N2} at \SI{298}{\kelvin} following
+      Langmuir isotherms:
+      \begin{align*}
+      q_{\ce{CO2}} &= \frac{q_{\text{max},\ce{CO2}} b_{\ce{CO2}} P}{1 + b_{\ce{CO2}} P} \\
+      q_{\ce{N2}} &= \frac{q_{\text{max},\ce{N2}} b_{\ce{N2}} P}{1 + b_{\ce{N2}} P}
+      \end{align*}
+      with $q_{\text{max},\ce{CO2}} = \SI{5}{\milli\mole\per\gram}$, $b_{\ce{CO2}} = \SI{0.1}{\per\bar}$,
+      $q_{\text{max},\ce{N2}} = \SI{3}{\milli\mole\per\gram}$, $b_{\ce{N2}} = \SI{0.01}{\per\bar}$.
+      
+      (a) Calculate the equilibrium selectivity $S_{\ce{CO2}/\ce{N2}} = (q_{\ce{CO2}}/q_{\ce{N2}})/(P_{\ce{CO2}}/P_{\ce{N2}})$
+      at $P_{\ce{CO2}} = P_{\ce{N2}} = \SI{0.5}{\bar}$.
+      (b) For a pressure swing adsorption (PSA) cycle between \SI{1}{\bar} and \SI{0.1}{\bar},
+      calculate the working capacity for \ce{CO2}.
+      (c) If the MOF has a pore volume of \SI{0.5}{\centi\meter\cubed\per\gram} and
+      density \SI{0.5}{\gram\per\centi\meter\cubed}, what is the volumetric \ce{CO2} capacity
+      at \SI{1}{\bar} in \si{\centi\meter\cubed\per\centi\meter\cubed} (STP)?
+      
+      \textbf{Solution Steps:}
+      1. Evaluate Langmuir isotherms at given pressures
+      2. Selectivity = $(q_{\ce{CO2}}/q_{\ce{N2}}) / (y_{\ce{CO2}}/y_{\ce{N2}})$
+      3. Working capacity = $q(1 \text{ bar}) - q(0.1 \text{ bar})$
+      4. Volumetric capacity = $q \times \rho \times V_m$ (STP: \SI{22.4}{\liter\per\mole})
+      
+      \end{document}
+    concepts:
+      - Langmuir adsorption isotherm
+      - Gas selectivity
+      - Pressure swing adsorption
+      - Working capacity
+      - Volumetric vs gravimetric capacity
+    literature_anchors:
+      - "Rojas et al. (2011) J Am Chem Soc"
+      - "Sumida et al. (2012) Chem Rev"
+    variability_axes:
+      - isotherm_model: [Langmuir, BET, DA, Toth]
+      - gases: [CO2/N2, CO2/CH4, H2/CH4, O2/N2]
+      - cycle_type: [PSA, TSA, VSA]
+      - pressure_range: [low, medium, high]
+
+  # Template 10: Polymer chemistry
+  - id: "chem_polymer"
+    name: "Controlled Radical Polymerization Kinetics"
+    subject: chemistry
+    topics: [polymer_chemistry, physical_chemistry, materials_chemistry]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, symbolic_manipulation, limiting_case_analysis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [approximation_hierarchy, limiting_case_counterintuitive, cross_domain_synthesis]
+    description: |
+      ATRP or RAFT kinetics. Dispersity control, chain-end fidelity, livingness.
+      Requires solving kinetic equations for molecular weight distribution.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} In an ATRP of styrene, the equilibrium between dormant (\ce{R-X})
+      and active (\ce{R^.}) species is governed by $K_\text{ATRP} = k_a/k_{da} = \SI{1e-8}{\molar}$.
+      Initiator concentration $[\ce{R-X}]_0 = \SI{0.01}{\molar}$, monomer $[\ce{M}]_0 = \SI{5}{\molar}$,
+      catalyst $[\ce{Cu^I}] = \SI{0.001}{\molar}$, $k_p = \SI{300}{\per\molar\per\second}$.
+      
+      (a) Derive the expression for number-average degree of polymerization $DP_n$ as a
+      function of monomer conversion $p$.
+      (b) Calculate the theoretical dispersity $\text{\DJ} = M_w/M_n$ at full conversion assuming
+      fast initiation and no termination.
+      (c) If termination occurs with rate constant $k_t = \SI{1e7}{\per\molar\per\second}$,
+      derive the modified expression for $\ÄD$ and calculate at $p=0.9$.
+      
+      \textbf{Solution Steps:}
+      1. $DP_n = ([\ce{M}]_0/[\ce{R-X}]_0) \times p$ (living polymerization)
+      2. For ideal living: $\ÄD = 1 + 1/DP_n \to 1$ at high conversion
+      3. With termination: radical concentration decays, $\ÄD = 1 + 2k_t[\ce{R^.}]t / DP_n$
+      4. Relate $[\ce{R^.}]$ to $K_\text{ATRP}$ and $[\ce{Cu^I}]$
+      
+      \end{document}
+    concepts:
+      - ATRP/RAFT mechanism
+      - Dispersity (ÄD) control
+      - Living polymerization
+      - Chain-end fidelity
+      - Equilibrium constant
+    literature_anchors:
+      - "Matyjaszewski & Xia (2001) Chem Rev"
+      - "Barner-Kowollik et al. (2003) Macromol Rapid Commun"
+    variability_axes:
+      - polymerization_type: [ATRP, RAFT, NMP]
+      - K_ATRP: [1e-7, 1e-8, 1e-9]  # M
+      - conversion: [0.5, 0.8, 0.9, 0.95]
+      - termination: [none, combination, disproportionation]
+
+  # Template 11: Bioinorganic - metalloproteins
+  - id: "chem_metalloprotein"
+    name: "Metalloprotein Redox Potential and Electron Transfer"
+    subject: chemistry
+    topics: [inorganic_chemistry, biochemistry, biophysics]
+    reasoning_types: [quantitative_reasoning, multi_step_deduction, cross_domain_synthesis, conceptual_synthesis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [cross_domain_synthesis, unit_trap_mixed_systems, literature_grounded]
+    description: |
+      Redox thermodynamics of metalloproteins. Nernst equation, Marcus theory for ET,
+      reorganization energy, protein electrostatics.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} Cytochrome c has a heme iron with reduction potential $E^{0'} = \SI{+0.26}{\volt}$
+      vs SHE at pH 7. The reorganization energy for electron transfer to its partner
+      cytochrome c peroxidase is $\lambda = \SI{0.8}{\electronvolt}$.
+      The edge-to-edge distance is \SI{12}{\angstrom} with decay constant $\beta = \SI{1.4}{\per\angstrom}$.
+      
+      (a) Calculate the standard free energy change $\Delta G^0$ for the reduction.
+      (b) Using Marcus theory, calculate the electron transfer rate constant $k_{ET}$
+      assuming electronic coupling $H_{AB} = \SI{0.1}{\per\centi\meter}$ at contact.
+      (c) If a mutation changes the local dielectric constant from $\varepsilon = 4$ to $\varepsilon = 10$,
+      how does $\lambda$ change? (Assume $\lambda_\text{out} \propto (1/\varepsilon_\text{op} - 1/\varepsilon_s)$)
+      (d) What is the new $k_{ET}$?
+      
+      \textbf{Solution Steps:}
+      1. $\Delta G^0 = -nF\Delta E$ (for ET to partner with known potential)
+      2. Marcus rate: $k_{ET} = \frac{2\pi}{\hbar}|H_{AB}|^2 \frac{1}{\sqrt{4\pi\lambda k_B T}} e^{-(\Delta G^0 + \lambda)^2/4\lambda k_B T}$
+      3. $H_{AB}(r) = H_{AB}(0) e^{-\beta r/2}$
+      4. Reorganization energy dielectric dependence
+      5. Recalculate with new $\lambda$
+      
+      \end{document}
+    concepts:
+      - Marcus electron transfer theory
+      - Reorganization energy
+      - Protein electrostatics
+      - Redox potential
+      - Distance dependence of ET
+    literature_anchors:
+      - "Gray & Winkler (2005) Annu Rev Biochem"
+      - "Marcus (1993) Nobel Lecture"
+      - "Page et al. (1999) J Phys Chem B"
+    variability_axes:
+      - metal_center: [heme, Fe-S, Cu, Mo]
+      - lambda: [0.5, 0.8, 1.2]  # eV
+      - distance: [10, 12, 15, 20]  # Angstrom
+      - beta: [1.0, 1.4, 1.8]  # /Angstrom
+
+  # Template 12: Atmospheric chemistry
+  - id: "chem_atmospheric"
+    name: "Atmospheric Reaction Mechanism and Ozone Formation"
+    subject: chemistry
+    topics: [physical_chemistry, analytical_chemistry, environmental]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, approximation_hierarchy, experimental_design]
+    difficulty_range: [medium, hard]
+    failure_patterns: [approximation_hierarchy, competing_pathways, unit_trap_mixed_systems]
+    description: |
+      Chapman cycle, NOx/VOC chemistry, steady-state approximation for radicals.
+      Ozone isopleths, radical budgets.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} In the troposphere, ozone forms via:
+      \begin{align*}
+      \ce{NO2 + h\nu &->[$J_{\ce{NO2}}$] NO + O(^3P)} \\
+      \ce{O(^3P) + O2 + M &->[$k_1$] O3 + M} \\
+      \ce{NO + O3 &->[$k_2$] NO2 + O2} \\
+      \ce{NO + HO2 &->[$k_3$] NO2 + OH} \\
+      \ce{OH + CO &->[$k_4$] H + CO2} \\
+      \ce{H + O2 + M &->[$k_5$] HO2 + M}
+      \end{align*}
+      Assume steady state for O, OH, HO2. Given $J_{\ce{NO2}} = \SI{5e-3}{\per\second}$,
+      $k_2 = \SI{1.8e-14}{\centi\meter\cubed\per\molecule\per\second}$,
+      $k_3 = \SI{8e-12}{\centi\meter\cubed\per\molecule\per\second}$,
+      $[\ce{NO}] = \SI{50}{\parts\per\billion}$, $[\ce{CO}] = \SI{100}{\parts\per\billion}$,
+      $T = \SI{298}{\kelvin}$, $P = \SI{1}{\atm}$.
+      
+      (a) Derive the steady-state ozone concentration $[\ce{O3}]_{ss}$.
+      (b) Calculate the ozone production efficiency (OPE = $\Delta[\ce{O3}]/\Delta[\ce{NO}_x]$).
+      (c) Is this regime NOx-limited or VOC-limited?
+      
+      \textbf{Solution Steps:}
+      1. Steady state for O: $J_{\ce{NO2}}[\ce{NO2}] = k_1[\ce{O}][\ce{O2}][\ce{M}]$
+      2. Steady state for O3: $k_1[\ce{O}][\ce{O2}][\ce{M}] = k_2[\ce{NO}][\ce{O3}]$
+      3. Combine: $[\ce{O3}] = (J_{\ce{NO2}}/k_2) ([\ce{NO2}]/[\ce{NO}])$
+      4. Use NOx cycle: $[\ce{NO2}]/[\ce{NO}] = (k_3[\ce{HO2}] + k_2[\ce{O3}])/J_{\ce{NO2}}$
+      5. Solve coupled equations for $[\ce{O3}]$
+      
+      \end{document}
+    concepts:
+      - Chapman cycle
+      - NOx-O3 photostationary state
+      - Radical steady state
+      - Ozone production efficiency
+      - NOx vs VOC limited regimes
+    literature_anchors:
+      - "Seinfeld & Pandis (2016) Atmospheric Chemistry and Physics"
+      - "Finlayson-Pitts & Pitts (2000) Chemistry of the Upper and Lower Atmosphere"
+    variability_axes:
+      - NOx_level: [low, medium, high]  # ppb
+      - VOC_type: [CO, CH4, isoprene, aromatics]
+      - J_NO2: [1e-3, 5e-3, 1e-2]  # /s
+      - regime: [NOx_limited, VOC_limited, transition]
+
+  # Template 13: Theoretical - potential energy surfaces
+  - id: "chem_pes"
+    name: "Conical Intersection and Non-Adiabatic Dynamics"
+    subject: chemistry
+    topics: [quantum_chemistry, physical_chemistry, photochemistry]
+    reasoning_types: [multi_step_deduction, conceptual_synthesis, symbolic_manipulation, limiting_case_analysis]
+    difficulty_range: [expert]
+    failure_patterns: [cross_domain_synthesis, nonstandard_coordinates, literature_recent, approximation_hierarchy]
+    description: |
+      Conical intersections, Jahn-Teller effect, non-adiabatic coupling, surface hopping.
+      Requires understanding of degenerate electronic states, geometric phase.
+    latex_skeleton: |
+      \documentclass{article}
+      \usepackage{amsmath, amssymb, siunitx, mhchem}
+      \begin{document}
+      
+      \textbf{Problem:} A triatomic molecule \ce{ABA} has a conical intersection between
+      the ground (S0) and first excited (S1) states at symmetric geometry ($D_{\infty h}$).
+      Near the intersection, the diabatic potential matrix is:
+      $$V = \begin{pmatrix}
+      \frac{1}{2}k(x^2 + y^2) & \lambda x \\
+      \lambda x & \Delta E + \frac{1}{2}k(x^2 + y^2)
+      \end{pmatrix}$$
+      where $x$ is the asymmetric stretch, $y$ is the bend, $\Delta E$ is the vertical gap.
+      
+      (a) Find the adiabatic potentials $V_\pm(x,y)$ by diagonalizing $V$.
+      (b) Show that $V_+ = V_-$ at $x=0$ (the conical intersection seam).
+      (c) Calculate the non-adiabatic coupling vector $\vec{\tau}_{12} = \langle \psi_1|\nabla|\psi_2 \rangle$
+      near the intersection.
+      (d) What is the geometric (Berry) phase acquired by a wavepacket encircling the intersection?
+      
+      \textbf{Solution Steps:}
+      1. Eigenvalues of 2x2 matrix: $V_\pm = \frac{1}{2}k(x^2+y^2) + \frac{\Delta E}{2} \pm \frac{1}{2}\sqrt{\Delta E^2 + 4\lambda^2 x^2}$
+      2. At $x=0$, $V_+ = V_- = \frac{1}{2}k y^2 + \Delta E$ (seam along y)
+      3. Eigenvectors give mixing angle $\theta$, $\tau_{12} \propto \nabla\theta \sim 1/x$
+      4. Berry phase = $\pi$ for single encirclement (sign change of wavefunction)
+      
+      \end{document}
+    concepts:
+      - Conical intersection
+      - Diabatic vs adiabatic states
+      - Non-adiabatic coupling
+      - Geometric (Berry) phase
+      - Jahn-Teller effect
+    literature_anchors:
+      - "Domcke et al. (2004) Conical Intersections"
+      - "Yarkony (1996) Rev Mod Phys"
+      - "Mead & Truhlar (1982) J Chem Phys"
+    variability_axes:
+      - molecule_type: [ABA, ABC, Jahn-Teller]
+      - dimensionality: [2D, 3D]
+      - coupling_type: [linear, quadratic]
+      - dynamics_method: [surface_hopping, MCTDH, AIMS]

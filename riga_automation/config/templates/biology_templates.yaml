@@ -1,0 +1,689 @@
+﻿# Biology Problem Templates
+
+templates:
+
+  # Template 1: Enzyme kinetics with allosteric regulation
+  - id: "bio_enzyme_allosteric"
+    name: "Allosteric Enzyme Kinetics with Multiple Effectors"
+    subject: biology
+    topics: [biochemistry, systems_biology]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, literature_grounded]
+    difficulty_range: [medium, hard, expert]
+    failure_patterns: [cross_domain_synthesis, approximation_hierarchy, allosteric_coupling]
+    description: |
+      MWC or KNF model with multiple allosteric effectors (activators/inhibitors).
+      Requires deriving fractional saturation, identifying rate-limiting step shift.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} Consider an allosteric enzyme following the Monod-Wyman-Changeux (MWC) model
+      with $n$ identical subunits. The enzyme exists in tense (T) and relaxed (R) states with
+      equilibrium constant $L = [T]_0/[R]_0$. Substrate S binds with dissociation constants $K_T$
+      and $K_R = K_T/c$ ($c < 1$). An allosteric activator A binds only to the R state with
+      dissociation constant $K_A$, and an inhibitor I binds only to the T state with $K_I$.
+      
+      Derive the expression for the fractional saturation $Y_S$ as a function of $[S]$, $[A]$, $[I]$.
+      Then determine the conditions under which the Hill coefficient $n_H$ exceeds $n/2$.
+      
+      \\textbf{Given:} $n=4$, $L=10^3$, $c=0.01$, $K_T = \SI{1}{\milli\molar}$, $K_A = \SI{10}{\micro\molar}$,
+      $K_I = \SI{50}{\micro\molar}$. Calculate $Y_S$ at $[S] = \SI{0.5}{\milli\molar}$,
+      $[A] = \SI{5}{\micro\molar}$, $[I] = \SI{20}{\micro\molar}$.
+      
+      \\textbf{Solution Steps:}
+      1. Write partition functions for R and T states with all ligands
+      2. Derive $Y_S = \\frac{[S] \\partial \\ln Z / \\partial [S]}{n}$
+      3. Compute Hill coefficient from $n_H = \\frac{d \\ln(Y_S/(1-Y_S))}{d \\ln[S]}$
+      4. Analyze limiting behavior for $n_H > n/2$ condition
+      5. Substitute numerical values
+      
+      \\end{document}
+    concepts:
+      - MWC allosteric model
+      - Partition function in statistical mechanics
+      - Hill coefficient derivation
+      - Allosteric effector coupling
+    literature_anchors:
+      - "Monod, Wyman, Changeux (1965) JMB"
+      - "Changeux & Edelstein (2005) Nat Rev Mol Cell Biol"
+    variability_axes:
+      - n: [2, 4, 6]
+      - L: [10, 100, 1000, 10000]
+      - c: [0.001, 0.01, 0.1]
+      - effector_types: [activator_only, inhibitor_only, both]
+
+  # Template 2: Ion channel conductance with voltage dependence
+  - id: "bio_ion_channel_voltage"
+    name: "Voltage-Gated Ion Channel Gating Currents"
+    subject: biology
+    topics: [neuroscience, biophysics, physiology]
+    reasoning_types: [quantitative_reasoning, symbolic_manipulation, graph_interpretation]
+    difficulty_range: [medium, hard]
+    failure_patterns: [nonstandard_coordinates, limiting_case_counterintuitive]
+    description: |
+      Hodgkin-Huxley type model with non-trivial voltage dependence.
+      Requires solving for steady-state activation, time constants, gating charge.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} A voltage-gated potassium channel has four identical voltage-sensing
+      domains (VSDs), each undergoing a two-state transition (resting $\\leftrightarrow$ activated)
+      with voltage-dependent rates $\\alpha(V) = \\alpha_0 e^{z_\\alpha F V / RT}$ and
+      $\\beta(V) = \\beta_0 e^{-z_\\beta F V / RT}$. The channel opens only when all four VSDs
+      are activated. The gating charge per VSD is $z = z_\\alpha + z_\\beta$.
+      
+      (a) Derive the steady-state open probability $P_\\text{open}(V)$.
+      (b) Show that the total gating charge movement $Q(V)$ is related to $P_\\text{open}(V)$ by
+      $Q(V) = 4z \\frac{d \\ln P_\\text{open}}{d(V/V_0)}$ for some $V_0$. Find $V_0$.
+      (c) If $\\alpha_0 = \SI{100}{\per\\second}$, $\\beta_0 = \SI{1000}{\per\\second}$,
+      $z_\\alpha = 0.5$, $z_\\beta = 1.5$, at what voltage is the activation time constant
+      $\\tau(V)$ minimized?
+      
+      \\textbf{Solution Steps:}
+      1. Write master equation for VSD states, find steady-state activation $p_\\infty(V)$
+      2. $P_\\text{open} = p_\\infty^4$ (all four must be activated)
+      3. Compute gating charge from derivative of free energy
+      4. Derive $\\tau(V) = 1/(\\alpha(V) + \\beta(V))$ for single VSD, then channel $\\tau$
+      5. Minimize $\\tau(V)$ by solving $d\\tau/dV = 0$
+      
+      \\end{document}
+    concepts:
+      - Hodgkin-Huxley formalism
+      - Voltage-dependent rate constants
+      - Gating charge and capacitance
+      - Cooperative activation
+    literature_anchors:
+      - "Hodgkin & Huxley (1952) J Physiol"
+      - "Bezanilla (2008) Nat Rev Neurosci"
+    variability_axes:
+      - n_subunits: [2, 3, 4, 5]
+      - z_alpha: [0.3, 0.5, 0.8]
+      - z_beta: [0.7, 1.0, 1.5]
+      - rate_ratio: [0.01, 0.1, 1, 10]
+
+  # Template 3: Population genetics with selection and drift
+  - id: "bio_popgen_selection_drift"
+    name: "Fixation Probability with Fluctuating Selection"
+    subject: biology
+    topics: [evolution, genetics, systems_biology]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, stochastic_first_passage]
+    difficulty_range: [hard, expert]
+    failure_patterns: [stochastic_first_passage, cross_domain_synthesis, literature_recent]
+    description: |
+      Diffusion approximation for fixation probability when selection coefficient varies.
+      Combines population genetics with stochastic processes.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} Consider a haploid population of constant size $N$ with two alleles $A$ and $a$.
+      The selection coefficient $s(t)$ for allele $A$ fluctuates as an Ornstein-Uhlenbeck process:
+      $ds = -\\theta(s - \\bar{s})dt + \\sigma dW_t$, where $\\bar{s}$ is the long-term mean,
+      $\\theta$ is the reversion rate, and $\\sigma$ is the noise intensity.
+      
+      Using the diffusion approximation, derive the fixation probability $u(p)$ for allele $A$
+      starting at frequency $p$, in the limit of weak selection ($|s| \\ll 1$) and large $N$
+      ($N\\bar{s} \\sim O(1)$, $N\\sigma^2/\\theta \\sim O(1)$).
+      
+      How does the fixation probability differ from the constant-$s$ case $u(p) = (1-e^{-2N\\bar{s}p})/(1-e^{-2N\\bar{s}})$?
+      
+      \\textbf{Solution Steps:}
+      1. Write forward Kolmogorov equation for joint distribution of $(p, s)$
+      2. Adiabatic elimination of fast variable $s$ (if $\\theta \\gg 1/N$) or slow variable
+      3. Derive effective drift and diffusion coefficients for $p$
+      4. Solve boundary value problem for $u(p)$ with $u(0)=0$, $u(1)=1$
+      5. Compare to constant-$s$ result, identify correction term
+      
+      \\end{document}
+    concepts:
+      - Diffusion approximation in population genetics
+      - Ornstein-Uhlenbeck process
+      - Adiabatic elimination / timescale separation
+      - Fixation probability with fluctuating selection
+    literature_anchors:
+      - "Kimura (1964) J Appl Prob"
+      - "Waxman (2011) Genetics"
+      - "Chevin (2020) PNAS - fluctuating selection"
+    variability_axes:
+      - N: [100, 1000, 10000]
+      - s_bar: [0.001, 0.01, 0.1]
+      - theta: [0.1, 1, 10]  #  # in units of 1/N
+      - sigma: [0.01, 0.1, 0.5]
+
+  # Template 4: Single-molecule motor processivity
+  - id: "bio_motor_processivity"
+    name: "Molecular Motor Processivity with Load-Dependent Detachment"
+    subject: biology
+    topics: [biophysics, cell_biology, molecular_biology]
+    reasoning_types: [quantitative_reasoning, stochastic_first_passage, limiting_case_counterintuitive]
+    difficulty_range: [medium, hard]
+    failure_patterns: [stochastic_first_passage, limiting_case_counterintuitive, cross_domain_synthesis]
+    description: |
+      Kinesin/dynein processivity under load. Mean run length, velocity, ATP coupling.
+      Requires solving first-passage problem with load-dependent rates.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} A processive molecular motor (e.g., kinesin-1) takes discrete steps of size
+      $d = \SI{8}{\nano\\meter}$ along a microtubule. Each step consumes one ATP. The forward
+      stepping rate is $k_+(F) = k_+^0 e^{-F d_+ / k_B T}$ and the detachment rate is
+      $k_\\text{off}(F) = k_\\text{off}^0 e^{F d_\\text{off} / k_B T}$, where $F$ is the
+      opposing load force, and $d_+$, $d_\\text{off}$ are distance parameters.
+      
+      (a) Derive the mean run length $\\langle L \\rangle$ and mean velocity $v$ as functions of $F$.
+      (b) Show that the thermodynamic efficiency $\\eta = F v / (k_+ \\Delta \\mu_\\text{ATP})$
+      has a maximum at some $F^*$. Find $F^*$.
+      (c) If $k_+^0 = \SI{100}{\per\\second}$, $k_\\text{off}^0 = \SI{1}{\per\\second}$,
+      $d_+ = \SI{4}{\nano\\meter}$, $d_\\text{off} = \SI{2}{\nano\\meter}$, $\\Delta \\mu_\\text{ATP} = \SI{20}{k_B T}$,
+      calculate $\\langle L \\rangle$, $v$, and $\\eta$ at $F = \SI{2}{\pico\\newton}$ and $F = \SI{6}{\pico\\newton}$.
+      
+      \\textbf{Solution Steps:}
+      1. Mean run length = velocity / detachment rate (first-passage to detachment)
+      2. Velocity = step size Ã— net forward rate
+      3. Efficiency = mechanical power / chemical power input
+      4. Maximize $\\eta(F)$ by solving $d\\eta/dF = 0$
+      5. Numerical evaluation with given parameters
+      
+      \\end{document}
+    concepts:
+      - Molecular motor kinetics
+      - Load-dependent rate constants (Bell model)
+      - First-passage time to detachment
+      - Thermodynamic efficiency of molecular machines
+    literature_anchors:
+      - "Howard (2001) Mechanics of Motor Proteins"
+      - "Schnitzer & Block (1997) Nature"
+      - "Kolomeisky & Fisher (2007) Annu Rev Phys Chem"
+    variability_axes:
+      - d_plus: [2, 4, 6]  # nm
+      - d_off: [1, 2, 3]  # nm
+      - k_off_0: [0.1, 1, 10]  # /s
+      - delta_mu_ATP: [10, 15, 20, 25]  # kBT
+
+  # Template 5: CRISPR off-target kinetics
+  - id: "bio_crispr_offtarget"
+    name: "CRISPR-Cas9 Off-Target Cleavage Kinetics"
+    subject: biology
+    topics: [molecular_biology, biotechnology, bioinformatics]
+    reasoning_types: [quantitative_reasoning, experimental_design, literature_grounded]
+    difficulty_range: [medium, hard]
+    failure_patterns: [literature_recent, competing_pathways, experimental_confounder]
+    description: |
+      Kinetic proofreading model for Cas9 specificity. PAM recognition, R-loop formation,
+      mismatch tolerance. Requires modeling competing on-target vs off-target pathways.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} Cas9-sgRNA complex searches for target DNA. Binding proceeds through:
+      (1) PAM recognition ($k_{\\text{PAM}}$, $k_{-\\text{PAM}}$), (2) R-loop nucleation
+      ($k_{\\text{nuc}}$), (3) R-loop propagation ($k_{\\text{prop}}$ per base), (4) cleavage
+      ($k_{\\text{cleave}}$). Mismatches at position $i$ reduce $k_{\\text{prop}}$ by factor $e^{-\\Delta G_i/k_B T}$.
+      
+      Derive the specificity ratio $S = k_{\\text{on-target}} / k_{\\text{off-target}}$ for a
+      single mismatch at position $i$. How does $S$ depend on sgRNA length $L$ and mismatch position?
+      
+      If on-target cleavage efficiency must exceed 90\%, what is the maximum tolerable
+      off-target rate for a genome with $10^4$ potential off-target sites?
+      
+      \\textbf{Solution Steps:}
+      1. Write kinetic scheme for on-target and off-target pathways
+      2. Solve for steady-state flux to cleavage (commitment probability)
+      3. Compute ratio of fluxes = specificity
+      4. Account for genome-wide off-target sites (Poisson statistics)
+      5. Solve for constraint on off-target rate given on-target requirement
+      
+      \\end{document}
+    concepts:
+      - Kinetic proofreading
+      - CRISPR-Cas9 mechanism
+      - R-loop formation thermodynamics
+      - Genome-wide specificity
+    literature_anchors:
+      - "Sternberg et al. (2014) Nature"
+      - "Chen et al. (2017) Mol Cell"
+      - "Zuccaro et al. (2020) Nat Biotechnol"
+    variability_axes:
+      - sgRNA_length: [17, 19, 20, 22]
+      - mismatch_position: [1, 5, 10, 15, 19]
+      - deltaG_mismatch: [1, 2, 3, 5]  # kBT
+      - genome_offtargets: [1e3, 1e4, 1e5]
+
+  # Template 6: Metabolic flux balance
+  - id: "bio_metabolic_flux"
+    name: "Metabolic Flux Balance with Thermodynamic Constraints"
+    subject: biology
+    topics: [systems_biology, biochemistry, biotechnology]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, optimization]
+    difficulty_range: [medium, hard]
+    failure_patterns: [approximation_hierarchy, cross_domain_synthesis, dimensional_analysis]
+    description: |
+      FBA with loopless constraints and thermodynamic feasibility. Elementary flux modes.
+      Requires linear programming + thermodynamic directionality constraints.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} Consider a simplified central carbon metabolism with reactions:
+      \\begin{align*}
+      &\\text{Glc} \\xrightarrow{v_1} 2 \\text{Pyr} + 2 \\text{ATP} + 2 \\text{NADH} \\\\
+      &\\text{Pyr} \\xrightarrow{v_2} \\text{AcCoA} + \\text{CO}_2 + \\text{NADH} \\\\
+      &\\text{AcCoA} + 3 \\text{NAD}^+ + \\text{FAD} + \\text{GDP} + \\text{P}_i
+        \\xrightarrow{v_3} 2 \\text{CO}_2 + 3 \\text{NADH} + \\text{FADH}_2 + \\text{GTP} \\\\
+      &\\text{NADH} + \\text{H}^+ + 1/2 \\text{O}_2 \\xrightarrow{v_4} \\text{NAD}^+ + \\text{H}_2\\text{O} + 3 \\text{ATP} \\\\
+      &\\text{FADH}_2 + 1/2 \\text{O}_2 \\xrightarrow{v_5} \\text{FAD} + \\text{H}_2\\text{O} + 2 \\text{ATP} \\\\
+      &\\text{Biomass}: 0.1 \\text{Glc} + 20 \\text{ATP} + 10 \\text{NADPH} \\xrightarrow{v_6} \\text{Biomass}
+      \\end{align*}
+      
+      Standard Gibbs energies: $\\Delta_r G_1^\\circ = -200$, $\\Delta_r G_2^\\circ = -30$,
+      $\\Delta_r G_3^\\circ = -40$, $\\Delta_r G_4^\\circ = -220$, $\\Delta_r G_5^\\circ = -150$ kJ/mol.
+      Intracellular concentrations: [Glc] = 5 mM, [Pyr] = 0.5 mM, [AcCoA] = 0.1 mM,
+      [NAD$^+$]/[NADH] = 10, [NADP$^+$]/[NADPH] = 0.1, [ATP]/[ADP][P$_i$] = 500 M$^{-1}$.
+      
+      (a) Formulate the FBA problem to maximize biomass flux $v_6$ subject to mass balance
+      and thermodynamic feasibility ($\\Delta_r G < 0$ for all active reactions).
+      (b) Solve for optimal flux distribution. Which reactions are thermodynamically constrained?
+      (c) If oxygen is limited ($v_4 + v_5 \\leq 10$), how does the optimum change?
+      
+      \\textbf{Solution Steps:}
+      1. Write stoichiometric matrix S, flux vector v
+      2. Compute $\\Delta_r G = \\Delta_r G^\\circ + RT \\ln Q$ for each reaction
+      3. Formulate LP: max $v_6$ s.t. $Sv=0$, $v \\geq 0$, $\\Delta_r G < 0$ for $v_i > 0$
+      4. Solve analytically or identify binding constraints
+      5. Re-solve with oxygen constraint
+      
+      \\end{document}
+    concepts:
+      - Flux Balance Analysis (FBA)
+      - Thermodynamic feasibility constraints
+      - Gibbs energy of reaction
+      - Elementary flux modes
+    literature_anchors:
+      - "Orth et al. (2010) Nat Biotechnol"
+      - "Henry et al. (2007) Biophys J"
+      - "Fleming et al. (2012) PLoS Comput Biol"
+    variability_axes:
+      - n_reactions: [5, 8, 12, 20]
+      - n_metabolites: [6, 10, 15]
+      - oxygen_limit: [unlimited, 10, 5, 2]
+      - atp_maintenance: [0, 5, 10, 20]
+
+  # Template 7: Gene expression noise
+  - id: "bio_gene_expression_noise"
+    name: "Gene Expression Bursting with Feedback"
+    subject: biology
+    topics: [molecular_biology, systems_biology, biophysics]
+    reasoning_types: [stochastic_first_passage, quantitative_reasoning, symbolic_manipulation]
+    difficulty_range: [hard, expert]
+    failure_patterns: [stochastic_first_passage, cross_domain_synthesis, approximation_hierarchy]
+    description: |
+      Two-state promoter model with negative feedback. Fano factor, CVÂ², burst size/frequency.
+      Requires solving master equation or moment equations.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} A gene is regulated by its own protein product (negative feedback).
+      The promoter switches between OFF ($k_{\\text{off}}$) and ON ($k_{\\text{on}}(P)$) states,
+      where $k_{\\text{on}}(P) = k_{\\text{on}}^0 / (1 + (P/K)^h)$ is repressed by protein $P$
+      with Hill coefficient $h$. In ON state, mRNA is produced at rate $k_m$, degraded at $\\gamma_m$.
+      Protein is translated at rate $k_p$ per mRNA, degraded at $\\gamma_p$.
+      
+      (a) Using the linear noise approximation (LNA), derive the steady-state variance
+      $\\sigma_P^2$ of protein number. Express the Fano factor $F = \\sigma_P^2/\\langle P \\rangle$
+      in terms of burst size $b = k_p/\\gamma_m$ and feedback strength.
+      (b) Show that for strong feedback ($h \\gg 1$), the Fano factor approaches 1 (Poissonian).
+      (c) If $k_{\\text{on}}^0 = \SI{0.1}{\per\\minute}$, $k_{\\text{off}} = \SI{0.05}{\per\\minute}$,
+      $k_m = \SI{10}{\per\\minute}$, $\\gamma_m = \SI{0.5}{\per\\minute}$, $k_p = \SI{20}{\per\\minute}$,
+      $\\gamma_p = \SI{0.02}{\per\\minute}$, $K = 100$, $h=2$, compute $\\langle P \\rangle$ and $F$.
+      
+      \\textbf{Solution Steps:}
+      1. Write chemical master equation or moment equations
+      2. Apply LNA: linearize around deterministic steady state
+      3. Solve Lyapunov equation for covariance matrix
+      4. Extract protein variance, compute Fano factor
+      5. Analyze strong feedback limit
+      6. Numerical evaluation
+      
+      \\end{document}
+    concepts:
+      - Two-state promoter model
+      - Transcriptional bursting
+      - Linear noise approximation (LNA)
+      - Negative feedback noise suppression
+    literature_anchors:
+      - "Paulsson (2005) Nature"
+      - "Shahrezaei & Swain (2008) PNAS"
+      - "Lestas et al. (2010) Nature"
+    variability_axes:
+      - burst_size: [10, 50, 100, 200]
+      - feedback_strength: [0.1, 1, 10, 100]
+      - hill_coeff: [1, 2, 4, 8]
+      - timescale_ratio: [0.1, 1, 10]  # (mRNA/protein half-life)
+
+  # Template 8: Protein folding kinetics
+  - id: "bio_protein_folding"
+    name: "Protein Folding with Intermediate and Parallel Pathways"
+    subject: biology
+    topics: [biochemistry, biophysics, molecular_biology]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, competing_pathways]
+    difficulty_range: [hard, expert]
+    failure_patterns: [competing_pathways, approximation_hierarchy, literature_grounded]
+    description: |
+      Multi-state folding with on-pathway intermediate and off-pathway trap.
+      Chevron plot analysis, phi-value analysis.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} A protein folds via two parallel pathways from unfolded state U:
+      \\begin{align*}
+      &\\text{Pathway 1: } U \\xrightleftharpoons[k_{-1}]{k_1} I_1 \\xrightleftharpoons[k_{-2}]{k_2} N \\\\
+      &\\text{Pathway 2: } U \\xrightleftharpoons[k_{-3}]{k_3} I_2 \\xrightleftharpoons[k_{-4}]{k_4} N
+      \\end{align*}
+      where $I_1$ is on-pathway, $I_2$ is a misfolded trap that slowly converts to $N$ ($k_4 \\ll k_2$).
+      Denaturant affects rates via $k_i = k_i^0 e^{-m_i [D]/RT}$.
+      
+      (a) Derive the observed folding rate $k_\\text{obs}$ as a function of denaturant [D].
+      (b) Show that the chevron plot ($\ln k_\\text{obs}$ vs [D]) exhibits a "rollover" at high [D]
+      if $m_{-1} > m_1$ and $m_{-3} > m_3$. What does this reveal about the transition states?
+      (c) If phi-value analysis gives $\\phi_1 = 0.3$, $\\phi_2 = 0.8$ for pathway 1 and
+      $\\phi_3 = 0.1$, $\\phi_4 = 0.9$ for pathway 2, which pathway dominates at low [D]?
+      
+      \\textbf{Solution Steps:}
+      1. Write kinetic matrix, find eigenvalues for relaxation rates
+      2. Identify slowest eigenvalue as $k_\\text{obs}$ (or sum of pathways)
+      3. Analyze denaturant dependence of each rate
+      4. Relate phi-values to $m$-values: $\\phi = m_{\\text{TS}}/m_{\\text{N}}$
+      5. Compare flux through each pathway at low [D]
+      
+      \\end{document}
+    concepts:
+      - Protein folding kinetics
+      - Chevron plot analysis
+      - Phi-value analysis
+      - Parallel folding pathways
+      - Misfolding traps
+    literature_anchors:
+      - "Fersht (1999) Structure and Mechanism in Protein Science"
+      - "Onuchic & Wolynes (2004) Curr Opin Struct Biol"
+      - "Koga & Takada (2001) J Mol Biol"
+    variability_axes:
+      - n_pathways: [2, 3]
+      - m_values: [random, structured]
+      - trap_depth: [shallow, deep]
+      - phi_pattern: [sequential, diffuse]
+
+  # Template 9: Ecological coexistence
+  - id: "bio_ecological_coexistence"
+    name: "Species Coexistence with Non-Transitive Competition"
+    subject: biology
+    topics: [ecology, evolution, systems_biology]
+    reasoning_types: [multi_step_deduction, conceptual_synthesis, limiting_case_analysis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [cross_domain_synthesis, limiting_case_counterintuitive, literature_grounded]
+    description: |
+      Rock-paper-scissors dynamics in spatial or well-mixed populations.
+      May-Leonard model, cyclic dominance, biodiversity maintenance.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} Three species $A$, $B$, $C$ interact via cyclic competition:
+      $A$ outcompetes $B$, $B$ outcompetes $C$, $C$ outcompetes $A$.
+      In a well-mixed population of size $N$, the Moran process gives transition rates:
+      \\begin{align*}
+      T(A \\to B) &= \\frac{N_A N_B}{N^2} (1 - s) \\\\
+      T(B \\to C) &= \\frac{N_B N_C}{N^2} (1 - s) \\\\
+      T(C \\to A) &= \\frac{N_C N_A}{N^2} (1 - s)
+      \\end{align*}
+      where $s$ is selection strength. Mutations occur at rate $\\mu$ per birth event.
+      
+      (a) Write the deterministic replicator equations. Show there is a neutrally stable
+      fixed point at $N_A = N_B = N_C = N/3$.
+      (b) Using the diffusion approximation, derive the mean time to extinction of one species
+      starting from the symmetric state. How does it scale with $N$ and $s$?
+      (c) If the population is structured on a 2D lattice with local interactions, how does
+      the coexistence time change? (Qualitative argument)
+      
+      \\textbf{Solution Steps:}
+      1. Write replicator equations from transition rates
+      2. Linearize around fixed point, find eigenvalues (pure imaginary = neutral)
+      3. Map to 2D diffusion process (simplex coordinates)
+      4. Solve mean first-passage time to boundary
+      5. Discuss spatial structure effect (domain formation, longer coexistence)
+      
+      \\end{document}
+    concepts:
+      - Cyclic competition (rock-paper-scissors)
+      - Moran process
+      - Diffusion approximation for extinction times
+      - Spatial vs well-mixed populations
+    literature_anchors:
+      - "May & Leonard (1975) SIAM J Appl Math"
+      - "Reichenbach et al. (2007) Nature"
+      - "Mobilia (2010) J Stat Phys"
+    variability_axes:
+      - n_species: [3, 4, 5]
+      - selection_strength: [0.01, 0.1, 0.5]
+      - mutation_rate: [1e-5, 1e-4, 1e-3]
+      - spatial_dim: [well_mixed, 1D, 2D]
+
+  # Template 10: Neural coding efficiency
+  - id: "bio_neural_coding"
+    name: "Efficient Coding in Sensory Neurons with Adaptation"
+    subject: biology
+    topics: [neuroscience, biophysics, computational_physics]
+    reasoning_types: [quantitative_reasoning, optimization, information_theory]
+    difficulty_range: [hard, expert]
+    failure_patterns: [cross_domain_synthesis, literature_recent, approximation_hierarchy]
+    description: |
+      Information-theoretic optimization of neural tuning curves with adaptation.
+      Mutual information, Fisher information, metabolic cost constraints.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} A sensory neuron encodes stimulus $s \\in [0, S_{\\max}]$ with
+      firing rate $r(s) = r_{\\max} s^h / (K^h + s^h)$ (Hill function). The neuron adapts
+      by shifting $K$ according to $dK/dt = (K_0 - K)/\\tau_K + \\alpha r$, where $K_0$
+      is baseline, $\\tau_K$ is adaptation time constant, $\\alpha$ is adaptation strength.
+      Stimulus distribution is $p(s) \\propto s^{-\\gamma}$ (power law, $1 < \\gamma < 2$).
+      
+      (a) For fixed $K$, find the mutual information $I(s; r)$ assuming Poisson noise.
+      (b) Derive the optimal $K^*$ that maximizes $I(s; r)$ for given $p(s)$.
+      (c) With adaptation, the system reaches a steady state where $K$ matches stimulus statistics.
+      Show that at steady state, $K^* \\propto \\langle s^h \\rangle^{1/h}$. What is the
+      information loss compared to optimal fixed $K$?
+      
+      \\textbf{Solution Steps:}
+      1. Mutual information for Poisson channel: $I = \\int p(s) \\ln(p(r|s)/p(r)) dr ds$
+      2. Approximate using Fisher information: $I \\approx 1/2 \\ln(1 + \\int p(s) J(s) ds)$
+      3. Compute Fisher info $J(s) = (r'(s))^2 / r(s)$ for Hill function
+      4. Optimize over $K$, find steady-state adaptation condition
+      5. Compare adapted vs optimal information
+      
+      \\end{document}
+    concepts:
+      - Efficient coding hypothesis
+      - Mutual information with Poisson noise
+      - Fisher information
+      - Neural adaptation dynamics
+      - Power-law stimulus statistics
+    literature_anchors:
+      - "Barlow (1961) Sensory Communication"
+      - "Laughlin (1981) Z Naturforsch"
+      - "Fairhall et al. (2001) Nature"
+      - "Ganguli & Simoncelli (2014) Neuron"
+    variability_axes:
+      - hill_coeff: [1, 2, 4]
+      - gamma: [1.2, 1.5, 1.8]
+      - tau_K: [10, 100, 1000]  # ms
+      - alpha: [0.01, 0.1, 1]
+
+  # Template 11: Immune receptor repertoire
+  - id: "bio_immune_repertoire"
+    name: "T-Cell Receptor Repertoire Diversity and Cross-Reactivity"
+    subject: biology
+    topics: [immunology, systems_biology, bioinformatics]
+    reasoning_types: [quantitative_reasoning, order_of_magnitude, experimental_design]
+    difficulty_range: [medium, hard]
+    failure_patterns: [fermi_with_constraints, literature_grounded, cross_domain_synthesis]
+    description: |
+      TCR diversity generation, thymic selection, cross-reactivity estimation.
+      Combinatorial diversity vs functional repertoire.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} The human TCR repertoire is generated by V(D)J recombination.
+      There are $V=45$, $D=2$, $J=13$ gene segments for TCR$\\beta$. Junctional diversity
+      adds $\\sim 10^7$ nucleotide variants per VDJ combination. Thymic selection retains
+      only $\\sim 1\\%$ of generated sequences. Each TCR recognizes $\\sim 10^6$ distinct
+      peptide-MHC complexes (cross-reactivity).
+      
+      (a) Estimate the theoretical maximum diversity from V(D)J recombination alone.
+      (b) Estimate the functional repertoire size after thymic selection.
+      (c) Given $\\sim 10^4$ distinct self-peptides presented by MHC in thymus, and
+      $\\sim 10^5$ foreign peptides in periphery, what fraction of foreign peptides
+      can be recognized? Assume random cross-reactivity.
+      (d) How does the answer change if cross-reactivity is structured (similar peptides
+      recognized by similar TCRs)?
+      
+      \\textbf{Solution Steps:}
+      1. Compute combinatorial diversity: $V \\times D \\times J \\times \\text{junctional}$
+      2. Apply selection bottleneck (1\%)
+      3. Use coupon collector / coverage argument for peptide recognition
+      4. Structured cross-reactivity: model as correlated recognition (qualitative)
+      
+      \\end{document}
+    concepts:
+      - V(D)J recombination
+      - Thymic selection
+      - TCR cross-reactivity
+      - Repertoire coverage estimation
+    literature_anchors:
+      - "Davis & Bjorkman (1988) Nature"
+      - "Mason (1998) Immunol Today"
+      - "Miles et al. (2011) Nat Rev Immunol"
+      - "Emerson et al. (2017) Nat Genet"
+    variability_axes:
+      - V_D_J_counts: [human, mouse]
+      - selection_fraction: [0.001, 0.01, 0.1]
+      - cross_reactivity: [1e5, 1e6, 1e7]
+      - n_self_peptides: [1e3, 1e4, 1e5]
+
+  # Template 12: Phase separation in cells
+  - id: "bio_phase_separation"
+    name: "Biomolecular Condensate Formation via Phase Separation"
+    subject: biology
+    topics: [cell_biology, biophysics, biochemistry]
+    reasoning_types: [quantitative_reasoning, graph_interpretation, conceptual_synthesis]
+    difficulty_range: [medium, hard]
+    failure_patterns: [phase_diagram_metastable, cross_domain_synthesis, literature_recent]
+    description: |
+      Flory-Huggins / sticker-spacer model for protein phase separation.
+      Saturation concentration, phase diagram, effect of mutations.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} A protein with $N$ residues has $n_s$ "sticker" domains that mediate
+      weak multivalent interactions. Using the sticker-spacer model, the saturation
+      concentration $c_{\\text{sat}}$ for phase separation is approximately:
+      $$c_{\\text{sat}} \\approx \\frac{1}{v} \\exp\\left(\\frac{\\Delta G_{\\text{sticker}}}{k_B T} \\cdot \\frac{n_s}{N} \\right)$$
+      where $v$ is molecular volume, $\\Delta G_{\\text{sticker}}$ is sticker interaction energy.
+      
+      (a) Derive this expression from Flory-Huggins free energy with associative stickers.
+      (b) A mutation replaces one sticker with a non-interacting residue ($n_s \\to n_s - 1$).
+      By what factor does $c_{\\text{sat}}$ change? If $\\Delta G_{\\text{sticker}} = -5 k_B T$,
+      $n_s = 6$, $N = 300$, what is the fold-change?
+      (c) The protein also binds RNA with dissociation constant $K_d$. RNA acts as a scaffold
+      that increases effective valency. How does $c_{\\text{sat}}$ depend on RNA concentration?
+      
+      \\textbf{Solution Steps:}
+      1. Flory-Huggins free energy with associative term $\\sim n_s \\phi \\ln \\phi$
+      2. Find binodal (phase boundary) by equal chemical potential
+      3. Analyze mutation effect on exponential scaling
+      4. Add RNA binding: effective valency increases with [RNA]
+      
+      \\end{document}
+    concepts:
+      - Liquid-liquid phase separation
+      - Sticker-spacer model
+      - Flory-Huggins theory
+      - RNA scaffolding of condensates
+    literature_anchors:
+      - "Harmon et al. (2017) PNAS"
+      - "Choi et al. (2020) Science"
+      - "Riback et al. (2020) Nature"
+    variability_axes:
+      - n_stickers: [3, 6, 9, 12]
+      - N_residues: [100, 300, 500]
+      - dG_sticker: [-3, -5, -7]  # kBT
+      - RNA_Kd: [10 nM, 100 nM, 1 uM]
+
+  # Template 13: Epigenetic memory
+  - id: "bio_epigenetic_memory"
+    name: "Epigenetic Memory via Histone Modification Feedback"
+    subject: biology
+    topics: [molecular_biology, epigenetics, systems_biology]
+    reasoning_types: [multi_step_deduction, stochastic_first_passage, conceptual_synthesis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [stochastic_first_passage, cross_domain_synthesis, literature_grounded]
+    description: |
+      Positive feedback in histone modifications (methylation/acetylation). Bistability,
+      memory timescale, noise-induced switching.
+    latex_skeleton: |
+      \\documentclass{article}
+      \\usepackage{amsmath, amssymb, siunitx}
+      \\begin{document}
+      
+      \\textbf{Problem:} A nucleosome can be in states: unmodified (U), methylated (M), acetylated (A).
+      Methylation is catalyzed by a writer enzyme recruited by existing M marks (positive feedback):
+      $U \\xrightarrow{k_+ m} M$, where $m$ is number of neighboring M nucleosomes.
+      Demethylation occurs at rate $k_-$. Acetylation ($U \\to A$) antagonizes methylation.
+      
+      Consider a 1D array of $N$ nucleosomes. Using mean-field approximation,
+      derive the condition for bistability (coexistence of M-rich and A-rich domains).
+      What is the mean switching time between states due to finite-$N$ fluctuations?
+      
+      If $N=100$, $k_+/k_- = 10$, and acetylation rate $k_A = 0.1 k_+$,
+      estimate the epigenetic memory lifetime.
+      
+      \\textbf{Solution Steps:}
+      1. Mean-field equations for fraction of M and A nucleosomes
+      2. Find fixed points, analyze stability (bistability condition)
+      3. Map to 1D Ising-like model, compute energy barrier
+      4. Kramers escape time: $\\tau \\sim e^{\\Delta E}$
+      5. Numerical estimate with given parameters
+      
+      \\end{document}
+    concepts:
+      - Histone modification feedback loops
+      - Bistability and epigenetic memory
+      - Mean-field theory for 1D systems
+      - Kramers escape / nucleation theory
+    literature_anchors:
+      - "Dodd et al. (2007) Cell"
+      - "Angel et al. (2011) Nature"
+      - "Stewart & Cavalli (2019) Nat Rev Genet"
+    variability_axes:
+      - N_nucleosomes: [50, 100, 200]
+      - feedback_strength: [5, 10, 20]
+      - antagonism_rate: [0.01, 0.1, 0.5]
+      - dimensionality: [1D, 2D, mean_field]

@@ -1,0 +1,163 @@
+# Project Riga - Known LLM Failure Patterns
+# Based on research on frontier model weaknesses in STEM reasoning
+
+failure_patterns:
+
+  # 1. Multi-step reasoning with intermediate dependencies
+  - id: "multi_step_hidden_dependency"
+    name: "Hidden Intermediate Dependency"
+    description: "Step N requires result from step N-2, not N-1, breaking chain-of-thought"
+    subjects: [biology, chemistry, physics]
+    difficulty_boost: 1
+    template_hint: "Design problems where step 3 needs step 1's result, not step 2's"
+
+  # 2. Unit traps and dimensional analysis
+  - id: "unit_trap_mixed_systems"
+    name: "Mixed Unit Systems Trap"
+    description: "Problems mixing SI, CGS, and natural units requiring careful conversion"
+    subjects: [chemistry, physics]
+    difficulty_boost: 1
+    template_hint: "Use eV, Å, amu, kcal/mol, kJ/mol in same problem"
+
+  - id: "unit_trap_dimensionless"
+    name: "Dimensionless Group Confusion"
+    description: "Reynolds, Prandtl, Damköhler numbers - LLM confuses definitions"
+    subjects: [physics, chemistry]
+    difficulty_boost: 1
+
+  # 3. Conceptual blending across subfields
+  - id: "cross_domain_synthesis"
+    name: "Cross-Domain Conceptual Blend"
+    description: "Requires combining concepts from different subfields (e.g., quantum bio)"
+    subjects: [biology, chemistry, physics]
+    difficulty_boost: 2
+    template_hint: "Combine statistical physics + molecular biology, or quantum chem + enzyme kinetics"
+
+  # 4. Limiting case / asymptotic reasoning
+  - id: "limiting_case_counterintuitive"
+    name: "Counterintuitive Limiting Behavior"
+    description: "Limit (T→0, N→∞, ε→0) gives non-obvious result"
+    subjects: [physics, chemistry]
+    difficulty_boost: 1
+    template_hint: "Phase transitions, critical phenomena, zero-point energy"
+
+  # 5. Order-of-magnitude / Fermi estimation with constraints
+  - id: "fermi_with_constraints"
+    name: "Constrained Fermi Estimation"
+    description: "Estimate with multiple competing constraints, not single quantity"
+    subjects: [biology, chemistry, physics]
+    difficulty_boost: 1
+    template_hint: "Estimate cellular ATP budget given membrane potential, volume, ion concentrations"
+
+  # 6. Experimental design with confounders
+  - id: "experimental_confounder"
+    name: "Hidden Confounder in Experimental Design"
+    description: "Control experiment needed but not obvious; LLM misses confounding variable"
+    subjects: [biology, chemistry]
+    difficulty_boost: 1
+
+  # 7. Graph/phase diagram interpretation
+  - id: "phase_diagram_metastable"
+    name: "Metastable Region Interpretation"
+    description: "Reading phase diagrams with metastable/hysteresis regions"
+    subjects: [chemistry, physics]
+    difficulty_boost: 1
+
+  # 8. Symbolic manipulation with physical constraints
+  - id: "symbolic_physical_constraint"
+    name: "Symbolic Derivation with Physical Bounds"
+    description: "Algebraic derivation where intermediate steps must satisfy physical constraints (positivity, boundedness)"
+    subjects: [physics, chemistry]
+    difficulty_boost: 1
+
+  # 9. Recent literature-specific knowledge
+  - id: "recent_literature_gap"
+    name: "Post-2020 Literature Gap"
+    description: "Knowledge from papers after LLM training cutoff; requires reasoning from first principles"
+    subjects: [biology, chemistry, physics]
+    difficulty_boost: 2
+    template_hint: "AlphaFold2 limitations, cryo-EM resolution limits, 2D material twistronics"
+
+  # 10. Counterfactual with conservation laws
+  - id: "counterfactual_conservation"
+    name: "Counterfactual Violating Conservation"
+    description: "What-if scenario where answer must respect conservation laws LLM might ignore"
+    subjects: [physics, chemistry]
+    difficulty_boost: 1
+
+  # 11. Non-standard coordinate systems
+  - id: "nonstandard_coordinates"
+    name: "Non-Cartesian Coordinate Trap"
+    description: "Spherical/cylindrical/toroidal coordinates with non-trivial Jacobians"
+    subjects: [physics]
+    difficulty_boost: 1
+
+  # 12. Implicit approximation hierarchy
+  - id: "approximation_hierarchy"
+    name: "Implicit Approximation Hierarchy"
+    description: "Multiple valid approximations (Born-Oppenheimer, mean-field, perturbation) - must choose correct order"
+    subjects: [chemistry, physics]
+    difficulty_boost: 2
+
+  # 13. Stochastic/statistical reasoning
+  - id: "stochastic_first_passage"
+    name: "First-Passage / Escape Time"
+    description: "Kramers escape, mean first passage time - LLM uses equilibrium stats incorrectly"
+    subjects: [physics, biology, chemistry]
+    difficulty_boost: 2
+
+  # 14. Symmetry breaking / degenerate states
+  - id: "symmetry_broken_degeneracy"
+    name: "Symmetry-Breaking Degeneracy"
+    description: "Jahn-Teller, spontaneous symmetry breaking - LLM assumes symmetric ground state"
+    subjects: [chemistry, physics]
+    difficulty_boost: 1
+
+  # 15. Non-equilibrium steady state
+  - id: "non_equilibrium_steady_state"
+    name: "Non-Equilibrium Steady State (NESS)"
+    description: "Flux balance, entropy production - not equilibrium Boltzmann distribution"
+    subjects: [biology, chemistry, physics]
+    difficulty_boost: 2
+
+# Adversarial template patterns for generation
+adversarial_templates:
+
+  - pattern: "two_timescale_separation"
+    description: "Fast/slow dynamics where quasi-steady-state approximation fails subtly"
+    example: "Enzyme kinetics with product inhibition at high [S]"
+
+  - pattern: "competing_pathways"
+    description: "Multiple reaction/diffusion pathways with different rate-limiting steps"
+    example: "Parallel electron transfer pathways in protein"
+
+  - pattern: "finite_size_effect"
+    description: "Thermodynamic limit vs finite N correction changes qualitative behavior"
+    example: "Phase transition in nanoparticle vs bulk"
+
+  - pattern: "measurement_backaction"
+    description: "Quantum measurement disturbs the quantity being measured"
+    example: "QND measurement of phonon number"
+
+  - pattern: "topological_constraint"
+    description: "Topological invariant constrains dynamics (winding number, Chern number)"
+    example: "Edge states in topological insulator"
+
+  - pattern: "allosteric_coupling"
+    description: "Long-range conformational coupling in proteins"
+    example: "MWC vs KNF model discrimination from data"
+
+# Difficulty calibration benchmarks
+difficulty_calibration:
+  easy:
+    description: "Standard textbook problem, 3-4 steps, single concept"
+    expected_llm_solve_rate: 0.8
+  medium:
+    description: "Multi-concept synthesis, 4-6 steps, one failure pattern"
+    expected_llm_solve_rate: 0.5
+  hard:
+    description: "Literature-grounded, 6-8 steps, 2+ failure patterns"
+    expected_llm_solve_rate: 0.2
+  expert:
+    description: "Cutting-edge research problem, 8+ steps, novel failure pattern combination"
+    expected_llm_solve_rate: 0.05

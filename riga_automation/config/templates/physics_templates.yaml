@@ -1,0 +1,408 @@
+﻿# Physics Problem Templates
+
+templates:
+
+  # Template 1: Perturbation theory with hidden parameter change
+  - id: "physics_qm_normal_ordering"
+    name: "Perturbation Defined by Hidden Parameter Change, Required in Canonical Form"
+    subject: physics
+    topics: [quantum_mechanics]
+    subtopics: [perturbation_theory, ladder_operators]
+    reasoning_types: [symbolic_manipulation, conceptual_synthesis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [cross_domain_synthesis, symbolic_physical_constraint]
+    authoring_pattern: "1.2 - Define object through physical process, demand canonical form"
+    description: |
+      Perturbation V defined by physical substitution in position/momentum representation,
+      must be translated to ladder operators and put in normal-ordered form.
+      Solvers who stop one algebraic step early produce non-canonical expression.
+    latex_skeleton: |
+      A quantum harmonic oscillator of mass $m$ and frequency $\omega$ is defined by the
+      Hamiltonian $H_0 = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2$, where $x$ and $p$ are the
+      position and momentum operators satisfying $[x,p] = i\hbar$. The system is perturbed by
+      physically replacing the mass $m$ with $m + \delta m$ and the frequency $\omega$ with
+      $\omega + \delta\omega$ everywhere in the Hamiltonian, and the perturbation $V$ is defined
+      as the difference between the new Hamiltonian and $H_0$, truncated to first order in both
+      $\delta m / m \equiv \epsilon_m$ and $\delta\omega/\omega \equiv \epsilon_\omega$.
+      Express $V$ in terms of the ladder operators $a$ and $a^\dagger$ of $H_0$ (where
+      $[a, a^\dagger] = 1$), keeping all terms of order $\epsilon_m$ and $\epsilon_\omega$
+      but neglecting terms of order $\epsilon_m \epsilon_\omega$, $\epsilon_m^2$, and $\epsilon_\omega^2$.
+      Cast your answer in normal-ordered form (all creation operators to the left of all
+      annihilation operators within each term).
+    concepts:
+      - Perturbation theory
+      - Ladder operators
+      - Normal ordering
+      - Harmonic oscillator algebra
+    variability_axes:
+      - substitution_type: [mass_and_frequency, spring_constant, anharmonic]
+      - canonical_form: [normal_ordered, anti_normal_ordered, specific_basis]
+
+  # Template 2: Quantum optics Bayesian posterior (hidden beam splitters)
+  - id: "physics_qo_bayesian_beamsplitters"
+    name: "Sequential Hidden Beam Splitters with Bayesian Posterior"
+    subject: physics
+    topics: [quantum_mechanics, optics]
+    subtopics: [quantum_optics, bayesian_inference]
+    reasoning_types: [multi_step_deduction, quantum_superposition, bayesian_inference]
+    difficulty_range: [hard, expert]
+    failure_patterns: [cross_domain_synthesis, hidden_iteration]
+    authoring_pattern: "1.4 - Hide iterated process steps, demand Bayesian posterior"
+    description: |
+      Photons pass through N beam splitters with hidden (unrevealed) transmissivities.
+      After detector clicks, compute Bayesian posterior over which configuration occurred.
+      Hidden branches must be summed as amplitudes then squared, not averaged as probabilities.
+    latex_skeleton: |
+      A single photon enters a linear-optical network through input mode 1 of two
+      identical 50:50 beam splitters in series. Each beam splitter transforms input
+      creation operators $(a_1^\dagger, a_2^\dagger)$ to output operators
+      $(b_1^\dagger, b_2^\dagger)$ via $b_1^\dagger = \frac{1}{\sqrt{2}}(a_1^\dagger + i a_2^\dagger)$,
+      $b_2^\dagger = \frac{1}{\sqrt{2}}(i a_1^\dagger + a_2^\dagger)$.
+      After the first beam splitter, the photon passes through a phase shifter in mode 2
+      applying phase $e^{i\phi}$ where $\phi$ is chosen uniformly at random from
+      $\{0, \pi/2\}$ but is not revealed to the observer. After the second beam splitter,
+      a photon-number-resolving detector is placed at each output port. A single detector
+      click is recorded in output mode 1 and no click in mode 2.
+      Compute the posterior probability $P(\phi = 0 \mid \text{one click in mode 1})$.
+    concepts:
+      - Beam splitter transformations
+      - Quantum interference
+      - Bayesian inference
+      - Fock states
+    variability_axes:
+      - n_hidden_stages: [1, 2, 3]
+      - hidden_parameter: [phase, transmissivity, path]
+      - measurement_outcome: [single_click, coincidence, no_click]
+
+  # Template 3: Statistical mechanics limiting case
+  - id: "physics_sm_limiting_case"
+    name: "Counterintuitive Limiting Behavior in Correlated System"
+    subject: physics
+    topics: [statistical_physics, thermodynamics]
+    reasoning_types: [limiting_case_analysis, symbolic_manipulation, multi_step_deduction]
+    difficulty_range: [hard, expert]
+    failure_patterns: [limiting_case_counterintuitive, approximation_hierarchy]
+    authoring_pattern: "1.5 - Multi-phase bookkeeping with cross-cutting invariant"
+    description: |
+      System where a specific limit (Tâ†’0, Nâ†’âˆž, couplingâ†’0) gives non-obvious result.
+      Requires careful order-of-limits analysis.
+    latex_skeleton: |
+      Consider a one-dimensional lattice of $N$ classical spins $s_i \in \{-1, +1\}$ with
+      Hamiltonian $H = -J \sum_{i=1}^{N} s_i s_{i+1} - h \sum_{i=1}^{N} s_i$, with periodic
+      boundary conditions ($s_{N+1} = s_1$), coupling $J > 0$, and external field $h$.
+      The heat capacity per spin in the thermodynamic limit is
+      $c(T, h) \equiv \lim_{N\to\infty} \frac{1}{N}\frac{\partial^2}{\partial T^2}(T \ln Z_N)$,
+      where $Z_N$ is the partition function.
+      Compute the exact value of $\displaystyle\lim_{T \to 0^+} \lim_{h \to J} \frac{c(T,h)}{k_B}$.
+    concepts:
+      - Transfer matrix method
+      - Order of limits
+      - Low-temperature asymptotics
+      - Saddle-point crossing
+    variability_axes:
+      - model: [ising_1d, xy_chain, blume_emery_griffiths]
+      - limit_order: [T_first, h_first, joint]
+      - observable: [heat_capacity, magnetization, susceptibility]
+
+  # Template 4: EM + relativity cross-domain
+  - id: "physics_em_relativity"
+    name: "Field Transformation Between Frames with Hidden Constraint"
+    subject: physics
+    topics: [electromagnetism, relativity]
+    reasoning_types: [multi_step_deduction, dimensional_analysis, conceptual_synthesis]
+    difficulty_range: [medium, hard]
+    failure_patterns: [unit_trap_mixed_systems, cross_domain_synthesis]
+    authoring_pattern: "1.1 - Bridge two standard sub-fields"
+    description: |
+      Transform EM fields between frames, but an upstream invariant (charge conservation,
+      field invariant EÂ²-BÂ²) must be maintained and used without restatement.
+    latex_skeleton: |
+      An infinite straight wire along the $z$-axis carries uniform linear charge density $\lambda$
+      (measured in its rest frame $S$) and no current. A point charge $q$ moves with velocity
+      $\vec{v} = v\hat{z}$ parallel to the wire. In the lab frame, the wire and its charge
+      density move together (i.e., the wire is at rest in the lab).
+      In a frame $S'$ moving with velocity $\vec{u} = u\hat{x}$ perpendicular to the wire
+      relative to the lab, the wire acquires a current and its charge density changes.
+      Given that the magnitude of the net electromagnetic force on $q$ is the same in all
+      inertial frames when $v$ is adjusted appropriately, derive the condition relating $u$
+      and $v$ for which the force on $q$ in frame $S'$ is purely electric (zero magnetic
+      contribution).
+    concepts:
+      - Lorentz transformation of fields
+      - Four-current density
+      - Field invariants
+      - Relativistic force transformation
+    variability_axes:
+      - geometry: [wire, sheet, point_charge]
+      - condition: [purely_electric, purely_magnetic, zero_force]
+      - frame_motion: [parallel, perpendicular]
+
+  # Template 5: Condensed matter - topological invariant
+  - id: "physics_cm_topology"
+    name: "Berry Phase / Topological Index from Physical Process"
+    subject: physics
+    topics: [condensed_matter, quantum_mechanics]
+    reasoning_types: [symbolic_manipulation, conceptual_synthesis, limiting_case_analysis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [topological_constraint, cross_domain_synthesis]
+    authoring_pattern: "1.3 - Rare target emerges unnamed from derivation"
+    description: |
+      Compute Berry phase / winding number for a concrete model without naming it.
+      Answer format (integer, angle mod Ï€) only checks out with correct discontinuity handling.
+    latex_skeleton: |
+      A two-level system has Hamiltonian $H(\vec{k}) = \vec{d}(\vec{k}) \cdot \vec{\sigma}$
+      where $\vec{k} = (k_x, k_y)$ and
+      $d_x = \sin k_x$, $d_y = \sin k_y$, $d_z = m + \cos k_x + \cos k_y$, with real parameter $m$.
+      The parameter $\vec{k}$ is varied adiabatically along the closed path $\Gamma$ in the
+      Brillouin zone: $(0,0) \to (\pi,0) \to (\pi,\pi) \to (0,\pi) \to (0,0)$, traversed in that order.
+      Define $\gamma(m) = \frac{i}{2\pi} \oint_\Gamma \langle \psi_-(\vec{k}) | \nabla_{\vec{k}} | \psi_-(\vec{k}) \rangle \cdot d\vec{k}$,
+      where $|\psi_-(\vec{k})\rangle$ is the instantaneous ground-state eigenvector with the
+      gauge convention fixed so that $\gamma$ is real and the gauge choice is continuous
+      along the path except at the final point.
+      Compute $\gamma(1) - \gamma(3)$.
+    concepts:
+      - Berry connection and curvature
+      - Adiabatic theorem
+      - Dirac points and band touching
+      - Gauge-invariant phase differences
+    variability_axes:
+      - model: [qi_wu_zhang, haldane, rice_mele]
+      - path: [square, circle, figure_eight]
+      - m_range: [cross_transition, no_transition]
+
+  # Template 6: Nonlinear dynamics / fluid dynamics
+  - id: "physics_fluid_stability"
+    name: "Linear Stability with Competing Instabilities"
+    subject: physics
+    topics: [fluid_dynamics, classical_mechanics]
+    reasoning_types: [multi_step_deduction, symbolic_manipulation, limiting_case_analysis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [competing_pathways, approximation_hierarchy]
+    authoring_pattern: "1.1 + 1.5 - Bridge sub-fields, multi-phase bookkeeping"
+    description: |
+      Rayleigh-BÃ©nard or Kelvin-Helmholtz with competing instability mechanisms.
+      Must track a cross-cutting dimensionless number through multiple phases.
+    latex_skeleton: |
+      A horizontal layer of fluid of depth $d$, kinematic viscosity $\nu$, thermal diffusivity
+      $\kappa$, and thermal expansion coefficient $\alpha$ is heated from below with a
+      temperature difference $\Delta T$ across the layer. Additionally, the fluid is
+      electrically conducting with magnetic diffusivity $\eta$ and is subject to a uniform
+      vertical magnetic field $B_0$.
+      Using linear stability analysis, the marginal stability boundary for stationary
+      convection in a non-magnetic fluid is reached when the Rayleigh number
+      $\mathrm{Ra} = \frac{g\alpha \Delta T d^3}{\nu \kappa}$ equals $Ra_c^0$
+      (a known constant for free-slip boundaries). The magnetic field modifies the
+      critical condition via the Chandrasekhar number $Q = \frac{B_0^2 d^2}{\mu_0 \rho \nu \eta}$.
+      Derive the leading-order correction to the critical Rayleigh number for small $Q$:
+      $\mathrm{Ra}_c(Q) = Ra_c^0(1 + c_1 Q + O(Q^2))$, and determine $c_1$ in terms of
+      $\nu$, $\kappa$, and $\eta$.
+    concepts:
+      - Linear stability analysis
+      - Rayleigh-BÃ©nard convection
+      - Magnetohydrodynamics
+      - Normal mode decomposition
+    variability_axes:
+      - geometry: [RB_convection, Poiseuille_flow, Taylor_Couette]
+      - second_effect: [magnetic, rotation, salinity]
+      - boundary_condition: [free_slip, no_slip, mixed]
+
+  # Template 7: Particle physics / nuclear
+  - id: "physics_particle_decay"
+    name: "Sequential Decay Chain with Competing Branching"
+    subject: physics
+    topics: [particle_physics, nuclear_physics]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning]
+    difficulty_range: [medium, hard]
+    failure_patterns: [competing_pathways, multi_step_hidden_dependency]
+    authoring_pattern: "Multi-phase bookkeeping with cross-cutting invariant"
+    description: |
+      Multi-stage radioactive/particle decay chain where one branch feeds back or
+      two chains converge. Requires Bateman equations with branching.
+    latex_skeleton: |
+      Consider the radioactive decay chain:
+      $A \xrightarrow{\lambda_A} B \xrightarrow{\lambda_B} C \xrightarrow{\lambda_C} D$
+      where $A$, $B$, $C$ are radioactive with decay constants $\lambda_A$, $\lambda_B$, $\lambda_C$,
+      and $D$ is stable. Additionally, nuclide $B$ has a branching fraction $f$ to an
+      alternative daughter $C'$ which is stable (so $B \xrightarrow{f\lambda_B} C'$ and
+      $B \xrightarrow{(1-f)\lambda_B} C$).
+      Initially there are $N_0$ atoms of $A$ and zero atoms of all other species.
+      At time $t = \frac{1}{\lambda_A}$, the total number of stable atoms
+      ($C' + D$) equals exactly $N_0/4$.
+      Given this condition, derive the constraint that relates $\lambda_A$, $\lambda_B$,
+      $\lambda_C$, and $f$.
+    concepts:
+      - Bateman equations
+      - Branching ratios
+      - Secular equilibrium analysis
+      - Radioactive decay chains
+    variability_axes:
+      - chain_length: [3, 4, 5]
+      - branching_pattern: [single_branch, convergent, feedback_loop]
+      - constraint: [count_at_time_t, activity_ratio, equilibrium]
+
+  # Template 8: Optics / wave physics
+  - id: "physics_optics_interference"
+    name: "Interference with Dispersive Medium and Group Delay"
+    subject: physics
+    topics: [optics, classical_mechanics]
+    reasoning_types: [multi_step_deduction, symbolic_manipulation, limiting_case_analysis]
+    difficulty_range: [medium, hard]
+    failure_patterns: [limiting_case_counterintuitive, unit_trap_mixed_systems]
+    authoring_pattern: "1.2 - Define through process, demand canonical form"
+    description: |
+      Pulse propagation through dispersive medium. Group velocity vs phase velocity
+      distinction critical. Requires tracking phase through multiple segments.
+    latex_skeleton: |
+      A Gaussian pulse with central angular frequency $\omega_0$ and spectral width $\Delta\omega$
+      (intensity FWHM) propagates through a dispersive medium of length $L$ with wavevector
+      $k(\omega) = k_0 + k_1(\omega-\omega_0) + \frac{1}{2}k_2(\omega-\omega_0)^2$, where
+      $k_1 = \partial k / \partial\omega|_{\omega_0}$ and $k_2 = \partial^2 k/\partial\omega^2|_{\omega_0}$
+      (group velocity dispersion). The pulse then reflects off a mirror and propagates back
+      through the same medium in the reverse direction, where $\vec{k}$ changes sign but
+      $\omega$ is unchanged.
+      Assuming the pulse remains Gaussian throughout and higher-order dispersion is negligible,
+      find the total accumulated spectral phase difference between frequency components
+      $\omega_0 + \Delta\omega/2$ and $\omega_0 - \Delta\omega/2$ after the round trip,
+      divided by $\pi$.
+    concepts:
+      - Group velocity dispersion
+      - Gaussian pulse propagation
+      - Spectral phase accumulation
+      - Round-trip propagation
+    variability_axes:
+      - dispersion_order: [GVD_only, GVD_plus_TOD, arbitrary]
+      - propagation: [single_pass, double_pass, cavity]
+      - pulse_shape: [gaussian, sech, lorentzian]
+
+  # Template 9: Thermodynamics with subtle engine
+  - id: "physics_thermo_engine"
+    name: "Heat Engine with Internal Irreversibility and Finite Reservoirs"
+    subject: physics
+    topics: [thermodynamics, statistical_physics]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, conceptual_synthesis]
+    difficulty_range: [medium, hard]
+    failure_patterns: [unit_trap_mixed_systems, limiting_case_counterintuitive]
+    authoring_pattern: "1.1 - Bridge thermodynamics + finite-time analysis"
+    description: |
+      Carnot-like engine but with finite-reservoir cooling and/or internal dissipation.
+      Standard Carnot formula misapplied gives plausible wrong answer.
+    latex_skeleton: |
+      A heat engine operates between a finite hot reservoir of constant heat capacity $C$
+      initially at temperature $T_{h,i}$, and a finite cold reservoir of heat capacity $2C$
+      initially at temperature $T_{c,i}$ (where $T_{h,i} > T_{c,i}$). The engine operates
+      through a sequence of infinitesimal reversible Carnot cycles until the two reservoirs
+      reach a common final temperature $T_f$.
+      If the engine extracts total work $W$, and during the process there is an additional
+      fixed internal energy dissipation of $W_d$ (converted to heat in the cold reservoir,
+      independent of the cycle sequence), determine the final temperature $T_f$
+      in terms of $T_{h,i}$, $T_{c,i}$, $C$, and $W_d$.
+    concepts:
+      - Entropy conservation in reversible processes
+      - Energy balance with dissipation
+      - Finite-reservoir equilibration
+      - Differential Carnot cycles
+    variability_axes:
+      - reservoir_config: [both_finite, one_infinite, regenerative]
+      - irreversibility: [internal_friction, heat_leak, finite_rate]
+      - constraint: [final_temperature, max_work, efficiency]
+
+  # Template 10: Astrophysics / GR
+  - id: "physics_astro_compact"
+    name: "Compact Object Observable from Multiple Physical Regimes"
+    subject: physics
+    topics: [astrophysics, relativity]
+    reasoning_types: [multi_step_deduction, quantitative_reasoning, order_of_magnitude]
+    difficulty_range: [hard, expert]
+    failure_patterns: [cross_domain_synthesis, unit_trap_mixed_systems]
+    authoring_pattern: "Stacking multiple patterns"
+    description: |
+      Orbital dynamics + GR correction + observational constraint. Combines Kepler,
+      PN corrections, and photon propagation in a package no single textbook covers.
+    latex_skeleton: |
+      A binary pulsar has orbital period $P_b$ and eccentricity $e$. General relativity
+      predicts the periastron advance rate $\dot{\omega} = 3\left(\frac{2\pi}{P_b}\right)^{5/3}
+      \frac{(GM)^{2/3}}{(1-e^2)c^2}$ where $M = m_1 + m_2$ is the total mass and $G$, $c$
+      are the gravitational constant and speed of light.
+      Timing observations also measure the Einstein delay parameter
+      $\gamma = e\left(\frac{P_b}{2\pi}\right)^{1/3} \frac{m_2(m_1 + 2m_2)}{M^{4/3}} \frac{G^{2/3}}{c^2}$
+      where $m_1$, $m_2$ are the pulsar and companion masses.
+      Given measured values of $P_b$, $e$, $\dot{\omega}$, and $\gamma$ with all values
+      specified in SI units, derive expressions for $m_1$ and $m_2$ in terms of these
+      observables, then evaluate them for:
+      $P_b = 27906.98$ s, $e = 0.6171$, $\dot{\omega} = 4.2266 \times 10^{-12}$ rad/s,
+      $\gamma = 0.0043$ s.
+    concepts:
+      - Post-Keplerian parameters
+      - Periastron advance
+      - Mass determination from timing
+      - General relativistic orbital effects
+    variability_axes:
+      - observables: [omega_dot_gamma, Shapiro_delay, orbital_decay]
+      - system_type: [pulsar_binary, black_hole, white_dwarf]
+      - precision: [leading_PN, higher_order]
+
+  # Template 11: Solid state / materials
+  - id: "physics_ss_transport"
+    name: "Transport Property from Microscopic Scattering Model"
+    subject: physics
+    topics: [condensed_matter, statistical_physics]
+    reasoning_types: [multi_step_deduction, symbolic_manipulation, limiting_case_analysis]
+    difficulty_range: [hard, expert]
+    failure_patterns: [approximation_hierarchy, cross_domain_synthesis]
+    description: |
+      Boltzmann transport with competing scattering mechanisms. Must combine
+      Matthiessen's rule with energy-dependent relaxation times.
+    latex_skeleton: |
+      Electrons in a metal with a spherical Fermi surface experience two independent
+      scattering mechanisms: (i) impurity scattering with energy-independent relaxation
+      time $\tau_{\rm imp}$, and (ii) electron-phonon scattering with relaxation time
+      $\tau_{\rm ph}(\varepsilon) = \tau_0 \left(\frac{k_B \Theta_D}{\varepsilon}\right)^3$
+      for $\varepsilon > k_B \Theta_D$, and $\tau_{\rm ph}(\varepsilon) = \tau_0$ for
+      $\varepsilon \le k_B \Theta_D$, where $\varepsilon$ is measured from the Fermi level,
+      $\Theta_D$ is the Debye temperature, and $\tau_0$ is a constant.
+      In the relaxation time approximation with total scattering rate
+      $\tau^{-1} = \tau_{\rm imp}^{-1} + \tau_{\rm ph}^{-1}$, determine the temperature
+      dependence of the electrical resistivity $\rho(T)$ in the regime $k_B T \ll k_B \Theta_D$
+      but $k_B T \gg \varepsilon_{\rm imp}$, where $\varepsilon_{\rm imp}$ is the energy
+      scale $\varepsilon_{\rm imp} = \hbar/\tau_{\rm imp}$.
+    concepts:
+      - Boltzmann transport equation
+      - Matthiessen's rule
+      - Bloch-GrÃ¼neisen formula
+      - Sommerfeld expansion
+    variability_axes:
+      - n_mechanisms: [2, 3]
+      - energy_dependence: [power_law, exponential, hybrid]
+      - regime: [low_T, high_T, crossover]
+
+  # Template 12: General classical mechanics
+  - id: "physics_cm_orbit"
+    name: "Central Force Orbit with Velocity-Dependent Perturbation"
+    subject: physics
+    topics: [classical_mechanics]
+    reasoning_types: [multi_step_deduction, symbolic_manipulation, limiting_case_analysis]
+    difficulty_range: [medium, hard]
+    failure_patterns: [approximation_hierarchy, limiting_case_counterintuitive]
+    authoring_pattern: "1.2 - Define through physical process, canonical form answer"
+    description: |
+      Orbit with drag or radiation reaction. Must distinguish energy loss rate from
+      period change; adiabatic vs secular evolution. Answer required as specific scaling law.
+    latex_skeleton: |
+      A small object of mass $m$ orbits a much more massive object of mass $M$ ($m \ll M$)
+      in a nearly circular orbit of radius $r$. The object experiences a small drag force
+      $\vec{F}_d = -b\vec{v}$ where $b$ is a constant and $\vec{v}$ is the orbital velocity.
+      In the adiabatic approximation (drag timescale much longer than orbital period),
+      the orbit remains nearly circular as it slowly shrinks.
+      Derive the time evolution $r(t)$ given initial radius $r_0$, and show that
+      $r(t) = r_0[1 - \alpha(t/t_0)]^{1/n}$, providing explicit expressions for the
+      parameters $\alpha$, $t_0$, and the exponent $n$ in terms of $b$, $m$, $M$, $G$,
+      and $r_0$.
+    concepts:
+      - Kepler problem
+      - Adiabatic invariants
+      - Dissipative orbital evolution
+      - Circular orbit energy-angular momentum relation
+    variability_axes:
+      - drag_law: [linear, quadratic, radiation_reaction]
+      - orbit_type: [circular, elliptical_adiabatic]
+      - requested_evolution: [radius, period, eccentricity]

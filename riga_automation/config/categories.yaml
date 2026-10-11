@@ -1,0 +1,92 @@
+# Project Riga - Classification Taxonomy
+
+subjects:
+  - biology
+  - chemistry
+  - physics
+
+difficulties:
+  - easy
+  - medium
+  - hard
+  - expert
+
+reasoning_types:
+  - multi_step_deduction       # Chain of logical deductions (≥3 steps)
+  - quantitative_reasoning     # Numerical calculation with unit handling
+  - conceptual_synthesis       # Combining multiple concepts
+  - counterfactual_reasoning   # "What if" scenarios
+  - experimental_design        # Design/interpret experiments
+  - dimensional_analysis       # Unit consistency and scaling
+  - limiting_case_analysis     # Edge cases, asymptotic behavior
+  - order_of_magnitude         # Fermi estimation
+  - symbolic_manipulation      # Algebraic/calculus derivation
+  - graph_interpretation       # Reading plots, phase diagrams
+  - literature_grounded        # Specific paper/experiment knowledge
+
+topics:
+  biology:
+    - molecular_biology
+    - cell_biology
+    - genetics
+    - evolution
+    - ecology
+    - physiology
+    - neuroscience
+    - immunology
+    - bioinformatics
+    - systems_biology
+    - developmental_biology
+    - microbiology
+    - biochemistry
+    - biotechnology
+
+  chemistry:
+    - physical_chemistry
+    - organic_chemistry
+    - inorganic_chemistry
+    - analytical_chemistry
+    - biochemistry
+    - materials_chemistry
+    - computational_chemistry
+    - electrochemistry
+    - photochemistry
+    - catalysis
+    - spectroscopy
+    - thermodynamics
+    - kinetics
+    - quantum_chemistry
+
+  physics:
+    - classical_mechanics
+    - electromagnetism
+    - quantum_mechanics
+    - statistical_physics
+    - thermodynamics
+    - relativity
+    - optics
+    - condensed_matter
+    - particle_physics
+    - nuclear_physics
+    - astrophysics
+    - biophysics
+    - fluid_dynamics
+    - plasma_physics
+    - computational_physics
+
+# Concept granularity levels (for literature-grounded filtering)
+concept_levels:
+  - textbook_general        # Broad principles (e.g., "Newton's laws")
+  - textbook_specific       # Specific equations/models (e.g., "Lennard-Jones potential")
+  - literature_established  # Known effects/named phenomena (e.g., "Kondo effect")
+  - literature_recent       # Last 5 years, specific findings
+  - literature_niche        # Specialized subfield knowledge
+
+# Problem structure requirements
+structure:
+  min_reasoning_steps: 3
+  max_parts: 1
+  require_latex: true
+  require_solution_steps: true
+  require_concepts_list: true
+  require_classification: true
