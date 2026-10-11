@@ -1,0 +1,4053 @@
+[EXTERNAL] Riga Project Guidelines (CL)
+Riga STEM Guidelines — V1.3  Last Updated July 16, 2026
+Full text extract of all 107 pages (native PDF text + OCR on screenshot pages).
+
+========================================================================
+PAGE 1 of 107  [ocr]
+========================================================================
+Overview
+
+========================================================================
+PAGE 2 of 107  [native]
+========================================================================
+Riga STEM Guidelines
+—
+V1.3  Last Updated July 16, 2026
+Quick Links
+How to Get Started
+Submission Overview/Workflow
+Error Categories
+Domain Description
+Accepted Examples
+LaTeX Formatting Appendix
+Code of Conduct
+
+
+How to Get Started
+
+1. Navigate to the Expert Platform
+2. Once signed in, go to My Projects
+3. Search for “Riga,ˮ and locate the following projects:
+a.
+EK_Riga_Production / Riga Submission
+
+========================================================================
+PAGE 3 of 107  [native]
+========================================================================
+b.
+EK_Riga_Production / Riga Review 4. Click the
+blue “Startˮ button to begin!
+
+========================================================================
+PAGE 4 of 107  [ocr]
+========================================================================
+Submission
+
+========================================================================
+PAGE 5 of 107  [native]
+========================================================================
+Riga Submission Guidelines
+
+Overview
+Task Description
+Available Domains
+Quality Requirements
+Pro Tips for High-Quality Samples
+LaTeX Help
+Detailed Submission Instructions
+Worked Solution Steps
+Final Checks
+Questions?
+
+Overview
+Welcome to the Riga STEM Project! You’ll be helping us develop a dataset of new, model-
+stumping STEM problems across Physics, Chemistry, and Biology.
+
+Task Description
+Each annotation task consists of creating an original, text-only (LaTeX-formatted) STEM
+problem which is run through frontier AI models to determine difficulty and contains the
+following components:
+● Problem: A clear, single, self-contained text-only problem written in LaTeX that
+contains a STEM question that can be used to evaluate the reasoning capabilities of
+models. The problems must have an open solution path but a closed answer space.
+○ Note that you should not be asking multiple independent questions in your
+problem and linking them together. A problem is ONE question!
+● Domain Classification and Explanation: Your problem must fit into one of the 3 fields
+(Physics, Biology, Chemistry) with 15+ domains within each and include a
+justification as to why it is the most appropriate selection
+● Step-by-Step Solution: A step-by-step worked solution (also written in LaTeX) to the
+problem written by experts. The final answer (with units, if applicable) should appear in a
+LaTeX boxed environment in the final step
+● Answer: The final correct answer that answers the problem
+○ Note: if the problem does not specify units, the answer needs to and should
+include units!
+● Problem Type, Answer Type, and Concepts: Select a description from a list of
+possible types that best describes the problem and answer.
+
+========================================================================
+PAGE 6 of 107  [native]
+========================================================================
+Available Domains
+You can choose between a Biology, Physics, or Chemistry problem with a corresponding
+subdomain on this project. Each problem should be assigned to the Domain and Sub-Domain
+that best describe the problem.
+
+These domains should reflect the central subject matter of the problem, not just the notation
+used, the final answer format, or techniques that may appear in one possible solution.
+
+See the Domain Description tab for further details
+
+Quality Requirements
+To be considered a high-quality submission eligible for Acceptance, the prompt must meet all of
+the following:
+● Original: All components must be authored by human experts (LLM generated content
+is  permitted), and all components within each sample must be original ● Appropriate
+STEM Domains: Use STEM concepts in the allowed domains ● Challenging: Stumps
+at least one frontier AI model majority of the time.
+● Requires reasoning: The problem must require step-by-step reasoning to answer,
+rather than reciting memorised facts, theorems, etc. Solutions should be at least 3 steps
+● Well-formed: All components must be grammatically or syntactically correct, and without
+spelling or LaTeX formatting errors
+○ 🚨Currently chemfig is not supported. We plan to add support soon.
+○ 🚨mhchem is now supported on the Snorkel platform!
+● Unique answer exists: The problem must only have a single unique solution, but it may
+have multiple equivalent valid forms
+○ “Does not exist” or DNE is not a valid answer on this project
+● Clear answer format: The prompt should explicitly state the specified format of the
+answer. If the answer is meant to be parametric or expressed in terms of other variables,
+that should be clearly stated.
+● Reliably verifiable: Answers to the problems and Solution Steps MUST be verifiable
+● Self-contained: Aside from the expected STEM knowledge, problems must not contain
+references and must not depend on results from a single paper. Any information from
+tables or any background from references required to answer the question should be
+included in the question itself.
+
+========================================================================
+PAGE 7 of 107  [native]
+========================================================================
+● No shortcutting: The problem must be free of hints or shortcuts that make it “trivial” to
+answer
+● No guessable answers: The problem must not be easily guessable (e.g. yes/no or
+multiple choice)
+● Problem makes sense: The problem itself must make sense in the context of the
+selected domain
+● Objectively Verifiable: Problems should not rely on results from a single paper ● Note:
+Word puzzles are not allowed.
+Answer Requirements
+To be considered a high-quality submission eligible for Acceptance, the answer must be
+correct.
+Additionally, the answer cannot use any notation that hasn't been introduced in the
+prompt. Otherwise, this violates the self-contained requirement.
+Solution Requirements
+To be considered a high-quality submission eligible for Acceptance, the step-by-step solution
+must meet the the following requirements:
+● Correctness: All components must be valid and arrive at the final answer.
+●
+Valid Individual Steps: Verify each solution step independently of the answer and
+recompute key displayed equalities and numeric value yourself. A correct final answer does
+not certify the steps!
+●
+All Claims are Supported: For every nontrivial claim (especially after 'clearly', 'note that', 'it
+follows') confirm the argument is present.
+○
+For example: Check that cited theorems actually apply, check that the hypotheses
+are based on relevant data and sound experimental design, check for physiological
+relevance and plausible pathways and mechanisms, check for kinetic and
+thermodynamic feasibility, account for all potential intermediate reactions along with
+stoichiometric balance, etc.
+●
+All Assumptions are Explicitly Stated: Every assumption that would change the answer to
+the problem if changed must be explicitly stated and justified why it is appropriate in the
+context of this problem.
+● Non-Computational:
+○ The problem must be solved completely without the usage of computer
+programming or a computer algebra system.
+○ The solution must not contain excessively repetitive operations (e.g. that would be
+trivial with computer-assistance) or unreasonably precise computations (e.g., with
+many significant figures)
+○ Any numerical calculations must be doable with a standard scientific calculator.
+● Accurate and Consistent Formatting: All components must be grammatically or
+syntactically correct, and without spelling or LaTeX formatting errors. All expressions,
+variables, equations, etc. are formatted consistently across all steps of the solution.
+
+========================================================================
+PAGE 8 of 107  [native]
+========================================================================
+○ See Appendix LaTeX formatting for more details ● Project Conventions:
+○ Each step must start with “Step #”
+○ The last step must end with “Final Answer: \$boxed{...}”
+○ The answer in the “Answer” Box must match the exact final answer in the last
+step but only wrapped in $...$. The Answer box field must not include "\boxed" ○
+For example:
+■ In your last solution step: Final Answer: $\boxed{AUC}$
+■ In the Answer box: $AUC$
+
+Unsure on how to format the final answer in your last solution step and in the “Answer” box?
+Check out the Answer Formatting Guide!
+
+Pro Tips for High-Quality Samples
+● Ensure you are aligned with the above formatting requirements.
+● Double-check your questions are distinct from one another and are not from existing
+datasets/competitions.
+● Use good grammar, check your spelling, etc.
+● Ensure your Solution does not include steps within a step, or any trivial micro-steps.
+○ These should be broken up as much as possible, and should only cover the most
+significant or substantial steps made to reach the correct solution. You do not
+have to include steps that were not important in reaching the solution or points
+that aren’t necessary in breaking down these substantial steps.
+○ Defer to your best judgement here as to what should/should not be included. You
+can refer to the good example steps in the Example Problem tab as a reference
+for how these should be written.
+
+LaTeX Help
+
+Having issues with LaTeX formatting? Here are a ton of helpful resources you can utilize:
+
+● Overleaf: offers command completion as well as a side by side source and preview -
+a great resource to reference whilst working through formatting issues
+● Codecogs: for those unfamiliar with LaTeX syntax, this is an equation editor where you
+can click on the symbols you wish to write, and see the LaTeX code in a window, and the
+equation formatted in another. Please note that you will need to copy that LaTeX code
+and enclose it within $...$ or $$...$$ in your prompt or solution!
+● Detextify: for those just beginning to learn LaTeX syntax, here you can hand draw
+symbols which are then returned with the LaTeX code for those symbols
+● Dainiak: a quick LaTeX style checker
+● TeX Studio: integrated writing environment for creating LaTeX documents with
+features including syntax-highlighting, integrated viewer, reference checking, etc.
+
+========================================================================
+PAGE 9 of 107  [native]
+========================================================================
+We also have four helpful youtube videos introducing LaTeX that could be helpful as
+well:
+● What is LaTeX?
+● Your first LaTeX document
+● Basic mathematics in LaTeX
+● Intermediate mathematics in LaTeX
+
+Detailed Submission Instructions
+To Start
+● In a Riga Submission:
+○ You will start by testing your STEM problem against two frontier-level “hard”
+models that are intentionally difficult to stump. These models may take a few
+minutes to generate a response.
+○ Click the blue arrow to run your question through the model and ensure at least
+one model consistently gets the wrong answer.
+○ Enter your STEM problem in LaTeX in the text box that states: “Enter your prompt
+here.”
+
+
+⚠ PLEASE NOTE: “No Response was generated by the model” is not equivalent to
+the model getting an incorrect answer. If you encounter this, please re-run the
+models.
+
+========================================================================
+PAGE 10 of 107  [native]
+========================================================================
+Submitting the Question
+
+Once you’re confident you’ve created a problem that consistently stumps one of the
+provided models, you’ll complete the rest of the task on the right side of the screen.
+● Use the copy and paste your prompt into the text box under the “Problem (Prompt)”
+heading on the right-hand side of the UI.
+
+● Select the appropriate domain and sub-domain for the question
+
+● Fill out the Domain Explanation field by providing a brief and clear explanation of why
+this domain and subdomain are the best choice for your STEM problem and why it's
+more appropriate than the next best domain and subdomain. Justifications should follow
+the below structure:
+
+This problem involves <description of the key elements of the problem>,
+which are part of <domain and sub domain>.
+The problem also involves <description of the additional elements of the problem>,
+which are part of <other domain and/or sub domain>.
+However, <explanation of why they’re not core to the problem or less advanced>.
+
+Worked Solution
+● Provide a step-by-step solution in which each step makes a substantial advance toward
+the final answer; avoid breaking the solution into many trivial micro-steps.
+
+========================================================================
+PAGE 11 of 107  [native]
+========================================================================
+The final step of the problem must use LaTeX box format to denote the answer
+and end with "Final Answer: $\boxed{<answer goes here>}$"
+● Ensure that each step of your solution can be verified by the Reviewer independently of the
+answer - recompute key displayed equalities and numeric values yourself prior to submitting.
+A correct final answer does not certify the steps!
+○ For every nontrivial claim (especially after 'clearly', 'note that', 'it follows') confirm your
+argument is present. Check that cited theorems actually apply.
+○ Every assumption that would change the answer to the problem if changed must be
+explicitly stated and justified why it is appropriate in the context of this problem.
+
+● Provide all necessary reasoning steps to advance the solution in the “Worked
+Solution” field.
+○ There should be a minimum of at least 3 steps.
+○ Each step must make a significant advancement toward reaching the final answer
+rather than simply breaking down the solution into small/trivial pieces.
+○ Do not include steps that were not inherently important or points that are not
+necessary to understanding how the solution was reached.
+○ Ensure each Step is just that, one step. Do not include steps within a step,
+substeps, micro-trivial steps, or small/trivial content that isn’t an absolutely
+important or necessary step in reaching the final answer.
+○ You must enumerate each worked solution step using the following format: Step 1,
+Step 2, Step 3, etc
+○ All worked solution steps must be explicitly numbered in sequence (Step 1,
+Step 2, …)
+○ If you are referencing a previous step (i.e., discussing something from Step 2 that
+is being recalled or referenced in Step 4, you should explicitly mention that as
+“Step 2”)
+
+========================================================================
+PAGE 12 of 107  [native]
+========================================================================
+Answer Section
+● Add in only the final answer (with units, if applicable) to the problem (and do NOT use
+\boxed in this field!)
+● Once done, run the In-App Evaluation button to validate your submission
+○ Please disregard the “(optional)” portion of the header; validating your submission
+is mandatory for this project!
+
+● See the Example Problem tab for good examples to reference!
+Problem, Answer, and Concepts Section
+● Lastly, you will select the most appropriate problem and answer classification. Select the
+options that best describe your problem based on the Answer Types and Problem Types
+descriptions above!
+
+● You will also be asked to list out the concepts, techniques, or knowledge required to
+solve your problem. This must include at least one and no more than five. If more than
+five apply, you’ll be asked to list the five most important. Lists should follow the below
+structure:
+
+For example, these concepts could be listed for a calculus problem:
+
+● Critical points
+● First-derivative sign changes
+● Local maxima/minima
+● Endpoint comparison
+● Polynomial differentiation
+
+========================================================================
+PAGE 13 of 107  [native]
+========================================================================
+Submission Routing
+In this section, you will be able to select where would you like your submission to go after
+you submit, with the following options:
+● Select "Quality Review" when you believe your submission meets project quality
+standards, passes automated checks, and is ready for quality review by a human
+reviewer
+● Or, you can select the optional "Automated Checks Only" to check your in-progress
+submission against the automated checks for difficulty and originality. This will be an
+indicator as to whether or not your submission is ready for quality review!
+
+
+Automated Difficulty and Quality Feedback
+If you do elect to send your submission through the optional “Automated Checks Only,” you
+will be able to see the results of these automated checks while still working on your submission,
+including:
+● Whether your submission is of acceptable difficulty
+● The full results of how the models solved your problems
+● Whether your problem and solution are correct and complete
+● Whether your solution steps are correct and if there are logical gaps or mathematical
+errors
+● Whether your selected domain and justification are appropriate
+
+========================================================================
+PAGE 14 of 107  [native]
+========================================================================
+Final Checks
+● Final Checklist: Confirm the following:
+○ ✅ There is one and only one correct answer.
+○ ✅ You have checked for spelling and grammar.
+○ ✅ You have independently verified the accuracy of your solution steps.
+○ ✅ The question is not plagiarized.
+○ ✅ You have used appropriate LaTeX formatting.
+○ ✅ You have ensured the Answer box field has the final answer only in the correct
+format (Do not use \boxed for this, but do wrap your answer in $...$) see Answer
+Formatting Guide
+Submission
+● When all fields are complete, click Submit.
+
+
+●  For  example,  one  of  the  checks:
+
+========================================================================
+PAGE 15 of 107  [ocr]
+========================================================================
+Review
+
+========================================================================
+PAGE 16 of 107  [native]
+========================================================================
+Riga Review Guidelines
+
+Overview
+Task Overview
+Reviewer Responsibility
+Quality Requirements
+Tips for High Quality Reviews
+Revision or Rejection Notes
+Step-by-Step System Walkthrough
+
+Overview
+As a reviewer, your responsibility is to ensure submitted problems meet the quality standards of
+this project. This means checking the following:
+1. Is the prompt appropriate for the project?
+2. Is the answer correct?
+3. Are the solution steps complete, error-free, and well-formatted?
+4. Are the labels and categories reasonably accurate?
+You are responsible for ensuring the answer to all of these questions is Yes. If it’s not, you must
+provide clear, actionable feedback to the original author that helps them improve the
+submission. We expect reviews to take 20-30 minutes on average.
+
+Reviewer Responsibility
+Each review task involves validating a submitted problem created by an Original Author (OA).
+You are not rewriting or re-authoring content. Your job is to ensure the Original Author’s
+submission meets ALL high-quality standards, validate accuracy/guideline adherence,
+correct minor issues (grammar, formatting, spelling, clarity only), and provide your own
+evaluation in the Reviewer Section and leave feedback.
+When leaving feedback for the OA, you are both helping them correct the specific submission
+and coaching them to improve. Reviewers are expected to follow a strict structure to ensure
+feedback is thorough, actionable, and encouraging.
+ℹPlease navigate to the Revision or Rejection Notes below for full details on expectations for
+feedback.
+At the end of the review you will select one of the following options:
+
+========================================================================
+PAGE 17 of 107  [native]
+========================================================================
+● Accept - The submission meets all quality requirements and needs no further edits or
+reviews
+
+● Needs Revision - The submission needs changes or updates by the original author
+before it can be considered acceptable
+
+● Reject - The submission is obvious spam and completely invalid for the project
+○ Warning: Rejections flag the submitter for review by the Snorkel team. These
+should be rare and only used in cases where the submissions is obviously spam,
+plagiarised, or inappropriate
+
+Prompt Requirements
+To be considered a high-quality submission eligible for Acceptance, check that the prompt
+meets all of the following:
+● Well-formed: All components must be grammatically or syntactically correct, and without
+spelling or LaTeX formatting errors
+● Original: All components must be authored by human experts (LLM generated content
+is  permitted), and all components within each sample must be original
+● Unique answer exists: The problem must only have a single unique solution, but it may
+have multiple equivalent valid forms
+○ “Does not exist” or DNE is not a valid answer on this project
+● Clear answer format: The prompt should explicitly state the specified format of the
+answer. If the answer is meant to be parametric or expressed in terms of other variables,
+that should be clearly stated.
+● Reliably verifiable: Answers to the problems and Solution Steps MUST be verifiable
+● Self-contained: Aside from the expected STEM knowledge, problems must contain all
+the necessary context required to answer the problem. Tables, reference material, etc.
+that are required for answering must be included in the problem.
+
+========================================================================
+PAGE 18 of 107  [native]
+========================================================================
+● No shortcutting: The problem must be free of hints or shortcuts that make it “trivial” to
+answer
+● Requires reasoning: The problem must require step-by-step reasoning to answer,
+rather than reciting memorised facts, theorems, etc.
+● No guessable answers: The problem must not be easily guessable (e.g. yes/no or
+multiple choice)
+● No proofs: Prompts that ask “show that”, “prove”, “verify”, etc. are not allowed.
+● Problem makes sense: The problem itself must make sense in the context of the
+selected domain
+● Note: Word puzzles are not allowed, even if solvable with set theory.
+
+❓During your reviews, If you are unsure as to whether or not a submission would be
+considered Acceptable, please don’t hesitate to reach out in the #ec-riga-reviews channel -
+a Riga Team Member will be happy to support and talk through a review with you!
+
+
+Answer Requirements
+To be considered a high-quality submission eligible for Acceptance, the answer must be
+correct.
+Additionally, the answer cannot use any notation that hasn't been introduced in the
+prompt. Otherwise, this violates the self-contained requirement.
+ALWAYS answer the question yourself. If it is different from the OA’s, you will explain the
+errors in the OA’s logic when you select Needs Revision or Reject.
+
+Solution Requirements
+To be considered a high-quality submission eligible for Acceptance, the step-by-step solution
+must meet the following requirements:
+● Correctness: All components must be mathematically/objectively valid and arrive at the
+final answer.
+●
+Valid Individual Steps: Verify each solution step independently of the answer and
+recompute key displayed equalities and numeric value yourself. A correct final answer does
+not certify the steps!
+●
+All Claims are Supported: For every nontrivial claim (especially after 'clearly', 'note that', 'it
+follows') confirm the argument is present. Check that cited theorems actually apply, that
+induction is proven (not pattern-matched), and that case splits cover all cases including
+boundary/sign/degenerate ones.
+
+========================================================================
+PAGE 19 of 107  [native]
+========================================================================
+○
+For example: Check that cited theorems actually apply, check that the hypotheses
+are based on relevant data and sound experimental design, check for physiological
+relevance and plausible pathways and mechanisms, check for kinetic and
+thermodynamic feasibility, account for all potential intermediate reactions along with
+stoichiometric balance, etc.
+●
+All Assumptions are Explicitly Stated: Every assumption that would change the answer to
+the problem if changed must be explicitly stated and justified why it is appropriate in the
+context of this problem.
+● Accurate and Consistent Formatting: All components must be grammatically or
+syntactically correct, and without spelling or LaTeX formatting errors. All expressions,
+variables, equations, etc. are formatted consistently across all steps of the solution. If the
+problem does not specify units, ensure the answer includes them.
+● Non-Computational:
+○ The problem must be solved completely without the usage of computer
+programming or a computer algebra system.
+○ The solution must not contain excessively repetitive operations (e.g. that would be
+trivial with computer-assistance) or unreasonably precise computations (e.g., with
+many significant figures)
+○ Any numerical calculations must be doable with a standard scientific calculator.
+● Project Conventions:
+○ Each step must start with “Step #”
+○ The last step must end with “Final Answer: \$boxed{...}”
+○ The answer in the “Answer Box” must match the final answer in the last step.
+
+Labels and Categories
+Each problem has a domain, sub-domain, problem type, and answer type. In general, as long as
+these are not obviously incorrect they can be accepted but please follow the field-specific
+guidance below:
+
+● Domain and Sub Domain: If the selected domain, sub-domain, and explanation are
+completely inaccurate, select “Needs Revision” and include comments on the issue in
+your feedback. If it’s plausible or borderline for the problem to be considered in the
+selected domain and sub-domain, then you may leave as-is.
+● For Problem Type and Answer Type: If you think another option would be more
+appropriate, please make the change yourself and note to the OA if you are writing
+“Needs Revision” feedback.
+● For Concepts List: If you think another option would be more appropriate, please make
+the change yourself and note to the OA if you are writing “Needs Revision” feedback.
+
+========================================================================
+PAGE 20 of 107  [native]
+========================================================================
+Tips for High-Quality Reviews
+● Keep your feedback clear, logical, and accurate. Always provide specific, actionable
+suggestions!
+● Important Checklist:
+○ Look for a clear walk-through of the correct answer in the Step-by-Step Solution
+■ And ensure these steps are enumerated!
+○ Grammar and fluency in both the question and answer
+● Emphasize making light edits that help clarify answer correctness but do not
+change any of the original content.
+● If the OA answer is wrong, your answer should clearly explain why OA is wrong, what
+the correct answer is, and why your answer is correct in the “Review Section.”
+● If in doubt about a borderline issue, add a note in the “Review Section” field. The
+team will review it.
+🚨Ask yourself: If the Original Author addressed everything I included in the revision notes,
+would it be acceptable upon re-submission? If not, more needs to be added!
+
+🚨 Revision or Rejection Notes
+
+Overview
+● If you decide to send the submission back to Needs Revision, fill out the Revision
+Notes field for the Original Author to view. Reviewers MUST provide thorough,
+actionable, and encouraging feedback to help submitters revise and re-submit an
+acceptable submission.
+● If you decide to Reject the submission, fill out the Rejection Notes field for the Original
+Author to view. Reviewers MUST provide thorough, actionable, and encouraging
+feedback to help submitters learn from their mistakes and improve upon a new
+submission.
+New Feedback Workflow
+● As noted in the Review Process Updates tab, we have implemented Error Categories
+into your review tasks for you to specifically categorize the errors you identify. You will
+
+========================================================================
+PAGE 21 of 107  [native]
+========================================================================
+see an option to select these Error Categories once you have selected “Needs
+Revision” or “Reject” in the Review Decision dropdown
+● Once Error Categories have been selected, these should be explicitly mentioned in
+your feedback, with specific suggestions on how to revise each. Review Feedback
+that is generic, vague, or unhelpful and does not provide actionable suggestions for each
+Error Category marked will be considered a low-quality review.
+
+
+Step-by-Step System Walkthrough for Reviews
+Step 1: Click “Start” on Riga Review
+
+
+Step 2: Review the Problem, Answer, and Solution
+
+Upon opening a Riga Review, start by opening the “Problem Submission” section. This will
+include the problem, domain, step-by-step-solution, and answer. This is where the majority of
+your time will be spent reviewing.
+
+
+Step 3: Review the Problem & Answer Types and Concept List
+
+This section contains the categories from the problem/answer and concepts list.
+
+Step 4: Gather More Context from the Automated Checks
+We have added a new section titled “Automated Difficulty and Quality Feedback” that will
+allow you to read through Snorkel’s automated checks the submission was run through to
+
+========================================================================
+PAGE 22 of 107  [native]
+========================================================================
+give you more context as to how each aspect of the submission performed. These checks
+include:
+● Whether the submission is of acceptable difficulty
+○ Note: Reviewers DO NOT need to assess the difficulty of a task. Assume that if a
+task makes it to human review, the problem has been deemed sufficiently
+difficult enough by our automated checks, and you do not need to assess any
+further.
+○ HOWEVER: if you notice that a problem is blatantly trivial, or is clearly using
+tricks or specific setups/strategies to stump the models (for example: a very
+basic Chemistry concept that is setup as a word puzzle that stumps the model
+based on an ambiguous setup, not by the model actually attempting reasoning
+and producing the wrong answer) it is valid to send back for revision. If you are
+unsure, please reach out in the #ec-riga-reviews channel to discuss!
+● The full results of how the models solved the problem
+● Whether the problem and solution are correct and complete
+● Whether the solution steps are correct and if there are logical gaps or mathematical
+errors
+● Whether the selected domain and justification are appropriate ● For example, one of the
+checks:
+
+Read through all of the automated checks to gain insight into potential issues called out by our
+internal evaluations. Once you have read through all of the submission content, the
+automated checks, and attempted to verify the solution and answer, move on to Step 5
+Additionally: you will be able to see a blue “Automated Feedback” dropdown on the left-hand
+side of your review task. This will include additional automated checks to provide context as to
+what issues the submission could potentially have. Please use both the “Automated
+Feedback” field AND the “Automated Difficulty and Quality Feedback” section for insight
+while completing your assessment.
+
+========================================================================
+PAGE 23 of 107  [native]
+========================================================================
+Step 5: Make Minor Edits as Necessary
+Once you have read through and fully understood the content of the submission, prior to
+attempting to verify/answer the question yourself, make light grammar, formatting (LaTeX),
+spelling, and clarity edits to the Original Author's solution steps, if needed (Reviewers will not
+revise the problem or answer).
+Step 6: Review the Correctness of AI Generated Answers
+In this mandatory section, you will be asked to review the model-generated answers for
+accuracy and confirm whether they are correct or incorrect.
+
+========================================================================
+PAGE 24 of 107  [native]
+========================================================================
+Step 7 : Fill out the Review Section
+
+This is where your evaluation begins. You will be asked to indicate whether you Accept the
+submission, want to send it back for Needs Revision, or Reject.
+If Accept:
+● Ensure that the problem, solution and answer meet all stated criteria in this document
+(i.e., appropriate level, self-contained, reasoning not recall, single solution, not a proof,
+not excessively computational, not dependent on obscure theoretical knowledge, etc)
+● The answer and step-by-step solution are certifiably correct, and are verified
+independently from one another (remember: a correct answer does NOT verify the
+solution steps!)
+● The problem aligns with the selected domain and subdomain, with a well-written
+justification that leaves no doubt
+● Some problems and solutions may include claims, assumptions, or interpretations that a
+domain expert could reasonably question. For each problem, identify up to 3 potentially
+disputable or nuanced claims, if any, and explain why each is justified within the context
+of the problem and solution. For each claim, answer: ○ What is the claim?
+○ Why might an expert reasonably question or disagree with it?
+○ Why is the claim objectively justified or appropriate given the problem statement,
+assumptions, and solution?
+If the solution follows directly from explicit givens, standard definitions, or purely
+mathematical reasoning, and contains no meaningfully disputable claims, no explanation
+is needed.
+● Upon clicking Accept, Reviewers will be prompted with an additional question: Are All
+Automated Checks Accurate?
+○ This will ask you to indicate whether the results of the blue “Automated
+Feedback” box and the “Automated Difficulty and Quality Feedback” section
+mentioned in Step 4 are all accurate. If you deem the checks are accurate based
+on your analysis, select “Yes,” and submit the review task. If you select “No”:
+○ You’ll see one final, additional ask that will request an explanation on why the
+submission is acceptable despite the automated check inaccuracies.
+Please provide a justification as to why the potential inaccuracies (or false
+positives) do not affect the submission enough to keep it from being accepted.
+● Once done, submit the review task.
+
+========================================================================
+PAGE 25 of 107  [native]
+========================================================================
+If Needs Revision:
+● If you identify any errors that could not be revised with minor edits (edits exceeding
+minor being any that would require the rewriting/re-authoring/re-structuring of the
+submission content so that it changes the meaning or fundamentally alters the
+problem/solution), opt to send the task back to Needs Revision
+● Once selected, Reviewers will be prompted with selecting all Error Categories that
+apply. This will be a comprehensive list that allows you to label which errors you came
+across in your assessment.
+○ See the Error Category Definitions tab for full details to assist you in making
+your selections
+● When all Error Categories have been selected, leave Revision Notes for the OA. Read
+over the following Review Guidelines prior to writing your feedback:
+
+○ Revision or Rejection Notes
+
+● Revision Notes MUST include explicit mention of the Error Categories selected, and
+provide specific, actionable suggestions for the OA to work off of. See the following
+example of poor Reviewer Feedback:
+
+"Your problem is not self-contained. Step 3 relies on repeated 'The Euclidean reductions gives,’
+which is not self-contained and thus not reproducible."
+
+○ This feedback provides no specific suggestions, is discouraging, and would not
+give the OA any direction as to how to get their submission accepted.
+○ Reviewers should ask themselves: If the Original Author addressed everything I
+included in the revision notes, would it be acceptable upon re-submission?
+If not, more needs to be added!
+● Once done, submit the review task.
+
+========================================================================
+PAGE 26 of 107  [native]
+========================================================================
+If Reject:
+● Ensure you are only rejecting for clear spam, low effort, or completely ignoring
+project rules.
+● Provide specific, thorough, and encouraging feedback to the OA that will motivate them
+to improve their next submission.
+● Rejection Feedback like: “Clear spam, the task must be rejected” would be considered
+low-quality feedback. Ensure you are identifying the specific reason for rejection and
+why it warrants an outright rejection as opposed to Needs Revision.
+● Once done, submit the review task.
+
+
+Review Process Updates
+
+========================================================================
+PAGE 27 of 107  [native]
+========================================================================
+Review Process Updates: PLEASE READ
+For those who have worked on previous Snorkel STEM projects, the review process has
+undergone several changes aimed at improving and clarifying this workflow so all expectations
+are explicitly clear and reviews are of the highest possible quality. Please read through the
+following updates:
+
+
+#1. Double-Down on Solution Steps:
+The solution steps are often the largest reason for a task not meeting the Acceptance bar, and
+being sent back for revision. Moving forward, Reviewers must do the following:
+
+● Verify each step independently of the answer. A correct final answer does not certify
+the steps!
+● For every nontrivial claim (especially after 'clearly', 'note that', 'it follows') confirm the
+argument is present.
+
+
+#2. Selecting the New “Error Categories”:
+To improve the consistency of review feedback, we have implemented new Error Categories in
+your review tasks that will allow you to select specific labels for errors you identify.
+Reviewers will be required to select these categories and ensure their revision feedback
+corresponds with what was selected.
+● See Error Category Definitions
+● Reviewers also MUST provide specific, actionable suggestions to revise any identified
+error categories. Feedback like “make the problem more self-contained” will not be
+tolerated on this project.
+○ If a problem were found to not be self-contained, a Reviewer should select the
+“Not Self-Contained” error category, mention it explicitly in the revision
+feedback, include actionable details regarding what makes the current
+question not self-contained and provide specific suggestions/additional
+information as to what should be added to the question background to resolve
+the problem!
+● Every time a Reviewer leaves feedback, the question should be: If the Original Author
+addressed everything I included in the revision notes, would it be acceptable upon
+re-submission? If not, more needs to be added!
+
+
+#3. Justifying Key Claims and Reasoning Steps
+Some problems and solutions may include claims, assumptions, or interpretations that a domain
+expert could reasonably question. For each problem, identify up to 3 potentially disputable or
+nuanced claims, if any, and explain why each is justified within the context of the problem and
+solution.
+
+========================================================================
+PAGE 28 of 107  [native]
+========================================================================
+For each claim, answer:
+● What is the claim?
+● Why might an expert reasonably question or disagree with it?
+● Why is the claim objectively justified or appropriate given the problem statement,
+assumptions, and solution?
+If the solution follows directly from explicit givens, standard definitions, or purely mathematical
+reasoning, and contains no meaningfully disputable claims, no explanation is needed.
+
+
+#4. Transparent Reviewer Performance Feedback
+In Riga, Reviewers will be provided a transparent performance feedback system that will allow for
+continued improvement and closer collaboration with our team to ensure alignment on expectations.
+This will specifically include Weekly “Summaries” to Reviewers on review performance, including:
+errors that were missed, areas of misalignment, areas to improve on, areas of strength, and a full
+performance breakdown. We will track overall performance, which will be grouped into the following
+statuses:
+● Trial Period
+○ Once a Reviewer passes the Reviewer Assessment, they will begin with a “Trial
+Period” of 3-5 days. This will include a throttled daily review limit of 25 per day to allow for a
+smooth transition into reviewing as you adjust to the guidelines/workflow.  ● Unlimited (No
+Throttle)
+○ After the Trial Period, once a Reviewer has consistently produced high-quality
+reviews and demonstrated a clear, comprehensive understanding of the review workflow and
+expectations, they will be given “Unlimited” status. Reviewers will be able to complete the
+maximum amount of daily reviews, 40. ● At Risk (Throttled)
+●
+With the Weekly Summaries provided, Reviewers will also be able to see the % of
+problems they reviewed that were found to have had errors compared to their total
+review count. If a Reviewer reaches more than 10% of errors across all reviews (which
+includes ANY errors that slipped through, including minor issues like LaTeX) this will
+warrant a violation, and they will be placed in an “At Risk” status.
+●
+This violation will include a significant decrease of the Reviewer’s daily limit, as well
+as an individual coaching message with specific examples of the errors identified to assist
+the Reviewer in improving. This status will be lifted once the Reviewer demonstrates
+consistent improvement on the previously identified errors.
+●
+If a Reviewer’s error percentage continues to increase during “At Risk” status, and
+improvement is not shown, this will potentially result in a removal of review access in
+Riga.
+Note: a violation can also be warranted if revision feedback is found to be generic, vague, unhelpful,
+or misaligned with the expectations outlined here
+
+========================================================================
+PAGE 29 of 107  [native]
+========================================================================
+#5. Mandatory Automated Feedback Check
+Reviewers will now be required to look over the complete automated feedback checks on a
+submission in a review task. The purpose of this is to provide reviewers more
+information/context on the submission itself, as well as how our automated checks work to help
+improve your understanding of each aspect of the review workflow. Doing these checks will
+allow reviewers to be more comfortable working with evals:
+● Upon selecting “Accept” for the Review Decision, Reviewers will be prompted with
+answering another question: Are All Automated Checks Accurate?
+● Reviewers will note whether any of the automated checks are inaccurate, including
+false positives, but indicate why the task can still be Accepted
+● See more details in the Step-by-Step System Walkthrough tab!
+
+
+Error Categories
+
+========================================================================
+PAGE 30 of 107  [native]
+========================================================================
+Error Category Definitions
+
+When a submission is flagged as “Needs Revision” you must identify one or more error
+categories that are driving the review.
+
+Submission Area
+Error Category
+Definition
+Prompt
+Not Self-Contained
+Prompt is missing definitions, formulas,
+or context needed to attempt the
+problem
+Non-Unique Answer
+As written, the prompt would yield
+multiple valid answers
+Too Computational
+Problem would require code or machine
+computation to verify
+Multi-Part Question
+Prompt asks multiple questions or
+multiple parts of a single question
+Guessable
+Prompt is multiple-choice, true-false, or
+setup in such a way that the answer can
+be easily guessed
+Domain Beyond Project Scope
+The prompt is a STEM domain outside of
+what is allowed for this project
+Answer and
+Solution Steps
+Wrong Answer
+Wrong answer or flawed, inaccurate
+reasoning
+Unjustified or Unsupported Claims
+Solution skips steps, assertions are
+made without justification, etc. such that
+the work shown cannot be fully
+understood or reproduced
+Unstated Assumption
+Every assumption that would change the
+answer to the problem if changed must
+be explicitly stated and justified why it is
+appropriate in the context of this
+problem.
+Step Error
+There is an error in an individual step but
+the final answer is still correct
+
+========================================================================
+PAGE 31 of 107  [native]
+========================================================================
+All
+Major LaTeX or Formatting Issues
+Significant use of wrong delimiters,
+unsupported commands, missing project-
+specific formatting, etc.
+
+NOTE: Minor LaTeX or grammar errors
+
+
+and/or small typos in the solution step
+should be fixed in review and, by
+themselves, are not grounds for flagging
+a submission for needs revision. If you
+are sending a submission back for needs
+revision for other reasons and did make
+minor LaTeX or grammar revisions,
+ensure you leave a note explaining the
+changes made.
+Major Grammar or Language Issues Consistently unclear phrasing, awkward
+sentence structure, spelling errors,
+and/or imprecise mathematical language
+that makes the intent ambiguous or
+difficult to follow
+
+NOTE: Minor LaTeX or grammar errors
+and/or small typos in the solution step
+should be fixed in review and, by
+themselves, are not grounds for flagging
+a submission for needs revision. If you
+are sending a submission back for needs
+revision for other reasons and did make
+minor LaTeX or grammar revisions,
+ensure you leave a note explaining the
+changes made.
+Other
+Wrong domain, closed quota, missing
+justification, any other errors identified
+not included in this list
+
+⚠Note: you should only Reject a submission for clear spam, low effort, or
+completely ignoring project rules.
+Problem and Answer Reference
+
+========================================================================
+PAGE 32 of 107  [native]
+========================================================================
+Problem Types
+Biology
+Chemistry
+Physics
+
+(jump to Answer Types)
+
+Biology: Problem Form Taxonomy
+Problem forms describe the primary type of answer a problem asks for, independent of
+biological domain or subdomain. Each problem should be assigned the form that best reflects
+what the final response must provide and how that response can be verified. These forms
+should avoid proof, derivation, or essay-style responses; expected answers should be directly
+checkable.
+•
+Exact computation - A problem asking for an exact numerical value, count, ratio,
+probability, genotype frequency, allele frequency, sequence length, cell count, population
+size, concentration, rate, percentage, coefficient, or other exact biological quantity
+derived from the given information.
+•
+Symbolic expression - A problem asking for a closed-form expression, biological
+relationship, growth model, inheritance formula, population model, rate expression,
+regulatory relationship, or symbolic representation, without requiring the derivation steps.
+•
+Numerical approximation - A problem asking for a numerical answer computed to a
+specified tolerance, precision, number of significant figures, number of decimal places, or
+error bound.
+•
+Solve for unknowns - A problem asking for one or more values, genotypes,
+phenotypes, rates, frequencies, concentrations, parameters, species, taxa, sequences,
+or biological states that satisfy a given condition, dataset, model, or biological
+relationship.
+•
+Construction under constraints - A problem asking for any valid biological object or
+representation that satisfies a stated set of genetic, molecular, ecological, anatomical,
+experimental, or quantitative constraints.
+•
+Optimization - A problem asking for an optimal value, condition, trait, allocation,
+sequence, experimental parameter, growth condition, threshold, fitness value, or
+biological outcome under a specified objective and constraint set.
+•
+Exhaustive enumeration - A problem asking for the complete set, list, count, or
+classification of all valid genotypes, phenotypes, taxa, species, sequences, codons,
+mutations, cell types, pathway states, or experimental outcomes satisfying the given
+criteria.
+•
+Canonicalization or normalization - A problem asking for a biological object to be
+rewritten in a specified standard, reduced, normalized, or canonical form, such as a DNA
+sequence orientation, RNA transcript, amino acid sequence, genotype notation,
+taxonomic name, pathway notation, or normalized dataset value.
+
+========================================================================
+PAGE 33 of 107  [native]
+========================================================================
+•
+Transformation between representations - A problem asking for conversion of an
+object from one biologically equivalent representation to another, such as DNA to mRNA,
+mRNA to protein, genotype to phenotype, pedigree to inheritance mode, sequence to
+alignment, tree to relationship statement, or raw counts to normalized expression.
+•
+Parameter identification - A problem asking for unknown parameters, constants, rates,
+coefficients, fitness values, allele frequencies, growth rates, binding constants, kinetic
+parameters, model terms, or latent biological quantities to be inferred from equations,
+data, constraints, or observed biological behavior.
+
+
+Chemistry: Problem Form Taxonomy
+Problem forms describe the primary type of answer a problem asks for, independent of chemical
+domain or subdomain. Each problem should be assigned the form that best reflects what the
+final response must provide and how that response can be verified. These forms should avoid
+proof, derivation, or essay-style responses; expected answers should be directly checkable.
+•
+Exact computation - A problem asking for an exact numerical value, formula value,
+stoichiometric quantity, concentration, amount, yield, charge, energy, equilibrium
+constant, rate quantity, coefficient, or other exact chemical object derived from the given
+information.
+•
+Symbolic expression - A problem asking for a closed-form expression, chemical
+relationship, rate law, equilibrium expression, thermodynamic expression, formula, or
+symbolic representation, without requiring the derivation steps.
+•
+Numerical approximation - A problem asking for a numerical answer computed to a
+specified tolerance, precision, number of significant figures, number of decimal places, or
+error bound.
+•
+Solve for unknowns - A problem asking for one or more values, concentrations,
+pressures, temperatures, amounts, coefficients, species, products, structures, or
+variables that satisfy a given equation, system, reaction condition, constraint, or chemical
+relationship.
+•
+Construction under constraints - A problem asking for any valid chemical object that
+satisfies a stated set of structural, compositional, stoichiometric, thermodynamic,
+spectroscopic, or quantitative constraints.
+•
+Optimization - A problem asking for an optimal value, condition, composition, reagent
+amount, separation condition, yield, pH, temperature, pressure, or experimental
+parameter under a specified objective and constraint set.
+•
+Exhaustive enumeration - A problem asking for the complete set, list, count, or
+classification of all valid products, species, isomers, resonance forms, configurations,
+mechanisms, phases, or parameter values satisfying the given criteria.
+•
+Canonicalization or normalization - A problem asking for a chemical object to be
+rewritten in a specified standard, reduced, normalized, or canonical form, such as a
+balanced equation, IUPAC name, empirical formula, net ionic equation, oxidation-state
+assignment, or canonical SMILES string.
+
+========================================================================
+PAGE 34 of 107  [native]
+========================================================================
+•
+Transformation between representations - A problem asking for conversion of an
+object from one chemically equivalent representation to another, such as name to
+formula, formula to structure, structure to SMILES, molecular equation to net ionic
+equation, spectrum to structure, or composition data to empirical formula.
+
+========================================================================
+PAGE 35 of 107  [native]
+========================================================================
+Parameter identification - A problem asking for unknown parameters, constants,
+coefficients, rate constants, equilibrium constants, thermodynamic quantities, analytical
+calibration terms, structural values, or latent quantities to be inferred from equations,
+data, constraints, or observed chemical behavior.
+
+Physics: Problem Form Taxonomy
+Problem forms describe the primary type of answer a problem asks for, independent of physical
+domain or subdomain. Each problem should be assigned the form that best reflects what the
+final response must provide and how that response can be verified. These forms should avoid
+proof, derivation, or essay-style responses; expected answers should be directly checkable.
+•
+Exact computation - A problem asking for an exact numerical value, formula value,
+vector, field value, energy, force, momentum, frequency, wavelength, coefficient,
+probability, or other exact physical quantity derived from the given information.
+•
+Symbolic expression - A problem asking for a closed-form expression, physical
+relationship, equation of motion, field expression, scaling law, transfer function, rate
+expression, or symbolic representation, without requiring the derivation steps.
+•
+Numerical approximation - A problem asking for a numerical answer computed to a
+specified tolerance, precision, number of significant figures, number of decimal places,
+or error bound.
+•
+Solve for unknowns - A problem asking for one or more values, vectors, fields, times,
+positions, velocities, energies, frequencies, parameters, states, or physical quantities
+that satisfy a given equation, system, constraint, model, or physical condition.
+•
+Construction under constraints - A problem asking for any valid physical
+configuration, state, circuit, trajectory, field, wave, model, parameter set, or experimental
+setup that satisfies a stated set of physical or quantitative constraints.
+•
+Optimization - A problem asking for an optimal value, condition, trajectory, design
+parameter, efficiency, frequency, angle, field strength, energy, or physical configuration
+under a specified objective and constraint set.
+•
+Exhaustive enumeration - A problem asking for the complete set, list, count, or
+classification of all valid states, modes, solutions, configurations, particles, transitions,
+paths, quantum numbers, or parameter values satisfying the given criteria.
+•
+Canonicalization or normalization - A problem asking for a physical object to be
+rewritten in a specified standard, reduced, normalized, or canonical form, such as unit-
+vector notation, SI units, normalized wavefunction, phasor form, standard circuit
+equivalent, or reduced physical expression.
+•
+Transformation between representations - A problem asking for conversion of an
+object from one physically equivalent representation to another, such as graph to
+equation, circuit diagram to equations, time domain to frequency domain, Cartesian to
+polar components, free-body description to force equations, or state vector to
+measurement probabilities.
+•
+Parameter identification - A problem asking for unknown parameters, constants,
+coefficients, initial conditions, model terms, material properties, circuit values,
+
+========================================================================
+PAGE 36 of 107  [native]
+========================================================================
+•
+
+
+frequencies, rates, or latent physical quantities to be inferred from equations, data,
+constraints, or observed physical behavior.
+
+
+Answer Types
+Biology
+Chemistry
+Physics
+
+
+Biology: Answer Type Taxonomy
+Answer type describes the expected format of the final answer, independent of the problem's
+domain, subdomain, input representation, or problem form. Since answers must be text-only
+and directly verifiable, answer types should be limited to objects that can be written explicitly
+using numbers, symbols, labels, finite lists, formulas, names, or compact biological notations.
+Avoid answer types that require proofs, derivations, diagrams, essays, or subjective
+explanation.
+•
+Exact scalar - A single exact numerical quantity, such as an integer, rational number,
+count, ratio, probability, percentage, genotype frequency, allele frequency, population
+size, sequence length, cell count, rate value, or coefficient.
+•
+Numerical scalar approximation - A single numerical quantity expected up to a
+specified tolerance, precision, number of significant figures, number of decimal places,
+or error bound. Any required tolerance must be stated in the problem and should be
+tailored towards the problem (e.g., not a blanket 10% allowable tolerance).
+•
+Exact symbolic expression - A closed-form symbolic expression representing the
+correct final answer up to biological or mathematical equivalence, such as a growth
+equation, inheritance probability formula, population model, rate expression, binding
+relationship, or regulatory expression.
+•
+Biological sequence - A DNA sequence, RNA sequence, amino acid sequence, codon
+sequence, motif, consensus sequence, primer sequence, alignment segment, or other
+text-only sequence representation.
+•
+Genotype or genetic notation - A genotype, haplotype, allele combination, karyotype
+notation, mutation notation, linkage notation, pedigree-derived genotype, or inheritance-
+pattern notation.
+•
+Biological species or structure - A gene, protein, cell type, tissue, organ, species,
+taxon, anatomical structure, pathway component, biomolecule, organelle, or other
+named biological entity.
+
+========================================================================
+PAGE 37 of 107  [native]
+========================================================================
+•
+Quantity with units - A concentration, rate, mass, volume, length, time, area, density,
+population size, enzyme activity, expression level, dose, or unit-bearing biological
+quantity.
+•
+Tuple or ordered list - A finite ordered collection of values, sequences, taxa, stages,
+pathway steps, experimental conditions, labels, or biological states where order matters.
+Set or multiset of objects - A complete finite collection of valid genes, proteins,
+species, taxa, genotypes, phenotypes, mutations, codons, cell types, structures, stages,
+or outcomes where order is irrelevant and multiplicity may or may not matter.
+•
+Sequence or pathway representation - A developmental sequence, metabolic
+pathway, signaling cascade, infection cycle, cell-cycle sequence, experimental workflow,
+lineage path, or ordered biological process.
+•
+Function, model, or mapping - A function, growth model, dose-response curve,
+genotype-phenotype mapping, gene-regulatory mapping, ecological model, binding
+curve, or transformation rule specified explicitly by formula, table, or action on biological
+states.
+•
+Canonical form - A biological object expressed in a specified standard or normalized
+form, such as 5′ to 3′ sequence orientation, standard amino acid code, normalized
+expression value, binomial species name, HGVS-style mutation notation, or
+standardized genotype notation.
+•
+Classification label - A category, class, type, case, biological state, inheritance mode,
+taxonomic group, cell type, tissue type, reaction class, ecological interaction,
+developmental stage, disease mechanism, or qualitative behavior label.
+
+Chemistry: Answer Type Taxonomy
+Answer type describes the expected format of the final answer, independent of the problem's
+domain, subdomain, input representation, or problem form. Since answers must be text-only
+and directly verifiable, answer types should be limited to objects that can be written explicitly
+using numbers, symbols, labels, finite lists, formulas, names, or compact structural notations.
+Avoid answer types that require proofs, derivations, diagrams, essays, or subjective
+explanation.
+•
+Exact scalar - A single exact numerical quantity, such as an integer, rational number,
+stoichiometric coefficient, mole quantity, charge, oxidation state, particle count,
+equilibrium constant, rate constant, enthalpy value, free-energy value, or coefficient.
+•
+Numerical scalar approximation - A single numerical quantity expected up to a
+specified tolerance, precision, number of significant figures, number of decimal places,
+or error bound. Any required tolerance must be stated in the problem and should be
+tailored towards the problem (e.g., not a blanket 10% allowable tolerance).
+•
+Exact symbolic expression - A closed-form symbolic expression representing the
+correct final answer up to chemical or mathematical equivalence, such as a rate law,
+equilibrium expression, thermodynamic relationship, concentration expression,
+integrated law, or formula.
+
+========================================================================
+PAGE 38 of 107  [native]
+========================================================================
+•
+
+
+•
+Chemical formula or composition - A molecular formula, empirical formula, ionic
+formula, hydrate formula, isotope notation, elemental composition, percent composition,
+or formula-unit representation.
+•
+Balanced chemical equation - A molecular equation, ionic equation, net ionic equation,
+redox equation, half-reaction, combustion equation, or reaction scheme written explicitly
+in text.
+•
+Chemical species or structure - A chemical name, ion, molecule, product,
+intermediate, reagent, catalyst, ligand, complex, functional group, condensed structural
+formula, SMILES string, InChI string, or other text-only structural representation.
+
+========================================================================
+PAGE 39 of 107  [native]
+========================================================================
+•
+
+Concentration or quantity with units - A mole amount, mass, volume, pressure,
+temperature, concentration, molarity, molality, mole fraction, ppm value, charge,
+current, time, or unit-bearing chemical quantity.
+•
+Tuple or ordered list - A finite ordered collection of values, species, coefficients,
+products, reagents, conditions, labels, peaks, steps, or coordinates where order
+matters.
+•
+Set or multiset of objects - A complete finite collection of valid species, isomers,
+products, resonance forms, phases, complexes, peaks, reagents, or configurations
+where order is irrelevant and multiplicity may or may not matter.
+•
+Sequence or pathway representation - A reaction sequence, synthetic route,
+mechanism step sequence, metabolic pathway segment, separation sequence,
+recurrence-like process, or ordered transformation chain.
+•
+Function, law, or mapping - A function, calibration curve, rate law, response factor,
+partition relationship, binding curve, transformation rule, or mapping specified explicitly
+by formula, table, or action on species.
+•
+Canonical form - A chemical object expressed in a specified standard or normalized
+form, such as a balanced equation, reduced empirical formula, IUPAC name, standard
+cell notation, canonical SMILES, oxidation-state-normalized formula, or standardized
+equilibrium expression.
+•
+Classification label - A category, class, type, case, structural classification, reaction
+type, mechanism type, functional group class, stereochemical label, phase label, acid-
+base classification, redox classification, or qualitative behavior label.
+
+Physics: Answer Type Taxonomy
+Answer type describes the expected format of the final answer, independent of the problem's
+domain, subdomain, input representation, or problem form. Since answers must be text-only
+and directly verifiable, answer types should be limited to objects that can be written explicitly
+using numbers, symbols, labels, finite lists, formulas, names, or compact physical notations.
+Avoid answer types that require proofs, derivations, diagrams, essays, or subjective
+explanation.
+•
+Exact scalar - A single exact numerical quantity, such as an integer, rational number,
+coefficient, count, quantum number, frequency ratio, efficiency, probability,
+dimensionless constant, or exact physical value.
+•
+Numerical scalar approximation - A single numerical quantity expected up to a
+specified tolerance, precision, number of significant figures, number of decimal places,
+or error bound. Any required tolerance must be stated in the problem and should be
+tailored towards the problem (e.g., not a blanket 10% allowable tolerance).
+•
+Exact symbolic expression - A closed-form symbolic expression representing the
+correct final answer up to physical or mathematical equivalence, such as an equation of
+motion, field expression, energy expression, wavefunction, transfer function, scaling
+law, or physical relationship.
+
+========================================================================
+PAGE 40 of 107  [native]
+========================================================================
+•
+
+
+•
+Physical quantity with units - A force, energy, power, pressure, temperature, current,
+voltage, resistance, capacitance, field strength, wavelength, frequency, speed, mass,
+time, distance, or other unit-bearing physical quantity.
+•
+Equation or physical law - An equation, conservation statement, field equation,
+boundary condition, dispersion relation, circuit equation, wave equation, or constraint
+written explicitly as the answer.
+Vector - A finite-dimensional vector returned as components, unit-vector notation,
+coordinates, momentum, velocity, force, field vector, or state vector.
+•
+Matrix, tensor, or operator - A matrix, tensor, operator, inertia tensor, stress tensor,
+Hamiltonian, transformation matrix, or other finite-dimensional linear object written
+explicitly.
+•
+Interval, range, or region - A time interval, spatial region, frequency range, wavelength
+band, allowed parameter range, domain of validity, or inequality-defined physical region.
+•
+Tuple or ordered list - A finite ordered collection of values, states, labels, modes,
+particles, transitions, steps, coordinates, or parameters where order matters.
+•
+Set or multiset of objects - A complete finite collection of valid states, modes,
+solutions, configurations, particles, transitions, quantum numbers, paths, or
+classifications where order is irrelevant and multiplicity may or may not matter.
+•
+Function, field, or model - A function, trajectory, wavefunction, potential, field,
+distribution, response curve, transfer function, Green's function, or model specified
+explicitly by formula, table, or action on variables.
+•
+Sequence or process representation - A sequence of states, transitions, decay steps,
+collision outcomes, circuit states, measurement outcomes, or time-ordered physical
+events.
+•
+Canonical form - A physical object expressed in a specified standard or normalized
+form, such as SI-unit form, unit-vector form, normalized wavefunction, phasor form,
+standard circuit equivalent, diagonalized operator, or reduced expression.
+•
+Classification label - A category, class, type, case, physical regime, phase, particle
+type, interaction type, stability label, motion type, wave mode, circuit behavior, or
+qualitative behavior label.
+Domain Reference
+
+========================================================================
+PAGE 41 of 107  [native]
+========================================================================
+•
+
+Domain and Sub-Domain Descriptions
+Biology
+Chemistry
+Physics
+
+
+Biology
+Cell Biology
+Problems involving cellular structures, organelles, membranes, cell division, intracellular
+transport, and cellular regulation. Avoiding and excluding broad organism-level physiology,
+ecology, or molecular-genetic mechanisms unless the primary task is cellular structure or
+function.
+•
+Cell structure and organelles - Identifying or comparing nuclei, mitochondria,
+chloroplasts, ribosomes, endoplasmic reticulum, Golgi apparatus, lysosomes, vacuoles,
+cytoskeleton, and other cellular components.
+•
+Membrane structure and transport - Working with phospholipid bilayers, channels,
+pumps, diffusion, facilitated diffusion, osmosis, active transport, endocytosis, and
+exocytosis.
+•
+Cell cycle and mitosis - Identifying cell-cycle phases, checkpoints, mitotic stages,
+chromosome behavior, and daughter-cell outcomes.
+•
+Meiosis and gametogenesis - Working with meiotic stages, crossing over, independent
+assortment, haploid products, nondisjunction, and gamete formation.
+•
+Cytoskeleton and cell motility - Analyzing microtubules, actin filaments, intermediate
+filaments, motor proteins, cilia, flagella, and intracellular movement.
+•
+Cell communication - Working with receptors, ligands, second messengers, signal
+transduction, feedback, and cellular responses.
+•
+Cell differentiation and specialization - Identifying differentiated cell types, stem cells,
+potency, lineage restriction, and specialized cellular functions.
+•
+Cell death and survival - Working with apoptosis, necrosis, autophagy, senescence,
+and survival signaling.
+Molecular Biology
+Problems involving DNA, RNA, gene expression, replication, transcription, translation, and
+molecular mechanisms of biological information flow. Avoiding and excluding population-level
+genetics, evolutionary inference, or broad genomics unless the central task is molecular
+mechanism or sequence-level interpretation.
+•  DNA structure and replication - Working with nucleotide structure, base pairing,
+antiparallel strands, replication forks, polymerases, primers, Okazaki fragments, and
+replication fidelity.
+
+========================================================================
+PAGE 42 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+•
+•
+
+Transcription - Identifying promoters, templates, RNA polymerase activity, transcription
+direction, RNA products, and regulatory elements.
+RNA processing - Working with splicing, introns, exons, capping, polyadenylation,
+editing, and mature transcript formation.
+Translation - Using codons, anticodons, reading frames, ribosomes, tRNAs, start and
+stop codons, and amino acid sequences.
+Gene regulation - Working with operons, enhancers, silencers, transcription factors,
+epigenetic marks, chromatin accessibility, and regulatory networks.
+Mutations and molecular consequences - Classifying substitutions, insertions,
+deletions, frameshifts, missense, nonsense, synonymous, splice-site, and regulatory
+mutations.
+•
+Molecular techniques - Interpreting PCR, gel electrophoresis, cloning, restriction
+digestion, sequencing, qPCR, and blotting outputs.
+•
+Genome editing - Working with CRISPR-Cas systems, guide RNAs, target sites, edits,
+off-target considerations, and repair pathways.
+Genetics and Genomics
+Problems involving inheritance, genetic variation, linkage, pedigrees, chromosomes, genomes,
+and genotype-phenotype relationships. Avoiding and excluding molecular mechanism details or
+evolutionary population dynamics unless the primary task is genetic inheritance or genomic
+interpretation.
+•
+Mendelian inheritance - Solving monohybrid, dihybrid, dominance, recessiveness,
+segregation, independent assortment, and genotype-phenotype probability problems.
+•
+Non-Mendelian inheritance - Working with incomplete dominance, codominance,
+epistasis, penetrance, expressivity, pleiotropy, genomic imprinting, and mitochondrial
+inheritance.
+•
+Pedigree analysis - Inferring inheritance patterns, carrier probabilities, genotypes,
+affected status, and recurrence risks from family data.
+•
+Linkage and recombination - Computing recombination frequency, genetic distance,
+linkage phase, map order, and crossover outcomes.
+•
+Chromosomal abnormalities - Identifying aneuploidy, deletions, duplications,
+inversions, translocations, nondisjunction, and karyotype results.
+•
+Quantitative genetics - Working with polygenic traits, heritability, variance components,
+breeding values, and genotype-environment effects.
+•
+Genomics - Interpreting genome organization, gene annotation, copy number variation,
+genome size, synteny, and comparative genomic features.
+•
+Population genetics - Computing allele frequencies, genotype frequencies, Hardy-
+Weinberg expectations, selection coefficients, drift outcomes, and migration effects.
+
+========================================================================
+PAGE 43 of 107  [native]
+========================================================================
+•
+•
+•
+•
+
+Evolutionary Biology
+Problems involving descent with modification, natural selection, phylogeny, adaptation,
+speciation, and evolutionary change. Avoiding and excluding open-ended historical narratives or
+subjective adaptation explanations unless the expected answer is a classification, value, tree,
+ordering, or directly checkable evolutionary inference.
+•
+Natural selection - Working with fitness, selection pressures, selection coefficients,
+adaptive traits, and changes in allele or phenotype frequency.
+Genetic drift and gene flow - Computing or identifying founder effects, bottlenecks,
+migration effects, random allele-frequency change, and population structure.
+Mutation and variation - Working with mutation rates, sources of variation, neutral
+variation, deleterious mutations, and beneficial variants.
+Phylogenetics - Interpreting trees, clades, sister taxa, common ancestors, character
+states, branch lengths, and phylogenetic relationships.
+Speciation - Classifying allopatric, sympatric, parapatric, and peripatric speciation,
+reproductive isolation, and hybrid zones.
+•
+Evolutionary mechanisms - Comparing selection, drift, mutation, recombination,
+migration, and nonrandom mating as drivers of change.
+•
+Molecular evolution - Working with substitution rates, molecular clocks, conserved
+sequences, homologs, orthologs, paralogs, and sequence divergence.
+•
+Adaptation and life-history evolution - Analyzing tradeoffs, reproductive strategies,
+survival, fecundity, sexual selection, and adaptive constraints.
+Ecology
+Problems involving interactions among organisms and environments, populations, communities,
+ecosystems, and ecological processes. Avoiding and excluding molecular, cellular, or
+organismal physiology unless the primary task is ecological structure, interaction, or quantitative
+ecological reasoning.
+•
+Population ecology - Computing growth rates, carrying capacity, survivorship, age
+structure, density dependence, and population projections.
+•
+Community ecology - Working with species richness, diversity indices, competition,
+predation, mutualism, parasitism, succession, and community composition.
+•
+Ecosystem ecology - Analyzing energy flow, trophic levels, food webs, productivity,
+decomposition, and nutrient cycling.
+•
+Behavioral ecology - Interpreting foraging, mating systems, parental investment,
+cooperation, competition, and cost-benefit tradeoffs.
+•
+Conservation biology - Working with extinction risk, habitat fragmentation, biodiversity
+metrics, population viability, invasive species, and conservation prioritization.
+•
+Biogeography - Interpreting species distributions, dispersal, endemism, island
+biogeography, range shifts, and environmental gradients.
+
+========================================================================
+PAGE 44 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+•
+•
+
+•
+Ecological modeling - Applying exponential growth, logistic growth, predator-prey
+models, metapopulation models, and ecological simulations.
+•
+Human impacts and global change - Analyzing climate effects, land use, pollution,
+eutrophication, overharvesting, and ecological disturbance.
+Physiology and Homeostasis
+Problems involving organismal function, homeostatic regulation, organ systems, and
+physiological responses. Avoiding and excluding detailed anatomy-only identification or
+molecular signaling unless the primary task is system function, regulation, or physiological
+calculation.
+Homeostasis and feedback - Working with negative feedback, positive feedback, set
+points, regulation loops, and physiological control systems.
+Cardiovascular physiology - Analyzing heart function, blood flow, blood pressure,
+cardiac output, gas transport, and circulatory regulation.
+
+========================================================================
+PAGE 45 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+•
+•
+•
+Respiratory physiology - Working with ventilation, gas exchange, oxygen transport,
+carbon dioxide transport, diffusion gradients, and respiratory control.
+Renal and osmoregulatory physiology - Computing or identifying filtration,
+reabsorption, secretion, osmolarity, urine concentration, and water-salt balance.
+Digestive physiology and nutrition - Working with digestion, absorption, enzymes,
+nutrient processing, energy balance, and gastrointestinal regulation.
+Endocrine physiology - Identifying hormones, glands, target tissues, feedback loops,
+and endocrine regulation.
+•
+Musculoskeletal physiology - Working with muscle contraction, sarcomeres, motor
+units, skeletal function, and movement.
+•
+Thermoregulation and stress physiology - Analyzing temperature regulation,
+metabolic rate, acclimation, stress hormones, and physiological responses to
+environmental change.
+Anatomy and Morphology
+Problems involving biological structures, body plans, tissues, organs, morphology, and
+structural comparison. Avoiding and excluding physiological mechanisms unless the primary
+task is anatomical identification, structural relationship, or morphological classification.
+•
+Human anatomy - Identifying organs, tissues, anatomical regions, body systems,
+planes, cavities, and structural relationships.
+•
+Comparative anatomy - Comparing homologous, analogous, vestigial, and derived
+structures across taxa.
+•
+Tissue structure - Working with epithelial, connective, muscle, nervous, vascular,
+xylem, phloem, and other tissue types.
+•
+Organ systems - Identifying components and structural organization of circulatory,
+respiratory, digestive, nervous, endocrine, reproductive, immune, and excretory
+systems.
+•
+Morphological traits - Classifying body forms, appendages, segmentation, symmetry,
+skeletal structures, and external features.
+•
+Plant anatomy - Working with roots, stems, leaves, flowers, meristems, vascular
+tissues, stomata, and reproductive structures.
+•
+Developmental morphology - Identifying structural changes across developmental
+stages, metamorphosis, embryonic structures, and patterning outcomes.
+•
+Anatomical imaging and diagrams - Interpreting labeled diagrams, imaging outputs,
+cross-sections, and structural schematics.
+
+========================================================================
+PAGE 46 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+•
+•
+
+Developmental Biology
+Problems involving embryogenesis, cell fate, pattern formation, morphogenesis, and
+developmental regulation. Avoiding and excluding broad organismal life-cycle description
+unless the primary task is developmental mechanism, stage identification, or directly checkable
+developmental outcome.
+•  Gametogenesis and fertilization - Working with gamete formation, fertilization, zygote
+formation, polarity, and early developmental activation.
+Cleavage and gastrulation - Identifying early embryonic stages, blastula formation,
+germ layers, gastrulation movements, and fate maps.
+Organogenesis - Working with tissue differentiation, organ formation, developmental
+timing, and structural development.
+Cell fate and differentiation - Interpreting lineage restriction, potency, induction,
+determination, and differentiation markers.
+Pattern formation - Working with morphogens, gradients, segmentation, body axes,
+Hox genes, and positional information.
+Developmental gene regulation - Identifying regulatory genes, signaling pathways,
+transcription factors, and gene-expression patterns during development.
+Stem cells and regeneration - Working with embryonic stem cells, adult stem cells,
+induced pluripotency, regeneration, and lineage tracing.
+•  Developmental disorders - Identifying effects of mutations, teratogens, chromosomal
+abnormalities, and disrupted developmental pathways.
+Microbiology and Virology
+Problems involving bacteria, archaea, viruses, microbial growth, microbial genetics, infection
+cycles, and microbial diversity. Avoiding and excluding human immune response or clinical
+diagnosis unless the primary task is microbial identity, growth, replication, or mechanism.
+•
+Bacterial cell structure - Identifying cell walls, membranes, capsules, flagella, pili,
+plasmids, spores, and Gram-positive or Gram-negative features.
+•
+Microbial growth - Computing growth rates, doubling time, growth phases, culture
+density, and environmental effects on microbial populations.
+•
+Microbial metabolism - Working with aerobic respiration, anaerobic respiration,
+fermentation, chemotrophy, phototrophy, and metabolic classification.
+•
+Microbial genetics - Interpreting transformation, transduction, conjugation, plasmids,
+horizontal gene transfer, and antibiotic resistance genes.
+•
+Virology - Working with viral structure, genome type, host range, replication cycles,
+lytic and lysogenic cycles, and viral classification.
+
+========================================================================
+PAGE 47 of 107  [native]
+========================================================================
+•
+
+•
+•
+
+•
+Pathogenesis and virulence - Identifying toxins, adhesion, invasion, virulence factors,
+infection routes, and host-pathogen interactions.
+•
+Antimicrobials and resistance - Working with antibiotic mechanisms, resistance
+patterns, susceptibility data, MIC values, and treatment constraints.
+•
+Microbial ecology - Analyzing microbiomes, biofilms, symbiosis, nutrient cycling, and
+microbial community interactions.
+Immunology
+Problems involving immune cells, immune responses, antibodies, antigens, inflammation,
+vaccination, and immune dysfunction. Avoiding and excluding general microbiology or
+physiology unless the central task is immune recognition, response, regulation, or
+classification.
+•
+Innate immunity - Identifying barriers, phagocytes, complement, inflammation, pattern-
+recognition receptors, cytokines, and innate immune responses.
+•
+Adaptive immunity - Working with B cells, T cells, antigen presentation, clonal
+selection, memory cells, and adaptive response timing.
+•
+Antibodies and antigens - Interpreting antibody classes, antigen binding, epitopes,
+neutralization, opsonization, and antibody-mediated effects.
+Major histocompatibility complex - Working with MHC class I, MHC class II, antigen
+presentation, T-cell recognition, and tissue compatibility.
+Vaccination and immunological memory - Analyzing vaccine types, boosters,
+primary and secondary responses, herd immunity, and memory-cell behavior.
+Hypersensitivity and autoimmunity - Classifying allergy, hypersensitivity types,
+autoimmune mechanisms, and tolerance breakdown.
+Immunodeficiency - Identifying primary and acquired immune defects, affected cell
+types, and expected infection patterns.
+Immunological assays - Interpreting ELISA, flow cytometry, Western blot,
+agglutination, neutralization assays, and serological data.
+Neuroscience and Behavior
+Problems involving neurons, nervous systems, sensory processing, behavior, and neural
+signaling. Avoiding and excluding broad psychology or open-ended behavioral interpretation
+unless the expected answer is a mechanism, classification, value, pathway, or directly
+checkable prediction.
+•
+Neuron structure and function - Identifying dendrites, axons, soma, myelin,
+synapses, glia, and neuron types.
+•
+Membrane potentials and action potentials - Working with resting potential,
+depolarization, repolarization, refractory periods, ion gradients, and conduction.
+
+========================================================================
+PAGE 48 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+•
+•
+
+•
+Synaptic transmission - Interpreting neurotransmitters, receptors, synaptic vesicles,
+postsynaptic potentials, and synaptic integration.
+•
+Sensory systems - Working with photoreception, mechanoreception, chemoreception,
+auditory processing, visual pathways, and sensory transduction.
+•
+Motor systems - Analyzing motor neurons, neuromuscular junctions, reflex arcs, motor
+control, and muscle activation.
+•
+Brain regions and circuits - Identifying major brain structures, functional regions,
+neural pathways, and circuit organization.
+•
+Learning and plasticity - Working with synaptic plasticity, long-term potentiation,
+habituation, sensitization, conditioning, and memory-related changes.
+•
+Behavioral biology - Interpreting innate behavior, learned behavior, communication,
+social behavior, circadian rhythms, and behavioral experiments.
+Plant Biology
+Problems involving plant structure, physiology, reproduction, growth, signaling, and adaptation.
+Avoiding and excluding general ecology or agricultural discussion unless the primary task is
+plant-specific biological structure, function, or response.
+•
+Plant cells and tissues - Identifying cell walls, chloroplasts, vacuoles, xylem, phloem,
+meristems, epidermis, cortex, and vascular tissues.
+•
+Photosynthesis - Working with light reactions, Calvin cycle, pigments, carbon fixation,
+stomata, and photosynthetic rates.
+•
+Plant water and nutrient transport - Analyzing transpiration, cohesion-tension, root
+uptake, mineral nutrition, phloem transport, and source-sink relationships.
+•
+Plant growth and hormones - Working with auxin, gibberellin, cytokinin, abscisic acid,
+ethylene, tropisms, and growth regulation.
+•
+Plant reproduction - Identifying flowers, pollen, ovules, seeds, fruits, alternation of
+generations, fertilization, and reproductive cycles.
+•
+Plant responses to environment - Interpreting photoperiodism, gravitropism,
+phototropism, drought response, defense response, and stress adaptation.
+
+========================================================================
+PAGE 49 of 107  [native]
+========================================================================
+•
+•
+•
+Plant diversity and classification - Classifying bryophytes, seedless vascular plants,
+gymnosperms, angiosperms, monocots, and eudicots.
+Plant biotechnology - Working with transformation, tissue culture, genetically modified
+plants, marker selection, and crop trait analysis.
+Biochemistry and Metabolism
+Problems involving biomolecules, enzymes, metabolic pathways, bioenergetics, and chemical
+processes in living systems. Avoiding and excluding purely chemical thermodynamics or
+organic synthesis unless the primary task is biological function, pathway logic, or biochemical
+calculation.
+•
+Biomolecules - Identifying structures and properties of carbohydrates, lipids, proteins,
+nucleic acids, cofactors, and metabolites.
+•
+Protein structure and function - Working with amino acid properties, peptide bonds,
+primary through quaternary structure, folding, binding, and denaturation.
+•
+Enzyme kinetics - Computing Michaelis-Menten quantities, Km, Vmax, kcat, catalytic
+efficiency, inhibition type, and reaction rates.
+•
+Cellular respiration - Working with glycolysis, pyruvate oxidation, citric acid cycle,
+electron transport, oxidative phosphorylation, and ATP yields.
+•
+Fermentation and anaerobic metabolism - Identifying fermentation products, NAD+
+regeneration, oxygen-independent pathways, and energy yields.
+•
+Photosynthetic metabolism - Working with carbon fixation, RuBisCO, C3, C4, CAM
+pathways, and photorespiration.
+•
+Metabolic regulation - Interpreting feedback inhibition, allosteric regulation, covalent
+modification, pathway control, and energy-state effects.
+•
+Bioenergetics - Computing or comparing ATP coupling, redox carriers, free energy
+changes, proton gradients, and thermodynamic favorability.
+Bioinformatics and Computational Biology
+Problems involving biological sequence analysis, omics data, computational models, databases,
+and algorithmic biological interpretation. Avoiding and excluding open-ended software
+discussion unless the expected answer is a directly checkable output, classification, parameter,
+sequence, alignment, or numerical result.
+•
+Sequence alignment - Working with pairwise alignments, multiple alignments, scoring
+matrices, gaps, identity, similarity, and alignment scores.
+•
+Genome annotation - Identifying open reading frames, genes, exons, introns,
+promoters, regulatory elements, and coding regions.
+•
+Phylogenomic analysis - Interpreting sequence-based trees, orthologs, paralogs,
+conserved regions, and comparative genomic relationships.
+•
+Transcriptomics - Working with RNA-seq counts, expression levels, fold change,
+differential expression, normalization, and clustering.
+•
+Proteomics - Interpreting peptide matches, protein abundance, post-translational
+modifications, mass spectrometry outputs, and protein identification.
+
+========================================================================
+PAGE 50 of 107  [native]
+========================================================================
+•
+Biological databases and identifiers - Mapping genes, proteins, accessions,
+annotations, ontology terms, and database-derived records.
+Network biology - Working with gene regulatory networks, protein interaction networks,
+pathway graphs, centrality, and modules.
+Computational modeling - Applying Boolean models, differential equation models,
+stochastic models, simulations, and parameterized biological systems.
+Experimental Biology and Biostatistics
+Problems involving experimental design, biological data interpretation, measurement, controls,
+statistical inference, and reproducible analysis. Avoiding and excluding open-ended critique or
+essay-style methodology unless the expected answer is a classification, calculation, selected
+design, statistical value, or directly checkable interpretation.
+•
+Experimental design - Identifying independent variables, dependent variables, controls,
+replication, randomization, blinding, and treatment groups.
+•
+Microscopy and imaging - Interpreting magnification, resolution, staining,
+fluorescence, image scale bars, and cellular or tissue images.
+•
+Laboratory assays - Working with ELISA, Western blot, PCR, qPCR, gels, reporter
+assays, enzyme assays, growth assays, and cell-counting assays.
+•
+Data visualization - Interpreting tables, graphs, scatter plots, dose-response curves,
+survival curves, electropherograms, and heatmaps.
+•
+Biostatistical inference - Computing p-values, confidence intervals, test statistics,
+effect sizes, sample sizes, and significance decisions.
+•
+Experimental controls and validity - Identifying positive controls, negative controls,
+confounders, artifacts, bias, contamination, and validity threats.
+•
+Dose-response and response curves - Computing EC50, IC50, LD50, Hill coefficients,
+slopes, thresholds, and response classifications.
+•
+Measurement error and uncertainty - Working with standard deviation, standard error,
+coefficient of variation, error bars, technical replicates, and biological replicates.
+Taxonomy and Biodiversity
+Problems involving classification, organismal diversity, phylogenetic groups, life histories, and
+biological identification. Avoiding and excluding ecology or evolution as the primary task unless
+the answer concerns taxonomic placement, diagnostic traits, or biodiversity classification.
+•
+Biological classification - Working with domains, kingdoms, phyla, classes, orders,
+families, genera, species, and taxonomic hierarchy.
+•
+Species concepts - Applying biological, morphological, phylogenetic, ecological, and
+genetic species concepts.
+•
+Prokaryotic diversity - Classifying bacteria and archaea by structure, metabolism,
+habitat, and phylogenetic group.
+•
+Protist and fungal diversity - Identifying major groups, life cycles, nutrition modes,
+reproductive features, and ecological roles.
+•
+Animal diversity - Classifying major animal phyla, body plans, symmetry, development,
+segmentation, and diagnostic traits.
+
+========================================================================
+PAGE 51 of 107  [native]
+========================================================================
+•
+
+
+•
+Plant diversity - Classifying plant groups, vascular tissue, seeds, flowers, spores, and
+reproductive structures.
+•
+Biodiversity metrics - Computing species richness, abundance, evenness, diversity
+indices, and similarity metrics.
+•
+Identification keys and diagnostic traits - Using dichotomous keys, trait matrices,
+morphological characters, and genetic markers to identify organisms.
+
+
+Chemistry
+General Chemistry and Measurement
+Problems involving foundational chemical quantities, units, measurement, dimensional analysis,
+and introductory chemical reasoning. Avoiding and excluding advanced mechanistic, quantum,
+thermodynamic, or analytical interpretation unless the primary task is basic chemical calculation
+or representation.
+•
+Units, measurement, and significant figures - Working with SI units, unit conversions,
+dimensional analysis, uncertainty, precision, accuracy, and significant figures.
+•
+Moles and molar quantities - Computing moles, molar mass, particle counts,
+Avogadro's number, empirical quantities, and formula-unit relationships.
+•
+Chemical formulas and nomenclature - Interpreting, naming, and writing formulas for
+ionic compounds, molecular compounds, acids, bases, hydrates, and simple
+coordination compounds.
+•
+Chemical composition - Computing mass percent, percent composition, empirical
+formulas, molecular formulas, and elemental composition.
+•
+Laboratory quantities and preparation - Computing masses, volumes, dilutions,
+concentrations, yields, and reagent quantities for standard laboratory preparation.
+•
+Chemical classification - Classifying substances as elements, compounds, mixtures,
+electrolytes, acids, bases, salts, oxidants, reductants, or reaction types.
+•
+Introductory chemical modeling - Representing simple chemical systems using
+formulas, equations, particulate descriptions, or proportional relationships.
+Atomic Structure and Periodicity
+Problems involving electronic structure, atomic models, periodic trends, isotopes, and atomic-
+scale properties. Avoiding and excluding detailed molecular orbital theory or quantum-
+mechanical derivations unless the final answer is a directly checkable configuration, value,
+label, or ordering.
+•
+Atomic structure - Working with protons, neutrons, electrons, isotopes, ions, mass
+number, atomic number, and average atomic mass.
+•
+Electron configurations - Writing electron configurations, orbital box diagrams, valence
+configurations, and noble-gas shorthand.
+•
+Quantum numbers and orbitals - Identifying allowed quantum numbers, orbital labels,
+subshell capacities, and electron occupancy.
+
+========================================================================
+PAGE 52 of 107  [native]
+========================================================================
+•
+Periodic trends - Comparing atomic radius, ionic radius, ionization energy, electron
+affinity, electronegativity, metallic character, and effective nuclear charge.
+•
+Isotopes and mass spectrometry - Computing average atomic mass, isotope
+abundance, mass-to-charge interpretation, and isotopic patterns.
+•
+Photoelectron and atomic spectra - Interpreting ionization-energy data, atomic
+transitions, emission wavelengths, and energy-level relationships.
+•
+Periodic classification - Classifying elements by group, period, block, valence shell,
+chemical family, and expected reactivity pattern.
+
+========================================================================
+PAGE 53 of 107  [native]
+========================================================================
+Chemical Bonding and Molecular Structure
+Problems involving bonds, molecular geometry, polarity, intermolecular forces, and structure-
+property relationships. Avoiding and excluding long structural explanations or molecular-orbital
+derivations unless the expected answer is a structure, label, ordering, or computed property.
+•
+Lewis structures - Drawing or identifying valid Lewis structures, formal charges,
+resonance forms, octets, radicals, and expanded valence cases.
+•
+VSEPR and molecular geometry - Determining electron-domain geometry, molecular
+shape, bond angles, lone-pair effects, and hybridization.
+•
+Bond polarity and molecular polarity - Determining dipoles, molecular polarity, partial
+charges, and polarity-based orderings.
+•
+Intermolecular forces - Classifying and comparing dispersion forces, dipole-dipole
+interactions, hydrogen bonding, ion-dipole interactions, and related effects.
+•
+Bond order and bond strength - Computing or comparing bond order, bond length,
+bond energy, and resonance-based bond equivalence.
+•
+Valence bond and hybridization models - Identifying sigma and pi bonds, hybrid
+orbitals, orbital overlap, and local bonding descriptions.
+•
+Molecular orbital theory - Working with bonding and antibonding orbitals, MO
+diagrams, magnetism, bond order, and electron occupancy.
+•
+Structure-property relationships - Relating molecular structure to boiling point,
+melting point, solubility, viscosity, volatility, acidity, or reactivity.
+Stoichiometry and Chemical Reactions
+Problems involving balanced chemical equations, reaction quantities, limiting reagents, yields,
+and reaction classification. Avoiding and excluding kinetic, equilibrium, or thermodynamic
+interpretation unless the primary task is stoichiometric calculation or reaction accounting.
+•
+Balancing chemical equations - Balancing molecular, ionic, redox, combustion,
+precipitation, and acid-base equations.
+•
+Reaction stoichiometry - Computing masses, moles, volumes, particle counts, and
+reactant-product quantities from balanced equations.
+•
+Limiting reactants and excess reagents - Identifying limiting reagents, excess
+amounts, theoretical yields, and remaining reactant quantities.
+•
+Percent yield and purity - Computing actual yield, theoretical yield, percent yield,
+percent purity, and recovery.
+•
+Reaction classification - Classifying synthesis, decomposition, combustion, single-
+replacement, double-replacement, precipitation, acid-base, and redox reactions.
+•
+Net ionic equations - Writing complete ionic and net ionic equations, spectator ions,
+and precipitate formation.
+•
+Combustion analysis - Determining empirical or molecular formulas from combustion
+products and mass data.
+•
+Gas stoichiometry - Combining balanced equations with gas volumes, molar volume,
+partial pressures, or ideal gas relationships.
+
+========================================================================
+PAGE 54 of 107  [native]
+========================================================================
+States of Matter and Phase Behavior
+Problems involving gases, liquids, solids, phase changes, and macroscopic physical behavior
+of substances. Avoiding and excluding solution chemistry, thermodynamic derivations, or
+materials-science structure unless the primary task is phase or state-property calculation.
+•
+Gas laws - Applying Boyle's law, Charles's law, Avogadro's law, combined gas law,
+ideal gas law, and gas density relationships.
+•
+Gas mixtures and partial pressures - Computing mole fractions, partial pressures,
+total pressures, collected-gas corrections, and gas composition.
+•
+Real gases - Applying van der Waals corrections, compressibility, deviations from
+ideality, and qualitative real-gas behavior.
+•
+Liquids and solids - Comparing viscosity, surface tension, vapor pressure, melting
+point, boiling point, and crystal versus amorphous structure.
+•
+Phase changes - Computing heat of fusion, heat of vaporization, phase-transition
+quantities, and heating or cooling curve values.
+•
+Phase diagrams - Interpreting phase boundaries, triple points, critical points, normal
+boiling points, and stable phases.
+•
+Crystalline solids - Working with unit cells, packing, coordination number, density,
+lattice parameters, and crystal structures.
+•
+Colligative phase behavior - Computing boiling-point elevation, freezing-point
+depression, osmotic pressure, and vapor-pressure lowering.
+Solutions and Mixtures
+Problems involving concentration, solubility, dilution, solution preparation, and mixture
+behavior. Avoiding and excluding advanced aqueous equilibria or analytical-instrument
+interpretation unless the primary task is solution calculation.
+•
+Concentration units - Computing molarity, molality, mole fraction, mass percent,
+volume percent, ppm, ppb, and normality.
+•
+Dilution and mixing - Solving dilution, serial dilution, mixture, and concentration-
+change problems.
+•
+Solubility and saturation - Determining saturated, unsaturated, and supersaturated
+states, solubility quantities, and temperature-dependent solubility.
+•
+Electrolytes and solution conductivity - Classifying strong, weak, and non-
+electrolytes and computing ion concentrations from dissociation.
+•
+Colligative properties - Computing osmotic pressure, freezing-point depression,
+boiling-point elevation, and molar mass from solution behavior.
+•
+Activity and non-ideal solutions - Working with activity coefficients, ionic strength,
+Debye-Hückel approximations, and deviations from ideality.
+•
+Partitioning and extraction - Computing distribution ratios, extraction efficiency, and
+solute partitioning between phases.
+•
+Solvent and solute effects - Comparing polarity, miscibility, solvation, hydration, and
+qualitative solubility patterns.
+
+========================================================================
+PAGE 55 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+
+•
+
+
+Chemical Thermodynamics
+Problems involving heat, energy, entropy, enthalpy, Gibbs free energy, spontaneity, and
+thermodynamic state functions. Avoiding and excluding kinetic explanations or statistical-
+mechanical derivations unless the final answer is a directly checkable thermodynamic value or
+classification.
+Thermochemical calculations - Computing heat, specific heat, calorimetry values,
+heat capacity, and temperature changes.
+Enthalpy and Hess's law - Computing reaction enthalpies from formation enthalpies,
+bond energies, calorimetry, and Hess cycles.
+Entropy - Computing or comparing entropy changes, standard molar entropies, and
+qualitative entropy trends.
+Gibbs free energy - Computing free energy, spontaneity, equilibrium relationships, and
+temperature-dependent feasibility.
+•
+Thermodynamic state functions - Working with internal energy, enthalpy, entropy,
+Gibbs energy, path independence, and state changes.
+•
+Phase-transition thermodynamics - Computing thermodynamic quantities for fusion,
+vaporization, sublimation, and phase equilibria.
+•
+Temperature dependence - Applying Kirchhoff-type relationships, van 't Hoff
+relationships, and temperature effects on thermodynamic quantities.
+•
+Statistical thermodynamics - Computing partition-function-based quantities,
+populations, Boltzmann factors, and molecular contributions to thermodynamic
+properties.
+Chemical Kinetics
+Problems involving reaction rates, rate laws, mechanisms, activation energy, and time-
+dependent concentration behavior. Avoiding and excluding equilibrium-only or thermodynamic-
+only interpretation unless the primary task is rate-based calculation or mechanism inference.
+•
+Reaction rates - Computing average rates, instantaneous rates, stoichiometric rate
+relationships, and concentration-time changes.
+•
+Rate laws and reaction order - Determining rate laws, orders, rate constants, and
+units from data or mechanisms.
+•
+Integrated rate laws - Applying zero-order, first-order, second-order, and pseudo-first-
+order concentration-time relationships.
+•
+Half-life and lifetime - Computing half-lives, decay times, reaction completion times,
+and concentration thresholds.
+•
+Arrhenius behavior - Computing activation energy, frequency factors, temperature
+effects, and rate-constant ratios.
+•
+Reaction mechanisms - Identifying elementary steps, intermediates, catalysts,
+molecularity, and rate-determining steps.
+
+========================================================================
+PAGE 56 of 107  [native]
+========================================================================
+•
+Steady-state and pre-equilibrium approximations - Applying approximation-based
+mechanism analysis to obtain rate laws or concentrations.
+•
+Catalysis kinetics - Working with homogeneous catalysis, heterogeneous catalysis,
+enzyme kinetics, Michaelis-Menten quantities, and catalytic efficiency.
+Chemical Equilibrium
+Problems involving reversible reactions, equilibrium constants, reaction quotients, equilibrium
+composition, and perturbations. Avoiding and excluding acid-base-specific or electrochemical
+equilibria unless those are secondary to general equilibrium reasoning.
+Equilibrium constants - Computing Kc, Kp, Kx, equilibrium expressions, and
+relationships among constants.
+
+========================================================================
+PAGE 57 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+•
+
+Reaction quotient and direction - Computing Q and determining reaction direction
+relative to equilibrium.
+Equilibrium composition - Solving ICE-table problems, equilibrium concentrations,
+partial pressures, and extent of reaction.
+Le Châtelier's principle - Predicting shifts from concentration, pressure, volume,
+temperature, and removal or addition changes.
+Heterogeneous equilibria - Working with solids, liquids, gases, and equilibrium
+expressions for heterogeneous systems.
+•
+Coupled equilibria - Combining equilibrium constants, reversing reactions, scaling
+reactions, and adding reactions.
+•
+Temperature dependence of equilibrium - Applying thermodynamic relationships
+between equilibrium constants, enthalpy, entropy, and temperature.
+•
+Equilibrium approximations - Applying small-x approximations, checking
+approximation validity, and solving resulting equilibrium equations.
+Acids, Bases, and Aqueous Equilibria
+Problems involving acid-base reactions, pH, buffers, titrations, solubility equilibria, and aqueous
+ionic systems. Avoiding and excluding general equilibrium problems where acid-base or
+solubility chemistry is not the main concept.
+•
+Acid-base definitions and strength - Classifying Arrénius, Brønsted-Lowry, and Lewis
+acids or bases and comparing acid or base strength.
+•
+pH and pOH calculations - Computing pH, pOH, hydronium concentration, hydroxide
+concentration, and related quantities.
+•
+Weak acid and weak base equilibria - Solving Ka, Kb, percent ionization, conjugate-
+pair, and equilibrium-concentration problems.
+•
+Buffers - Applying Henderson-Hasselbalch relationships, buffer capacity, buffer
+preparation, and pH changes after additions.
+•
+Acid-base titrations - Computing equivalence points, half-equivalence points, titration
+pH values, indicators, and titration curves.
+•
+Polyprotic acids and bases - Working with stepwise dissociation, dominant species,
+and pH for polyprotic systems.
+•
+Solubility equilibria - Computing Ksp, molar solubility, common-ion effects, selective
+precipitation, and precipitation thresholds.
+•
+Complex-ion equilibria - Working with formation constants, ligand binding, complex
+stability, and solubility changes from complexation.
+
+========================================================================
+PAGE 58 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+
+Electrochemistry
+Problems involving oxidation-reduction, electrochemical cells, electrode potentials, electrolysis,
+and electrochemical thermodynamics. Avoiding and excluding redox-only stoichiometry unless
+the primary task is electrochemical behavior or cell calculation.
+•
+Oxidation states and redox classification - Assigning oxidation numbers, identifying
+oxidants and reductants, and classifying redox processes.
+•
+Balancing redox reactions - Balancing oxidation-reduction reactions in acidic, basic, or
+neutral media.
+•
+Galvanic cells - Computing cell potentials, identifying anodes and cathodes, writing cell
+notation, and predicting spontaneous direction.
+Standard reduction potentials - Using reduction tables to compute E°cell, rank
+oxidizing or reducing agents, and determine feasibility.
+Nernst equation - Computing nonstandard cell potentials, concentration effects, and
+equilibrium constants from electrochemical data.
+Electrolysis - Computing deposited mass, gas volume, charge, current, time, and
+Faraday's-law quantities.
+Electrochemical thermodynamics - Relating cell potential to Gibbs free energy,
+equilibrium constants, and spontaneity.
+•
+Batteries, corrosion, and applied cells - Working with battery chemistry, corrosion
+processes, fuel cells, and applied electrochemical systems.
+Organic Chemistry
+Problems involving carbon-containing compounds, functional groups, reactions, mechanisms,
+stereochemistry, and structure determination. Avoiding and excluding open-ended
+retrosynthesis or mechanistic essays unless the answer is a directly checkable product,
+reagent, structure, label, or ordered sequence.
+•
+Structure and nomenclature - Naming, drawing, and interpreting alkanes, alkenes,
+alkynes, aromatics, functional groups, substituents, and IUPAC structures.
+•
+Functional group chemistry - Identifying and predicting behavior of alcohols, ethers,
+aldehydes, ketones, carboxylic acids, amines, amides, esters, and related groups.
+•
+Isomerism - Identifying constitutional isomers, stereoisomers, conformers, enantiomers,
+diastereomers, meso compounds, and configurational relationships.
+•
+Stereochemistry - Assigning R/S, E/Z, cis/trans, optical activity, chirality, and
+stereochemical outcomes.
+•
+Reaction mechanisms - Identifying nucleophiles, electrophiles, intermediates, arrows,
+elementary steps, and mechanism classes.
+
+========================================================================
+PAGE 59 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+•
+
+•
+
+
+•
+Substitution and elimination reactions - Working with SN1, SN2, E1, E2,
+regioselectivity, stereochemistry, and competing pathways.
+•
+Addition and aromatic reactions - Predicting alkene, alkyne, carbonyl, conjugate,
+electrophilic aromatic substitution, and nucleophilic aromatic substitution outcomes.
+•
+Carbonyl and carboxylic acid derivative chemistry - Predicting reactions involving
+aldehydes, ketones, acids, acyl derivatives, enolates, and condensations.
+•
+Spectroscopic structure determination - Interpreting IR, NMR, mass spectrometry,
+and UV-vis data to identify organic structures.
+•
+Synthesis and retrosynthesis - Selecting reagents, products, intermediates, protecting
+groups, and feasible synthetic sequences.
+Inorganic and Coordination Chemistry
+Problems involving main-group chemistry, transition metals, coordination compounds,
+organometallics, and inorganic structure-reactivity relationships. Avoiding and excluding
+organic-specific mechanisms or materials-only problems unless the primary concept is inorganic
+bonding, structure, or reactivity.
+Main-group chemistry - Working with periodic patterns, bonding, oxidation states,
+reactivity, and representative element compounds.
+Transition metal chemistry - Computing oxidation states, d-electron counts,
+coordination numbers, and metal-centered properties.
+Coordination compounds - Naming, formula writing, ligand counting, isomerism,
+geometry, and coordination-sphere structure.
+Crystal field and ligand field theory - Determining splitting patterns, spin states,
+magnetic behavior, CFSE, and ligand-field effects.
+Organometallic chemistry - Working with hapticity, electron counting, oxidative
+addition, reductive elimination, insertion, and ligand substitution.
+Bioinorganic chemistry - Analyzing metal ions in biological systems, metalloproteins,
+cofactors, and metal-centered reactivity.
+•
+Solid-state inorganic chemistry - Working with lattice structures, defects, band
+behavior, and inorganic extended solids.
+•
+Inorganic reaction mechanisms - Classifying ligand substitution, electron transfer,
+inner-sphere and outer-sphere mechanisms, and trans effects.
+Analytical Chemistry
+Problems involving chemical measurement, quantitative analysis, instrumental methods,
+calibration, and uncertainty. Avoiding and excluding open-ended experimental critique unless
+
+========================================================================
+PAGE 60 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+
+the final answer is a calculation, classification, selected method, parameter value, or directly
+checkable interpretation.
+•
+Quantitative analysis - Computing analyte amount, concentration, percent composition,
+purity, recovery, and dilution-corrected values.
+•
+Calibration and standardization - Working with calibration curves, external standards,
+internal standards, standard additions, and linear response.
+•
+Titrimetric analysis - Computing endpoint and equivalence quantities for acid-base,
+redox, complexometric, and precipitation titrations.
+•
+Gravimetric analysis - Computing mass relationships, precipitate composition, analyte
+mass, and gravimetric factors.
+•
+Spectroscopic analysis - Applying absorbance, Beer-Lambert law, transmittance,
+concentration determination, and spectral interpretation.
+•
+Chromatography - Computing retention time, retention factor, resolution, plate number,
+selectivity, and separation efficiency.
+•
+Electroanalytical methods - Working with potentiometry, voltammetry, conductometry,
+ion-selective electrodes, and electrochemical signals.
+•
+Error, uncertainty, and statistics - Computing measurement uncertainty, confidence
+intervals, detection limits, propagation of error, precision, accuracy, and significant
+results.
+•
+Sampling and sample preparation - Computing dilution factors, extraction recoveries,
+matrix effects, and sample preparation quantities.
+Physical Chemistry and Spectroscopy
+Problems involving molecular-level physical behavior, quantum chemistry, spectroscopy,
+statistical mechanics, and molecular thermodynamics. Avoiding and excluding purely general-
+chemistry thermodynamics or kinetics unless the primary task requires physical-chemistry
+models or molecular interpretation.
+•
+Quantum chemistry - Working with particle-in-a-box models, operators, wavefunctions,
+energy levels, expectation values, and selection rules.
+Molecular orbital and electronic structure - Computing orbital occupancies, term
+symbols, electronic transitions, and qualitative electronic structure.
+Rotational and vibrational spectroscopy - Computing rotational constants, vibrational
+frequencies, energy spacings, and spectral transitions.
+Electronic spectroscopy - Working with UV-vis transitions, fluorescence,
+phosphorescence, selection rules, and electronic-state behavior.
+Magnetic resonance spectroscopy - Interpreting NMR, EPR, chemical shifts, coupling,
+multiplicity, and spin behavior.
+
+========================================================================
+PAGE 61 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+•
+
+•
+
+
+•
+Statistical mechanics - Computing partition functions, populations, Boltzmann factors,
+thermodynamic functions, and ensemble quantities.
+•
+Molecular thermodynamics - Relating microscopic states to entropy, heat capacity,
+free energy, and equilibrium behavior.
+•
+Surface and interfacial chemistry - Working with adsorption isotherms, surface
+tension, surface area, catalysis surfaces, and interfacial phenomena.
+Biochemistry and Chemical Biology
+Problems involving chemical processes in biological systems, biomolecules, enzyme behavior,
+metabolism, and biochemical thermodynamics. Avoiding and excluding broad biological
+explanation unless the primary task is chemical structure, reaction, binding, energetics, or
+quantitative biochemical analysis.
+•
+Biomolecular structure - Identifying amino acids, peptides, proteins, nucleic acids,
+carbohydrates, lipids, cofactors, and functional groups.
+•
+Protein chemistry - Working with pI, charge state, folding interactions, secondary
+structure, binding sites, and amino-acid properties.
+•
+Enzyme kinetics - Computing Michaelis-Menten quantities, inhibition type, catalytic
+efficiency, turnover number, and rate behavior.
+•
+Biochemical thermodynamics - Computing binding free energies, equilibrium
+constants, redox potentials, ATP coupling, and reaction favorability.
+•
+Metabolic pathways - Identifying pathway intermediates, stoichiometry, yields, redox
+carriers, and pathway regulation points.
+•
+Acid-base behavior in biomolecules - Computing protonation states, pH-dependent
+charge, buffer effects, and titration behavior of biomolecules.
+•
+Ligand binding and cooperativity - Working with dissociation constants, fractional
+occupancy, Hill coefficients, and binding curves.
+•
+Chemical biology methods - Interpreting labeling, probes, assays, sequencing
+chemistry, and chemically controlled biological measurements.
+Materials, Polymer, and Solid-State Chemistry
+Problems involving chemical structure and properties of extended materials, polymers, solids,
+nanomaterials, and functional materials. Avoiding and excluding mechanical engineering or
+device-design discussion unless the primary task is chemical composition, structure, property,
+or characterization.
+Polymer chemistry - Computing degree of polymerization, molecular weight, repeat
+units, tacticity, copolymer composition, and polymerization stoichiometry.
+
+========================================================================
+PAGE 62 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+
+Polymer properties - Working with glass transition, crystallinity, crosslinking, elasticity,
+solubility, and structure-property relationships.
+Solid-state structure - Analyzing lattice types, unit cells, packing, density, defects,
+vacancies, and interstitials.
+Electronic materials - Working with band gaps, doping, semiconductors, conductivity,
+and electronic structure of solids.
+Nanomaterials - Computing surface-area-to-volume ratios, particle size, quantum
+confinement, and nanoscale composition.
+Materials characterization - Interpreting XRD, microscopy, thermal analysis,
+spectroscopy, and diffraction-derived quantities.
+•
+Ceramic and ionic materials - Working with ionic lattices, defects, conductivity, phase
+stability, and solid electrolytes.
+•
+Functional and soft materials - Classifying or computing properties of gels, liquid
+crystals, supramolecular materials, and responsive materials.
+Computational and Theoretical Chemistry
+Problems involving computational models, molecular simulation, electronic structure methods,
+and theoretical chemical prediction. Avoiding and excluding open-ended software-use
+discussion unless the expected answer is a value, classification, selected method, parameter,
+or directly checkable computational result.
+•
+Electronic structure methods - Classifying or applying Hartree-Fock, density functional
+theory, post-HF methods, basis sets, and correlation models.
+•
+Molecular mechanics - Working with force fields, bonded and nonbonded terms,
+conformational energy, and parameterized molecular models.
+•
+Molecular dynamics - Computing or interpreting trajectories, time steps, ensembles,
+temperature control, and molecular motion.
+•
+Monte Carlo methods - Working with sampling, acceptance probabilities, ensembles,
+and stochastic molecular configurations.
+•
+Potential energy surfaces - Identifying minima, transition states, reaction coordinates,
+saddle points, and energy barriers.
+•
+Computational thermochemistry - Computing reaction energies, free energies, zero-
+point corrections, and thermochemical cycles.
+•
+Cheminformatics - Working with molecular descriptors, fingerprints, similarity metrics,
+SMILES strings, and structure-property prediction.
+•
+Theoretical model selection - Selecting appropriate computational models,
+approximations, or levels of theory for specified chemical tasks.
+
+========================================================================
+PAGE 63 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+•
+
+•
+
+
+Physics
+Measurement, Units, and Experimental Physics
+Problems involving physical quantities, units, measurement, uncertainty, dimensional analysis,
+and experimental interpretation. Avoiding and excluding advanced theoretical modeling unless
+the primary task is measurement, calibration, data interpretation, or unit-based reasoning.
+Units and dimensional analysis - Working with SI units, unit conversions, dimensions,
+dimensional consistency, scaling, and physical units.
+Significant figures and uncertainty - Computing significant figures, absolute
+uncertainty, relative uncertainty, percent uncertainty, and propagated uncertainty.
+Experimental design and controls - Identifying variables, controls, measurement
+procedures, calibration steps, and sources of error.
+Data analysis and fitting - Interpreting tables, plots, slopes, intercepts, regression fits,
+residuals, and extracted physical parameters.
+•
+Instrumentation and sensors - Working with measurement devices, resolution,
+sensitivity, calibration curves, response functions, and instrumental limits.
+•
+Error analysis - Computing random error, systematic error, precision, accuracy,
+standard deviation, standard error, and confidence intervals.
+•
+Physical estimation - Performing order-of-magnitude estimates, Fermi estimates,
+scaling estimates, and plausibility checks.
+•
+Model validation - Comparing measured data to physical models, expected trends,
+limiting cases, and experimental constraints.
+Kinematics and Dynamics
+Problems involving motion, forces, acceleration, Newton's laws, and the dynamics of particles.
+Avoiding and excluding energy-focused, rotational, relativistic, or field-theoretic problems unless
+the primary task is force-motion analysis.
+•
+One-dimensional kinematics - Computing displacement, velocity, acceleration, time,
+and constant-acceleration motion in one dimension.
+•
+Two- and three-dimensional kinematics - Working with projectile motion, relative
+motion, vector components, trajectories, and parametric motion.
+
+========================================================================
+PAGE 64 of 107  [native]
+========================================================================
+•
+
+•
+•
+•
+
+•
+Newton's laws - Applying force balance, net force, acceleration, free-body diagrams,
+and inertial or non-inertial frames.
+•
+Friction and contact forces - Computing static friction, kinetic friction, normal forces,
+tension, drag, and contact interactions.
+•
+Circular motion - Working with centripetal acceleration, centripetal force, tangential
+speed, angular speed, and radial dynamics.
+•
+Constraint dynamics - Analyzing pulleys, inclined planes, connected bodies, Atwood
+machines, and constrained motion.
+•
+Drag and resistive forces - Computing motion under linear drag, quadratic drag,
+terminal velocity, and velocity-dependent forces.
+•
+Non-inertial frames - Working with apparent forces, accelerating frames, rotating
+frames, centrifugal effects, and Coriolis effects.
+Energy, Momentum, and Rotational Mechanics
+Problems involving conservation laws, work, energy, impulse, momentum, collisions, rotation,
+torque, and angular momentum. Avoiding and excluding purely force-motion problems unless
+conservation or rotational reasoning is central.
+Work and kinetic energy - Computing work, kinetic energy, work-energy relationships,
+and variable-force work.
+Potential energy and conservative forces - Working with gravitational, elastic, electric,
+and general potential energy functions.
+
+========================================================================
+PAGE 65 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+•
+•
+
+•
+
+
+Conservation of mechanical energy - Solving problems using energy conservation,
+energy conversion, and energy diagrams.
+Power and efficiency - Computing power, rate of energy transfer, mechanical
+efficiency, and dissipated energy.
+Linear momentum and impulse - Working with momentum, impulse, force-time
+relationships, and momentum conservation.
+Collisions and explosions - Classifying and computing elastic, inelastic, perfectly
+inelastic, and multi-body collision outcomes.
+•
+Rotational kinematics and dynamics - Computing angular displacement, angular
+velocity, angular acceleration, torque, and rotational motion.
+•
+Moment of inertia - Working with rotational inertia, parallel-axis theorem, composite
+bodies, and mass distributions.
+•
+Angular momentum - Computing angular momentum, torque-angular momentum
+relationships, conservation, and rotational collision outcomes.
+•
+Static equilibrium - Solving torque balance, force balance, center of mass, stability,
+and rigid-body equilibrium problems.
+Oscillations, Waves, and Acoustics
+Problems involving periodic motion, mechanical waves, sound, superposition, resonance, and
+wave phenomena. Avoiding and excluding quantum wave mechanics or electromagnetic optics
+unless the primary task is classical oscillation or wave behavior.
+•
+Simple harmonic motion - Computing period, frequency, amplitude, phase,
+displacement, velocity, acceleration, and energy in oscillators.
+•
+Damped and driven oscillations - Working with damping, resonance, quality factor,
+forced oscillations, and steady-state response.
+•
+Mechanical waves - Computing wave speed, wavelength, frequency, period,
+amplitude, phase, and wave equations.
+•
+Superposition and interference - Analyzing constructive interference, destructive
+interference, beats, standing waves, and phase differences.
+•
+Sound waves - Working with intensity, decibels, Doppler effect, harmonics, resonance
+tubes, and acoustic standing waves.
+•
+Wave propagation - Computing wavefront behavior, boundary reflection, transmission,
+dispersion, and group velocity.
+
+========================================================================
+PAGE 66 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+•
+•
+
+•
+
+•
+Fourier and normal modes - Identifying mode shapes, harmonic content, frequency
+spectra, and normal-mode frequencies.
+•
+Nonlinear waves - Working with solitons, shock waves, nonlinear oscillators, and
+amplitude-dependent wave behavior.
+Thermodynamics and Statistical Physics
+Problems involving heat, temperature, work, entropy, engines, thermal processes, and
+statistical descriptions of matter. Avoiding and excluding chemical thermodynamics or fluid
+mechanics unless the primary task is physical thermodynamics or statistical behavior.
+Temperature and heat - Computing heat transfer, temperature change, heat capacity,
+specific heat, and calorimetry quantities.
+Thermal expansion - Working with linear, area, and volume expansion and
+temperature-dependent size changes.
+Ideal gases - Applying ideal gas relationships, kinetic theory, molecular speeds,
+pressure, volume, temperature, and moles.
+Thermodynamic processes - Computing work, heat, internal energy, and state
+changes for isothermal, adiabatic, isobaric, and isochoric processes.
+First law of thermodynamics - Applying energy conservation to thermodynamic
+systems, cycles, and processes.
+Entropy and second law - Computing entropy changes, irreversibility, heat flow
+direction, and thermodynamic feasibility.
+•
+Heat engines and refrigerators - Computing efficiency, coefficient of performance,
+Carnot limits, and cyclic process quantities.
+•
+Statistical mechanics - Working with microstates, macrostates, partition functions,
+Boltzmann factors, ensembles, and equilibrium distributions.
+Electricity and Magnetism
+Problems involving electric charges, fields, potentials, currents, magnetic fields, induction, and
+Maxwellian electromagnetic behavior. Avoiding and excluding circuit-only problems unless the
+primary task is electromagnetic field or force analysis.
+•
+Electrostatics - Computing electric forces, electric fields, charge distributions,
+Coulomb's law, and superposition.
+•
+Electric potential - Working with voltage, potential energy, equipotentials, point
+charges, conductors, and potential differences.
+
+========================================================================
+PAGE 67 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+•
+•
+•
+
+•
+Gauss's law - Applying flux and symmetry to electric fields from spherical, cylindrical,
+planar, or conducting charge distributions.
+•
+Capacitance and dielectrics - Computing capacitance, stored energy, dielectric
+effects, charge, voltage, and equivalent capacitance.
+•
+Electric current and resistance - Working with current density, conductivity, resistivity,
+drift velocity, and microscopic current models.
+•
+Magnetic forces and fields - Computing magnetic forces on charges or wires,
+magnetic fields from currents, and charged-particle motion.
+•
+Ampère's law and Biot-Savart law - Computing magnetic fields from wires, loops,
+solenoids, and symmetric current distributions.
+•
+Electromagnetic induction - Applying Faraday's law, Lenz's law, induced emf,
+motional emf, and time-varying magnetic flux.
+•
+Maxwell's equations - Working with integral or differential forms, displacement current,
+electromagnetic waves, and field relationships.
+Circuits and Electronics
+Problems involving circuit elements, circuit laws, transient behavior, AC circuits, and electronic
+devices. Avoiding and excluding field-theoretic electromagnetism unless the primary task is
+circuit analysis or electronic behavior.
+•  DC circuits - Applying Ohm's law, Kirchhoff's laws, series and parallel resistors, node
+voltages, and loop currents.
+RC, RL, and RLC circuits - Computing transient charging, discharging, time constants,
+oscillations, damping, and steady-state behavior.
+AC circuits - Working with impedance, reactance, phasors, RMS quantities,
+resonance, phase shifts, and AC power.
+Circuit power and energy - Computing electrical power, dissipated energy, stored
+energy, efficiency, and power transfer.
+Capacitor and inductor networks - Computing equivalent capacitance, equivalent
+inductance, stored energy, and circuit response.
+Diodes and semiconductor devices - Working with diode behavior, rectification,
+threshold voltage, simple transistor behavior, and device characteristics.
+Operational amplifier circuits - Computing gains, outputs, virtual ground behavior,
+filters, and ideal op-amp circuit quantities.
+
+========================================================================
+PAGE 68 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+•
+•
+
+•
+
+•  Signal filtering and frequency response - Analyzing low-pass, high-pass, band-pass,
+cutoff frequency, gain, and transfer functions.
+Optics
+Problems involving light propagation, reflection, refraction, lenses, mirrors, interference,
+diffraction, and optical instruments. Avoiding and excluding quantum optics or electromagnetic-
+wave derivations unless the primary task is optical calculation or classification.
+•
+Geometric optics - Computing ray paths, image distance, object distance,
+magnification, focal length, and image orientation.
+•
+Reflection and mirrors - Applying reflection law, mirror equation, spherical mirrors,
+plane mirrors, and image formation.
+•
+Refraction and lenses - Applying Snell's law, critical angle, total internal reflection, thin
+lenses, and lens combinations.
+•
+Optical instruments - Working with microscopes, telescopes, cameras, magnifiers,
+resolving power, and image formation systems.
+•
+Interference - Computing path differences, phase differences, fringe spacing, thin-film
+interference, and double-slit patterns.
+•
+Diffraction - Working with single-slit diffraction, diffraction gratings, angular resolution,
+and diffraction-limited behavior.
+•
+Polarization - Analyzing polarized light, Malus's law, Brewster's angle, polarizers, and
+polarization states.
+•
+Wave optics and coherence - Working with coherence length, wavefronts, optical path
+length, and wave-based light behavior.
+Fluid Mechanics and Continuum Physics
+Problems involving fluids, pressure, buoyancy, flow, viscosity, and continuum behavior of
+matter. Avoiding and excluding thermodynamics or materials science unless the primary task is
+fluid or continuum calculation.
+•
+Fluid statics - Computing pressure, hydrostatic force, density effects, manometers,
+and pressure-depth relationships.
+•
+Buoyancy - Applying Archimedes' principle, floating conditions, apparent weight,
+displaced volume, and stability.
+•
+Fluid flow - Computing flow rate, continuity, velocity fields, and incompressible flow
+relationships.
+
+========================================================================
+PAGE 69 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+•
+•
+•
+
+Bernoulli's principle - Applying pressure-speed-height relationships, Venturi effects,
+efflux speed, and energy conservation in fluids.
+Viscosity and drag - Working with viscous flow, Poiseuille's law, Reynolds number,
+laminar flow, turbulent flow, and drag forces.
+
+========================================================================
+PAGE 70 of 107  [native]
+========================================================================
+•
+
+
+•
+•
+
+Surface tension and capillarity - Computing surface forces, capillary rise, pressure
+differences, and interfacial effects.
+Elasticity and stress-strain - Working with Young's modulus, shear modulus, bulk
+modulus, strain, stress, and elastic deformation.
+Continuum waves and fields - Analyzing waves, stresses, strains, and field quantities
+in continuous media.
+Relativity
+Problems involving special relativity, spacetime, relativistic energy and momentum, and
+gravitational relativistic effects. Avoiding and excluding philosophical interpretation or tensor-
+field derivations unless the expected answer is a directly checkable value, classification, or
+expression.
+•
+Lorentz transformations - Computing transformed positions, times, velocities, and
+spacetime intervals between inertial frames.
+•
+Time dilation and length contraction - Working with proper time, proper length,
+moving clocks, moving rods, and relativistic factors.
+•
+Relativistic velocity addition - Computing combined velocities and frame-dependent
+relative speeds.
+•
+Relativistic momentum and energy - Computing rest energy, total energy, kinetic
+energy, momentum, and mass-energy relationships.
+•
+Spacetime intervals and causality - Classifying intervals as timelike, spacelike, or
+lightlike and determining causal relationships.
+•
+Relativistic Doppler effect - Computing observed frequency, wavelength shifts, and
+source-observer motion effects.
+•
+Equivalence principle and gravitational time dilation - Working with weak-field
+gravitational effects, clocks, acceleration, and redshift.
+•
+General relativity basics - Computing or identifying geodesic behavior, Schwarzschild
+radius, gravitational lensing quantities, and simple spacetime effects.
+Quantum Mechanics
+Problems involving wavefunctions, operators, quantization, measurement, spin, and quantum
+systems. Avoiding and excluding proof-based formalism or interpretive essays unless the
+answer is a directly checkable value, state, probability, eigenvalue, or classification.
+•
+Wavefunctions and probability - Computing normalization, probability density,
+expectation values, and measurement probabilities.
+•
+Schrödinger equation systems - Working with particles in boxes, harmonic oscillators,
+barriers, wells, and simple potentials.
+•
+Operators and observables - Computing eigenvalues, eigenfunctions, commutators,
+expectation values, and uncertainty relationships.
+
+========================================================================
+PAGE 71 of 107  [native]
+========================================================================
+•
+
+
+•
+Angular momentum and spin - Working with spin states, angular momentum quantum
+numbers, addition rules, and measurement outcomes.
+•
+Quantum tunneling - Computing barrier transmission, qualitative tunneling behavior,
+and exponential attenuation.
+•
+Perturbation theory - Computing first-order energy shifts, approximate eigenvalues,
+and perturbative corrections.
+Identical particles - Working with fermions, bosons, Pauli exclusion, exchange
+symmetry, and occupation behavior.
+Quantum information basics - Computing qubit states, measurement outcomes,
+simple gates, entanglement labels, and state transformations.
+Atomic, Molecular, and Optical Physics
+Problems involving atoms, molecules, spectra, transitions, lasers, and light-matter interaction.
+Avoiding and excluding chemistry-focused molecular structure unless the primary task is
+physical spectra, quantum states, or radiative behavior.
+•
+Atomic energy levels - Computing transition energies, wavelengths, frequencies,
+ionization energies, and quantum numbers.
+•
+Hydrogenic atoms - Working with Bohr model quantities, Rydberg formula, energy
+levels, radii, and spectral lines.
+•
+Fine structure and hyperfine structure - Identifying energy splittings, selection rules,
+spin-orbit effects, and transition patterns.
+•
+Molecular rotation and vibration - Computing rotational energies, vibrational
+energies, transition frequencies, and molecular spectra.
+•
+Selection rules - Identifying allowed and forbidden transitions using angular
+momentum, parity, and quantum-number changes.
+•
+Lasers and optical pumping - Working with population inversion, stimulated emission,
+gain, thresholds, and cavity behavior.
+•
+Light-matter interaction - Computing absorption, emission, scattering, cross sections,
+and transition probabilities.
+•
+Spectroscopic analysis - Interpreting spectra, line broadening, Doppler broadening,
+lifetime broadening, and spectral resolution.
+Nuclear and Particle Physics
+Problems involving nuclei, radioactive decay, nuclear reactions, elementary particles,
+conservation laws, and high-energy interactions. Avoiding and excluding open-ended model
+discussion unless the expected answer is a value, particle, reaction, conservation classification,
+or directly checkable output.
+•
+Nuclear structure - Working with protons, neutrons, isotopes, binding energy, mass
+defect, nuclear radius, and nuclear stability.
+•
+Radioactive decay - Computing half-life, activity, decay constants, remaining nuclei,
+decay chains, and decay modes.
+•
+Nuclear reactions - Balancing nuclear equations, computing Q-values, reaction
+thresholds, and emitted particles.
+
+========================================================================
+PAGE 72 of 107  [native]
+========================================================================
+•
+
+
+•
+
+•
+Fission and fusion - Computing energy release, reaction products, mass-energy
+conversion, and chain-reaction quantities.
+•
+Radiation and matter - Working with attenuation, dose, shielding, stopping power, and
+radiation interactions.
+•
+Particle classification - Identifying leptons, quarks, hadrons, baryons, mesons,
+bosons, antiparticles, and quantum numbers.
+•
+Conservation laws - Applying charge, baryon number, lepton number, energy,
+momentum, spin, and strangeness conservation.
+Standard Model interactions - Classifying strong, weak, electromagnetic, and
+gravitational interactions and associated mediator particles.
+Condensed Matter and Materials Physics
+Problems involving solids, electronic properties, lattice structure, phonons, magnetism,
+superconductivity, and material behavior. Avoiding and excluding chemistry-only composition
+questions unless the primary task is physical structure or material property analysis.
+•
+Crystal structure - Working with lattices, unit cells, Bravais lattices, Miller indices,
+packing, reciprocal lattices, and diffraction.
+•
+Band theory - Computing or identifying band gaps, Fermi levels, density of states,
+conductors, insulators, and semiconductors.
+•
+Semiconductors - Working with doping, carrier concentrations, p-n junctions, depletion
+regions, mobility, and conductivity.
+•
+Phonons and lattice vibrations - Computing vibrational modes, heat capacity,
+dispersion, and thermal transport quantities.
+•
+Magnetism - Classifying diamagnetism, paramagnetism, ferromagnetism,
+antiferromagnetism, domains, and magnetic response.
+•
+Superconductivity - Working with critical temperature, Meissner effect, Cooper pairs,
+critical fields, and flux quantization.
+•
+Thermal and electrical transport - Computing conductivity, resistivity, mobility,
+diffusion, thermal conductivity, and Hall effect quantities.
+•
+Soft matter and polymers - Analyzing elastic response, polymer scaling, liquid
+crystals, colloids, and mesoscale material behavior.
+Astrophysics, Cosmology, and Gravitation
+Problems involving celestial motion, stars, galaxies, cosmology, gravitation, and astronomical
+observation. Avoiding and excluding geology or atmospheric science unless the primary task is
+astrophysical or gravitational reasoning.
+•
+Newtonian gravitation - Computing gravitational force, gravitational field, orbital
+speed, escape speed, and gravitational potential energy.
+•
+Orbital mechanics - Working with Kepler's laws, orbital periods, semi-major axes,
+eccentricity, satellites, and two-body systems.
+
+========================================================================
+PAGE 73 of 107  [native]
+========================================================================
+•
+
+
+•
+Stellar properties - Computing luminosity, temperature, radius, magnitude, spectra,
+stellar classification, and blackbody behavior.
+•
+Stellar evolution - Identifying main sequence behavior, red giants, white dwarfs,
+neutron stars, black holes, and evolutionary endpoints.
+•
+Galaxies and large-scale structure - Working with galaxy classification, rotation
+curves, dark matter evidence, redshift, and distance measures.
+•
+Cosmology - Computing Hubble-law quantities, scale factor relationships, cosmic
+expansion, density parameters, and cosmic microwave background quantities.
+•
+Observational astronomy - Interpreting parallax, magnitude systems, spectra, Doppler
+shifts, telescopes, and detector data.
+•
+Compact objects and relativistic astrophysics - Working with Schwarzschild radius,
+accretion, pulsars, gravitational waves, and relativistic orbital effects.
+Plasma Physics and Electromagnetic Media
+
+========================================================================
+PAGE 74 of 107  [native]
+========================================================================
+Problems involving ionized gases, charged-particle collective behavior, waves in media, and
+electromagnetic response of materials. Avoiding and excluding circuit-only or simple gas-law
+problems unless the primary task is plasma or medium behavior.
+•
+Plasma parameters - Computing plasma frequency, Debye length, Debye shielding,
+temperature, density, and ionization fraction.
+•
+Charged-particle motion - Working with cyclotron motion, gyrofrequency, Larmor
+radius, magnetic mirrors, and drift motion.
+•
+Magnetohydrodynamics - Applying fluid-like plasma models, frozen-in fields, Alfvén
+waves, and magnetic pressure.
+•
+Plasma waves and instabilities - Identifying wave modes, dispersion relations, growth
+rates, and instability conditions.
+•
+Electromagnetic waves in media - Computing phase velocity, refractive index,
+attenuation, impedance, and dispersion in materials.
+•
+Dielectric and magnetic media - Working with permittivity, permeability, polarization,
+magnetization, susceptibility, and constitutive relationships.
+•
+Waveguides and cavities - Computing modes, cutoff frequencies, resonances, and
+standing electromagnetic waves.
+•
+Space and fusion plasmas - Working with solar wind, magnetospheres, tokamaks,
+confinement, and plasma heating quantities.
+
+========================================================================
+PAGE 75 of 107  [ocr]
+========================================================================
+Example Problems
+
+========================================================================
+PAGE 76 of 107  [native]
+========================================================================
+Example Problems
+Problem #1
+Problem #2
+Problem #3
+Problem #4
+Problem #5
+Problem #6
+
+⚠ Please note: problems must adhere to the LaTeX Standards of this project laid out in the Riga
+Answer Formatting Guide. This section is simply meant to provide visibility on previously
+accepted problems to reference and use as inspiration, and are not representative of the
+formatting guidance that is expected on Riga.
+
+Example Problem #1
+Field: Chemistry
+Domain: Electrochemistry Sub-Domain:
+Nernst equation
+PROBLEM PROMPT:
+
+========================================================================
+PAGE 77 of 107  [ocr]
+========================================================================
+A one-electron redox couple is described by the electrode reaction
+O+e =R,
+with standard reduction potential E° for the free species O and R. The solution is ideal and dilute,
+so activities are given by concentration divided by the standard concentration c°.
+Only the oxidized form binds a ligand L:
+O+L=OL,
+with dimensionless formation constant
+B= Go
+aoaLn
+The total analytical metal concentration is
+Cm = [R] + [0] + [OL],
+and the total analytical ligand concentration is
+C= [L} + [OL].
+The system is titrated electrochemically until the analytical half-reduction point is reached, meaning
+Cm
+[R] = [0] + [or] = —¥.
+Assume that complexation is always at equilibrium and that only free O and free R enter the Nernst
+equation.
+Determine the electrode potential E/2,,)p at this analytical half-reduction point in terms of E°, R,
+Es By Cm; (Bim prs and c°.
+Return only the final expression.
+STEP-BY-STEP SOLUTION & ANSWER:
+Step-by-Step Solution
+Step 1: Write the Nernst equation for the free redox pair
+For the reduction reaction
+O+e =R
+the Nernst equation is
+RT
+ao
+E= E° + —In[(
+—
+Ste Fa n (<2)
+Because the solution is ideal and dilute, OR
+c
+Cc
+Therefore we get
+RT
+[O}
+E = E° +—In|
+—
+Fr (ia)
+
+========================================================================
+PAGE 78 of 107  [ocr]
+========================================================================
+Step 2: Express the complexation equilibrium in concentration form
+The ligand binding equilibrium is:
+O+L=OL
+The dimensionless formation constant is:
+aoL
+2
+——
+F
+aoayz
+Using
+OL
+O
+L
+nog =
+vg x,
+are
+G
+(o
+Cc
+we get
+ge -
+__[OL/e°
+©
+({O]/e°)({Z]/e°)
+Therefore
+go = [OL]c°
+[O][L}
+So now
+Be
+[on] = [0
+If we define
+k= p°
+c
+Then
+[OL] = K[O}[L]
+
+========================================================================
+PAGE 79 of 107  [ocr]
+========================================================================
+Step 3: We now use the analytical half-reduction condition
+At the analytical half-reduction point
+[R] = [0] + [or] =
+Let
+x-oM
+2
+Then
+[R] =X
+and
+[O] + [OL] = x
+Using
+[OL] = K[O][L]
+we get
+[0] + K[O][Z] = x
+Therefore,
+[O](1 + K[L]) =x
+So now
+xX
+lOl= 75 K{[L]
+
+========================================================================
+PAGE 80 of 107  [ocr]
+========================================================================
+Step 4: Now we can substitute into the Nernst equation
+Since
+[R] = X
+and
+xX
+es 1+ K{L]
+we have
+(O] _ X/Q+ KIL)
+[R]
+x
+Therefore,
+[O] _
+1
+[R]
+14+ K{[L]
+So the electrode potential becomes
+RT
+1
+EB
+= E° +— In
+|——___
+ane
+SO (; aa)
+Thus,
+RT
+E4/2,app = E° — - In (1 + K[Z})
+
+========================================================================
+PAGE 81 of 107  [ocr]
+========================================================================
+Step 5: Next we solve for the free ligand concentration
+The total ligand concentration is
+C, =[l) + [Or]
+At the half-reduction point.
+{O] + [OL] =X
+And
+X
+[l=
+7 + K[L}
+Therefore,
+[OL] = X — [O]
+We substitute the expression for [QO]:
+.
+XxX
+OL] -X —a
+So
+[(OL]-— X
+{1 a
+°
+1+ K[L]
+Therefore
+K[Z]
+OL =X
+—
+(, TK1)
+Now we substitute into the ligand mass balance
+-
+K{L)
+1
+=(L)+ x |——S
+C=
+[E]
+(mn)
+If we let
+y=1+K{[L)
+Then
+y-1
+L\=
+="
+The ligand balance now becomes
+K
+y
+Multiply both sides by Ay:
+KCLy
+= y(y—1)
+— KX(y—-1)
+Expand
+KCiy = y2 —y+KXy-— KX.
+Then bring all terms to one side
+O=y?+ (KX -1-KCL)y-
+KX
+So y satisfies
+yr +(KX —-1-KC,)y-KX —0
+‘Lhe pliysical root is the positive root:
+
+========================================================================
+PAGE 82 of 107  [native]
+========================================================================
+#2
+Field: Physics
+Domain: Quantum Mechanics Sub-Domain:
+Perturbation theory PROBLEM PROMPT:
+
+========================================================================
+PAGE 83 of 107  [ocr]
+========================================================================
+Example Problem
+Consider the Hamiltonian of a single unperturbed quantum harmonic oscillator, expressed using the
+typical bosonic ladder operators.
+Ho = hw(ata + $)
+A perturbation is applied to the aforementioned system, such that the oscillator’s mass m and elas-
+ticity k become some new m’ and k’, but its angular frequency w remains constant. An additive,
+normal-ordered perturbation V is said to describe such a change.
+H=Hj+V
+Find an expression for the diagonal elements (z|V|z), where z > 1.
+STEP-BY-STEP SOLUTION & ANSWER:
+
+========================================================================
+PAGE 84 of 107  [ocr]
+========================================================================
+ientum p, such
+» definitions of
+ting the spring
+is replaces the
+ed one, with a
+. The additive
+a
+|p? and q? as
+can be done by
+uct as needed.
+ormal-ordered
+and factoring
+wing relations
+sin V become
+
+========================================================================
+PAGE 85 of 107  [ocr]
+========================================================================
+Example Problem
+#3
+Field: Chemistry
+Domain: Organic Chemistry
+Sub-Domain: Synthesis and retrosynthesis
+PROBLEM PROMPT:
+I am seeking advice on the structural assignment of the final product obtained from a multistep
+synthetic sequence involving an initially simple aliphatic ketone substrate. The study was designed
+to evaluate whether a functionalized intermediate derived from pentan-3-one could undergo a high-
+temperature reaction with an allylic alcohol derivative to furnish a rearranged or otherwise trans-
+formed product.
+In the first stage, pentan-3-one was subjected to a four-step reaction sequence under the following
+conditions:
+1.
+Treatment with formaldehyde, dimethylamine, and hydrochloric acid, represented as CH20O,
+Me2NH, and HCl.
+2.
+Subsequent treatment with potassium carbonate, K2CO3.
+3.
+Alkylation
+with methyl iodide, Mel. 4. Treatment with potassium hydroxide, KOH.
+The product obtained from this sequence was then reacted with (2Z)-but-2-en-1-ol under high-
+temperature conditions at 290°C.
+After completion of the reaction, the crude material was sub-
+jected to an acidic aqueous work-up using dilute HCl.
+The organic product was then extracted
+into dichloromethane, CH2Clz, and the organic phase was washed successively with aqueous sodium
+bicarbonate, NaHCO3, and brine.
+The organic layer was dried over magnesium sulfate, MgSOu,
+concentrated, and purified by column chromatography.
+I would like assistance in assigning the structure of the ultimate isolated product from this sequence.
+Please identify the final product using its standard InChI string format.
+STEP-BY-STEP SOLUTION & ANSWER:
+
+========================================================================
+PAGE 86 of 107  [ocr]
+========================================================================
+din situ from
+a —CH2NMeg2
+s the dimethy-
+1 good leaving
+a B-proton is
+thylpent-1-en-
+electron-poor
+ydroxymethyl-
+hermal [4 + 2]
+Icohol-bearing
+bearing alkene
+5 double bond.
+4-dihydro-2
+H-
+hile, combined
+is later carried
+‘tron-rich enol
+s stabilized by
+arbenium
+ion
+ethyl
+ketone
+ypen
+keto-diol
+2OH group is
+yne is reproto-
+mary CH2,OH
+comes a ketal
+-2, 4-dimethyl-
+C.
+The ketal
+4, and the two
+le aggregation
+)6 — 11 —10/h7
+6H2, 1 — 3H3
+#4
+Field: Physics
+Domain: Quantum Mechanics Sub-Domain:
+Identical particles
+PROBLEM PROMPT:
+
+========================================================================
+PAGE 87 of 107  [ocr]
+========================================================================
+Example Problem
+Two identical photons occupy five optical modes labeled 1,2,3,4,5. A Fock state is written by listing
+the occupied modes. For example, 14 means one photon in mode | and one photon in mode 4.
+The initial state is a classical mixture over the ten states 12,13, 14,15, 23, 24,25, 34,35,45.
+If the
+initial state is 2j, its probability is proportional to A;A;, where Ay = 1, Az = 2, A3 = 3, Aq = 5, and
+After the initial state is drawn, one unordered pair of modes is chosen but not revealed. Pair ij is
+chosen with probability proportional to p;jj, where wy = 1, 2 = 3, 3 = 4, pa = 7, and 5 = 11. A
+balanced beam splitter is applied to the chosen pair of modes. For a beam splitter on modes 7 and j,
+use the transformation a! + (a! + al)/V2 and al > (al — al)/V2.
+Then a second unordered pair of modes is chosen uniformly at random from the six pairs that share
+exactly one mode with the first chosen pair. This second pair is also not revealed. A balanced beam
+splitter with the same transformation rule is applied to the second chosen pair.
+After the two beam splitters, the photon number in every mode is measured.
+The outcome is one
+photon in mode 4, one photon in mode 5, and no photons in modes1, 2, 3.
+Given this measurement outcome, what is the exact probability that the initial state was 45? Give
+the answer as a simplified exact fraction.
+STEP-BY-STEP SOLUTION & ANSWER:
+
+========================================================================
+PAGE 88 of 107  [ocr]
+========================================================================
+' be the single
+state is ij7 and
+pair is chosen
+choices, define
+.
+This scaling
+ond
+pairs are
+
+========================================================================
+PAGE 89 of 107  [ocr]
+========================================================================
+‘st pair choices
+
+========================================================================
+PAGE 90 of 107  [native]
+========================================================================
+Example Problem #5
+Field: Biology
+Domain: Genetics and Genomics Sub-
+Domain: Linkage and recombination
+PROBLEM PROMPT:
+
+========================================================================
+PAGE 91 of 107  [ocr]
+========================================================================
+A researcher is examining the inheritance of a neurodevelopmental phenotype associated with the
+murine Mid1 locus. The genomic structure of this gene spans the pseudoautosomal boundary (PAB).
+Exons 1-3 are X-unique, and exons 4-10 are located in the pseudoautosomal region (PAR).
+A recessive mutation at a site near the 3’ end of exon 3 results in cerebral hypoplasia.
+Severity is
+determined by the number of exons impacted by the mutation. The most severe phenotype occurs
+when 8 exons are affected, and the severity of the phenotype lessens as the number of impacted exons
+decreases.
+In the parental generation, a wild-type female mouse is crossed with a male carrying
+a Midl +1
+frameshift at the 3’ end of exon 3, affecting exons 3-10.
+Three F, pups from this cross are mated to unrelated mice once they reach reproductive maturity.
+An F, male is mated with a female heterozygous for the Mid1 +1 frameshift at the 3’ end of exon 3,
+affecting exons 3-10. They have 9 pups in their litter: 6 males and 3 females.
+An F{ female is mated with a wild-type male. They have 7 pups: 3 females and 4 males.
+Another F; male is crossed with a female homozygous for the Mid1 +1 frameshift at the 3’ end of
+exon 3, affecting exons 3-10. They have 5 pups: 3 females and 2 males.
+During male meiosis, the recombination frequency within the PAR segment of the Mid1 gene is
+33.3%. During female meiosis, this recombination frequency is negligible.
+Assuming a fully functional wild-type allele is completely dominant, and the most fully functional
+allele is dominant when no fully functional wild-type allele is present, how many of the pups described
+in the F2 generation are expected to have severe cerebral hypoplasia? Provide your answer as a whole
+number using standard rounding rules if needed.
+STEP-BY-STEP SOLUTION & ANSWER:
+
+========================================================================
+PAGE 92 of 107  [ocr]
+========================================================================
+t at the
+3”
+end
+he most severe
+rs in the PAR,
+on 3, upstream
+n 3 frameshift.
+e X™allele.
+xX™y.
+All Fl
+.
+All F1 males
+male XwtX'.
+rom the father
+robability 1/2.
+le pups inherit
+ninant, none of
+). Cross 1 total
+wild-type male
+srit Y from the
+robability 1/2.
+ips inherit Xwt
+lominant, none
+are 3X0 = 0,
+mutant female
+erit Y from the
+ed severe males
+he homozygous
+wild-type allele
+verely affected
+mber of severe
+Example Problem #6
+Field: Physics
+Domain: Quantum Mechanics Sub-Domain:
+Identical particles
+PROBLEM PROMPT:
+
+========================================================================
+PAGE 93 of 107  [ocr]
+========================================================================
+Two identical photons occupy six optical modes labeled 1,2,3,4,5,6.
+A Fock state is written by
+listing the occupied modes. For example, 26 means one photon in mode 2 and one photon in mode 6.
+The
+initial
+state
+is
+a
+classical
+mixture
+over
+the
+fifteen
+states
+12, 13, 14, 15, 16, 23, 24, 25, 26, 34, 35, 36,45,46,56.
+If the
+initial
+state
+is
+ij,
+its
+probability
+is
+proportional to \;A;, where A; = 1, Ap = 2, A3 = 3, Ag = 5, A5 = 7, and Ag = 11.
+After the initial state is drawn, a first unordered pair of modes is chosen but not revealed. Pair ij is
+chosen with probability proportional to pijjj;, where py = 2, po = 3, 3 = 5, pa = 7, 5 = 11, and
+fg = 13. A balanced beam splitter is applied to that pair. For a beam splitter on pair ij with i < j,
+use the transformation a! + (a! + al)//2 and al + (al — al) /V2.
+Then a second unordered pair of modes is chosen uniformly at random from the six pairs that are
+disjoint from the first pair. This second pair is not revealed, and the same balanced beam splitter
+rule is applied.
+Then a third unordered pair of modes is chosen uniformly at random from the four pairs that contain
+one mode from the first chosen pair and one mode from the second chosen pair. This third pair is
+also not revealed, and the same balanced beam splitter rule is applied.
+After the three beam splitters, the photon number in every mode is measured. The outcome is one
+photon in mode 5, one photon in mode 6, and no photons in modes1, 2,3, 4.
+Given this measurement outcome, what is the exact probability that the initial state was 56? Give
+the answer as a simplified exact fraction.
+STEP-BY-STEP SOLUTION & ANSWER:
+
+========================================================================
+PAGE 94 of 107  [ocr]
+========================================================================
+factors for the
+rd hidden pair
+ently.
+s in modes p, q,
+> the pair, then
+am splitter the
+nplitude of the
+1;;|?. To avoid
+ible third pairs
+| cancels in the
+
+========================================================================
+PAGE 95 of 107  [ocr]
+========================================================================
+1 pair 15. The
+final state 56
+r. To keep the
+es separately.
+bution for first
+1,
+0.
+(20, 142296, 16
+
+========================================================================
+PAGE 96 of 107  [ocr]
+========================================================================
+se first pair 15.
+8.
+0 + 40656.
+\d for that first
+ites.
+
+========================================================================
+PAGE 97 of 107  [ocr]
+========================================================================
+Step 7: Applying the same rule from Step 6 to each first pair gives the following check list. Hach
+line gives the first pair pg, the value of Cs¢(pq), the numerator value N(pg) = 77Cs5¢(pq), and the
+evidence value (pq).
+For pg — 12, the values are
+Cro(12) = 240,
+= N(12) = 18480,
+—-E(12) = 25608.
+For pq = 13, the values are
+C56 (13) = 400,
+N(13) = 30800,
+F(13) = 42680.
+For pg = 14, the values are
+Cs6(14) — 560,
+N(14) = 43120,
+E(14) = 59752.
+For pq = 15, the values are
+C56 (15) = 528,
+N(15) = 40656,
+(15) = 62546.
+For pq = 16, the values are
+Cr6(16) = 624,
+ N(16) = 48048,
+—-E(16) = 68614.
+For pq = 23, the values are
+Cs6(23) = 600,
+ — N(23) = 46200,
+E(23) = 64020.
+For pq = 24, the values are
+C6 (24) — 840,
+N(24) — 64680,
+E(24) — 89628.
+For pq = 25, the values are
+Cs6(25) = 792,
+ N(25) = 60984, — E(25) = 101475.
+For pg = 26, the values are
+Cs6(26) = 936,
+_N(26) = 72072,
+E26) = 109161.
+For pq = 34, the values are
+Cs6(34) = 1400,
+N(34) = 107800,
+F(34) = 149380.
+For pg = 35, the values are
+C56 (35) = 1320,
+N(35) = 101640,
+E(35) = 181665.
+For pq = 36, the values are
+C56(36) = 1560,
+N (36) = 120120,
+£(36) = 192075.
+For pq = 45, the values are
+Cs5(45) = 1848,
+=N(45) = 142296,
+—-B(45) = 288519.
+For pq = 46, the values are
+C6 (46) = 2184,
+N(46) = 168168,
+E(46) = 296205.
+For pq — 56, the values are
+C56(56) = 0,
+N(56) = 0,
+£(56) = 169884.
+For example, the fourth line has first pair 15. It matches Step 6 because C55(15) = 528, so
+
+========================================================================
+PAGE 98 of 107  [ocr]
+========================================================================
+Step 8: Add the numerator column from Step 7:
+18480 + 30800 + 43120 + 40656 + 48048 + 46200 + 64680 + 60984 + 72072 + 107800
++101640 + 120120 + 142296 + 168168 + 0 = 1065064.
+Add the evidence column from Step 7:
+25608 + 42680 + 59752 + 62546 + 68614 + 64020 + 89628 + 101475 + 109161 + 149380
++181665 + 192075 + 288519 + 296205 + 169884 = 1901212.
+Therefore the posterior probability before simplification is
+1065064
+1901212°
+Step 9: Simplify the fraction:
+1065064
+266266
+1901212
+475303"
+Therefore the exact probability is
+266266
+475303"
+266266
+Final Answer: pac
+475303
+Final Answer:
+266266
+475303
+Appendix LaTeX Formatting
+
+========================================================================
+PAGE 99 of 107  [native]
+========================================================================
+Appendix: LaTeX Formatting
+General Math Formatting Guidelines
+LaTeX Formatting
+Polynomial Formatting
+Fractional Expressions
+Units and Measurements
+Special Characters and Symbols
+Rounding and Approximations
+Uniformity
+Examples of Accepted LaTeX Formatting
+
+This document outlines acceptable LaTeX formatting requirements:
+🚨mhchem is now supported on the Snorkel platform! Currently chemfig is not
+supported
+General Formatting Guidelines
+Use LaTeX notation for mathematical symbols in prompts, final answers, and step rewrites. Avoid using
+LaTeX for non-mathematical formatting (i.e., bullet points, bold, etc.).
+LaTeX Formatting
+●
+$...$ and $$...$$ are allowed
+●
+\(...\)  and \[...\] are NOT allowed
+Braces
+● Avoid use of unnecessary braces that don’t render (e.g.,
+{\frac{3
+4}}\cdot{\frac{5
+8}})
+● Make sure braces are escaped when they should be visible (e.g., \in\ 1,2,3\
+Polynomial Formatting
+● Always arrange polynomial terms in descending order of exponents
+Fractional Expressions
+● Use inline fractions (e.g., \frac{3
+4}).
+● Simplify fractions whenever possible unless the unsimplified form adds context.
+Units and Measurements
+● Include units in annotations whenever relevant (e.g., 9.8 \, \text{m/s}^2 .
+Special Characters and Symbols
+
+========================================================================
+PAGE 100 of 107  [native]
+========================================================================
+● Use proper mathematical symbols (e.g., \leq instead of <=).
+● Define all special symbols used.
+Other Style
+● No use of \item[] for lists
+● No use of **...** to bold Steps or Titles
+● No LaTeX commands only valid in KaTeX (e.g. \lang instead of \langle)
+Rounding and Approximations
+If decimal approximations are required in the final answer, rounding instructions must be specified within
+the prompt (e.g., round to at least four decimal places). The modelʼs rounding choices cannot be considered
+errors without these instructions.
+Uniformity
+Maintain consistent formatting for all submissions.
+
+
+Examples of Accepted LaTeX Formatting
+
+
+Category
+Numerical
+LaTeX Equivalent
+Rendered Form
+Fractions
+1/2
+\frac{1}{2}
+
+
+1 / (2+3)
+\frac{1}{2+3}
+
+Infinity
+∞
+\infty
+
+Exponents
+2^3
+2^{3}
+
+========================================================================
+PAGE 101 of 107  [native]
+========================================================================
+e^2
+e^{2}
+
+
+Category
+Numerical
+LaTeX Equivalent
+Rendered Form
+
+x^(1/2)
+x^{\frac{1}{2}}
+
+
+sqrt(2)
+\sqrt{2}
+
+
+sqrt[3]{8}
+\sqrt[3]{8}
+
+Mathematical
+Constants
+pi
+\pi
+
+
+e
+e
+
+
+i
+i
+
+Golden Ratio
+phi
+\phi
+
+Trigonometry
+sin(pi/2)
+\sin(\pi/2)
+
+
+cos(0)
+\cos(0)
+
+
+tan(π/4)
+\tan(\pi/4)
+
+Logarithms
+ln(2)
+\ln(2)
+
+========================================================================
+PAGE 102 of 107  [native]
+========================================================================
+log10(100)
+\log_{10}(100)
+
+
+log2(x)
+\log_{2}(x)
+
+Set Notation
+{1, 2, 3}
+\{1, 2, 3\}
+
+
+{}
+$\emptyset$
+
+
+R=(−∞,∞)
+$\mathbb{R}$
+
+
+p,q∈Z
+(integers)
+$\mathbb{Q}$
+
+
+Category
+Numerical
+LaTeX Equivalent
+Rendered Form
+
+N={1,2,3,4, …}
+$\mathbb{N}$
+
+
+{x∣x>0}
+$\{ x \mid x > 0 \}$
+
+
+x ∈ A
+x \in A
+
+
+x ∉ A
+x \notin A
+
+
+A ∪ B
+A \cup B
+
+
+A ∩ B
+A \cap B
+
+
+A \ B
+A \setminus B
+
+
+P(A)
+\mathcal{P}(A)
+
+
+∀x ∈ A
+\forall x \in A
+
+========================================================================
+PAGE 103 of 107  [native]
+========================================================================
+∃x ∈ A
+\exists x \in A
+
+Combinatorics
+C(5, 2)
+\binom{5}{2}
+52
+
+P(5, 2)
+{}_5P_2
+(5)𝑃2
+
+5!
+5!
+5!
+Integrals
+∫_0^1 f(x) dx
+\int_{0}^{1} f(x) \, dx
+
+
+∫ f(x) dx
+\int f(x) \, dx
+
+
+∬_R f(x, y) dx dy  \iint_{R} f(x, y) \, dx \, dy
+
+
+∭ f(x, y,
+z) dx dy dz
+\iiint f(x, y, z) \, dx \, dy \, dz
+
+
+Category
+Numerical
+LaTeX Equivalent
+Rendered Form
+
+∮_C f(z)
+dz
+\oint_{C} f(z) \, dz
+
+Matrices
+[[a, b],
+[c, d]]
+\begin{bmatrix} a & b \\ c & d
+\end{bmatrix}
+
+
+[[a, b, c],
+[d, e, f],
+[g, h, i]]
+\begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i
+\end{bmatrix}
+
+
+I
+\mathbf{I}
+
+
+det(A)
+\det(A)
+
+========================================================================
+PAGE 104 of 107  [native]
+========================================================================
+A^T
+A^{T}
+
+Closed-Form
+Equations
+(-b ± sqrt(b^2 -
+4ac))/(2a)
+\frac{-b \pm \sqrt{b^2 -
+4ac}}{2a}
+
+
+(x + y)^n =
+sum_{k=0}^n
+C(n,k) x^{n-k} y^k
+(x + y)^n = \sum_{k=0}^n
+\binom{n}{k} x^{n-k} y^k
+
+
+P(t) = P_0 e^(rt)
+P(t) = P_0 e^{rt}
+
+
+S = a/(1 - r)
+S = \frac{a}{1 - r}
+
+Approximations (to
+be specified in
+prompts if used)
+sqrt(2) ≈
+1.414
+\sqrt{2} \approx 1.414
+
+
+pi ≈ 3.1416
+\pi \approx 3.1416
+
+
+ln(2) ≈
+0.693
+\ln(2) \approx 0.693
+
+Category
+Numerical
+LaTeX Equivalent
+Rendered Form
+Vectors
+[1, 2, 3]
+begin{bmatrix} 1 & 2 & 3 \end
+
+
+[1 \ 2 \ 3]
+\begin{bmatrix} 1 \\ 2 \\ 3 \end
+
+========================================================================
+PAGE 105 of 107  [native]
+========================================================================
+Coordinates
+(3, 4)
+\[ (3, 4) \]
+
+
+(x, y, z)
+\[
+(x, y, z)
+\]
+
+Intervals
+(0, 1)
+\[ (0, 1) \]
+
+
+[0,1]
+\[ [0, 1] \]
+
+
+[0,1)
+[0, 1)
+
+
+Code of Conduct
+
+========================================================================
+PAGE 106 of 107  [native]
+========================================================================
+Expert Code of Conduct
+⚠PLEASE READ: It is expected that all experts adhere to Project Riga’s Code of Conduct. If an expert is
+found to be within violation of any of the following reasons, this could result in immediate dismissal
+from the project and/or any future collaboration with Snorkel:
+Spam:
+Your submissions reflect a pattern of short, repetitive, or templated responses that don’t meet our
+standards for original and thoughtful engagement. High-volume, low-value content that disrupts peer
+workflows and degrades overall task quality.
+Plagiarism:
+Some of your submissions closely resemble external content or other experts’ work. This includes copied
+prompts/responses, published materials, or reworded internal content. All work must be original and
+authentic.
+Repeated Rejections:
+Work that has repeatedly failed peer review due to quality issues, despite being provided support and
+corrective actions by the Riga Team. While occasional feedback is normal, a consistent pattern of quality
+issues affects downstream performance.
+Low AHT:
+Completion times which suggest that you are prioritizing speed over quality. We encourage you to take
+your time and be thorough. We expect careful, detailed work that meets our standards.
+Frustrated Expert:
+Messages to the Snorkel Team or fellow ECs that signal increasing frustration or negativity, via any
+communication channel. To preserve group cohesion and safety, we expect ECs to maintain respectful
+and professional relations with Snorkel staff and other ECs at all times.
+Insidious Expert:
+Interactions that suggest attempts to recruit, solicit, or encourage users to engage with external
+platforms or agendas. This behavior violates our community guidelines and must cease immediately.
+
+========================================================================
+PAGE 107 of 107  [native]
+========================================================================
+Inappropriate Expert:
+Communication or behavior that is seen as being inappropriate, disrespectful, or unprofessional. This
+includes profane and obscene language, or threats against Snorkel staff and/or other ECs.
