@@ -4,8 +4,7 @@ Local authoring desk for Snorkel **Project Riga** — original Physics, Chemistr
 
 Guidelines: V1.3, 16 July 2026 (`docs/guidelines/Riga-Project-Guidelines-V1.3.pdf`).
 
-You draft here. You paste into `EK_Riga_Production / Riga Submission`. This repo never submits.
-
+Draft it here, then paste it into `EK_Riga_Production / Riga Submission`. This repository has never been submitted to Snorkel. I’ve collected all the necessary documentation to train the automation system.
 ## Start
 
 ```bash
