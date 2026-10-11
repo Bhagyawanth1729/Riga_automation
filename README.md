@@ -5,8 +5,8 @@ Local authoring desk for Snorkel **Project Riga** — original Physics, Chemistr
 Guidelines: V1.3, 16 July 2026 (`docs/guidelines/Riga-Project-Guidelines-V1.3.pdf`).
 
 Draft it here, then paste it into `EK_Riga_Production / Riga Submission`. This repository has never been submitted to Snorkel. I’ve collected all the necessary documentation to train the automation system.
-## Start
 
+## Start
 ```bash
 python3 scripts/new_task.py --field Chemistry --domain Electrochemistry --subdomain "Nernst equation" --title "working title"
 python3 scripts/qa_gate.py submissions/drafts/<folder>/task.md
