@@ -1,0 +1,143 @@
+---
+id: 2026-10-04-physics-particle-in-box-odd-parity-perturbation
+status: ready
+field: Physics
+domain: Quantum Mechanics
+subdomain: Perturbation theory
+problem_type: Exact computation
+answer_type: Physical quantity with units
+concepts:
+  - Time-independent perturbation theory
+  - Second-order energy shift
+  - Parity selection rules
+  - Infinite square well
+  - Matrix element evaluation
+routing: Automated Checks Only
+independently_verified: true
+working_title: particle-in-box-odd-parity-perturbation
+---
+
+## Problem
+
+A particle of mass $m_e$ (electron mass) is confined in a one-dimensional infinite square well of width $L = 1.00\,\mathrm{nm}$. The unperturbed stationary states are
+
+$$
+\psi_n(x)=\sqrt{\frac{2}{L}}\sin\!\left(\frac{n\pi x}{L}\right),\qquad
+E_n=\frac{n^2\pi^2\hbar^2}{2m_e L^2},\qquad n=1,2,3,\ldots
+$$
+
+A static perturbation $V(x)=V_0\left(x-\frac{L}{2}\right)$ is applied, with $V_0=1.00\,\mathrm{eV\,nm^{-1}}$. The perturbation is odd about the centre of the well, so the first-order energy shift vanishes for every unperturbed state.
+
+Using second-order time-independent perturbation theory, compute the energy shift of the ground state ($n=1$). Report your answer in $\mathrm{meV}$ rounded to three significant figures.
+
+Use the following constants:
+- $\hbar = 1.0545718\times 10^{-34}\,\mathrm{J\,s}$
+- $m_e = 9.1093837\times 10^{-31}\,\mathrm{kg}$
+- $1\,\mathrm{eV} = 1.602176634\times 10^{-19}\,\mathrm{J}$
+
+The position matrix elements between unperturbed states are
+
+$$
+\langle m|x|1\rangle = 
+\begin{cases}
+\displaystyle -\frac{8Lm}{\pi^2(m^2-1)^2}, & m \text{ even},\\
+0, & m \text{ odd}, \; m\neq 1.
+\end{cases}
+$$
+
+## Domain Explanation
+
+This problem involves the application of second-order time-independent perturbation theory to a textbook quantum system where the first-order correction vanishes by parity, which is a core topic in Quantum Mechanics and Perturbation theory. The problem also involves the evaluation of position matrix elements in the infinite square well, which belongs to Quantum Mechanics and Schrödinger equation systems. However, the matrix elements are provided explicitly; the central challenge is correctly assembling the second-order sum, handling the sign of the energy denominator, and carrying out the numerical computation with the given constants, so the perturbation theory subdomain is primary.
+
+## Step 1
+
+Step 1
+The second-order energy shift for a non-degenerate state $|n\rangle$ is
+$$
+E_n^{(2)} = \sum_{m\neq n} \frac{|\langle m|V|n\rangle|^2}{E_n - E_m}.
+$$
+For the ground state $n=1$, the perturbation matrix element is $\langle m|V|1\rangle = V_0\langle m|x - L/2|1\rangle = V_0\langle m|x|1\rangle$ because $\langle m|1\rangle=0$ for $m\neq 1$. The given matrix elements show that $\langle m|x|1\rangle$ is non-zero only for even $m$. The unperturbed energies are $E_m = m^2 E_1$ with $E_1 = \pi^2\hbar^2/(2m_e L^2)$. Thus the energy denominator is $E_1 - E_m = (1-m^2)E_1 = -(m^2-1)E_1$.
+
+## Step 2
+
+Step 2
+Substitute the matrix elements and energies into the second-order formula. For even $m = 2k$ ($k=1,2,3,\ldots$):
+$$
+\langle m|V|1\rangle = V_0\left(-\frac{8Lm}{\pi^2(m^2-1)^2}\right),
+\quad
+|\langle m|V|1\rangle|^2 = V_0^2\frac{64L^2m^2}{\pi^4(m^2-1)^4},
+$$
+$$
+E_1 - E_m = -(m^2-1)E_1 = -(m^2-1)\frac{\pi^2\hbar^2}{2m_e L^2}.
+$$
+Each term in the sum becomes
+$$
+\frac{|\langle m|V|1\rangle|^2}{E_1 - E_m}
+= -V_0^2\frac{64L^2m^2}{\pi^4(m^2-1)^4}
+\frac{2m_e L^2}{\pi^2\hbar^2(m^2-1)}
+= -\frac{128 V_0^2 m_e L^4}{\pi^6\hbar^2}\frac{m^2}{(m^2-1)^5}.
+$$
+Let $m = 2k$. The sum over even $m$ is
+$$
+E_1^{(2)} = -\frac{512 V_0^2 m_e L^4}{\pi^6\hbar^2}
+\sum_{k=1}^{\infty} \frac{k^2}{(4k^2-1)^5}.
+$$
+
+## Step 3
+
+Step 3
+Evaluate the sum numerically. The terms are
+$k=1:\; 1/3^5 = 1/243 = 0.004115226$,
+$k=2:\; 4/15^5 = 4/759375 = 5.267\times 10^{-6}$,
+$k=3:\; 9/35^5 = 1.71\times 10^{-7}$,
+with higher $k$ contributing negligibly. The sum is $S = 0.0041205$ to six significant figures.
+
+Now compute the prefactor. Using the given constants:
+$V_0 = 1.00\,\mathrm{eV\,nm^{-1}} = 1.602176634\times 10^{-10}\,\mathrm{J\,m^{-1}}$,
+$V_0^2 = 2.56697\times 10^{-20}\,\mathrm{J^2\,m^{-2}}$,
+$m_e = 9.1093837\times 10^{-31}\,\mathrm{kg}$,
+$L = 1.00\times 10^{-9}\,\mathrm{m}$, so $L^4 = 1.00\times 10^{-36}\,\mathrm{m^4}$,
+$\hbar = 1.0545718\times 10^{-34}\,\mathrm{J\,s}$, so $\hbar^2 = 1.11212\times 10^{-68}\,\mathrm{J^2\,s^2}$,
+$\pi^6 = 961.389$.
+
+$$
+\frac{V_0^2 m_e L^4}{\hbar^2} = \frac{(2.56697\times 10^{-20})(9.10938\times 10^{-31})(1.00\times 10^{-36})}{1.11212\times 10^{-68}}
+= 2.1023\times 10^{-18}\,\mathrm{J}.
+$$
+
+$$
+\frac{512}{\pi^6} = 0.53257.
+$$
+
+$$
+\text{Prefactor} = -0.53257 \times 2.1023\times 10^{-18}\,\mathrm{J} = -1.1196\times 10^{-18}\,\mathrm{J}.
+$$
+
+$$
+E_1^{(2)} = (-1.1196\times 10^{-18}\,\mathrm{J}) \times 0.0041205 = -4.613\times 10^{-21}\,\mathrm{J}.
+$$
+
+Convert to $\mathrm{eV}$:
+$E_1^{(2)} = -4.613\times 10^{-21}\,\mathrm{J} / (1.602176634\times 10^{-19}\,\mathrm{J/eV}) = -0.02879\,\mathrm{eV} = -28.79\,\mathrm{meV}$.
+
+Rounded to three significant figures: $-28.8\,\mathrm{meV}$.
+
+Final Answer: $\boxed{-28.8\,\mathrm{meV}}$
+
+## Answer
+
+$-28.8\,\mathrm{meV}$
+
+## Author Notes
+
+Local only. Never paste this section into Snorkel.
+Independent check:
+- [x] Hid the boxed line and recomputed every displayed equality
+- [ ] `python3 scripts/qa_gate.py` PASS
+- [ ] `python3 scripts/preflight.py` PASS
+Why a frontier model should miss this:
+- First-order perturbation vanishes exactly by parity; a model may incorrectly compute a non-zero first-order shift or stop at zero.
+- The energy denominator $E_1 - E_m$ is negative for all $m>1$; a sign error flips the sign of the answer.
+- The matrix element formula has $(m^2-1)^2$ in the denominator; using $(m^2-1)$ or $(m^2-1)^3$ changes the sum significantly.
+- The factor of 2 in the second-order formula (some texts write $\frac{1}{2}$ in front of the sum for time-dependent perturbation theory, but the time-independent formula has no 1/2) is a common confusion.
+- The sum is dominated by $m=2$; truncating after $m=2$ gives $-28.7\,\mathrm{meV}$, which rounds to the same three significant figures, but a model that includes $m=4,6$ correctly will get the same rounded result.
