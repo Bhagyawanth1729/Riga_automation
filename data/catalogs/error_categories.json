@@ -1,0 +1,25 @@
+{
+  "prompt": {
+    "Not Self-Contained": "Prompt is missing definitions, formulas, or context needed to attempt the problem.",
+    "Non-Unique Answer": "As written, the prompt would yield multiple valid answers.",
+    "Too Computational": "Problem would require code or machine computation to verify.",
+    "Multi-Part Question": "Prompt asks multiple questions or multiple parts of a single question.",
+    "Guessable": "Prompt is multiple-choice, true-false, or set up so the answer can be easily guessed.",
+    "Domain Beyond Project Scope": "The prompt is a STEM domain outside Physics, Chemistry, or Biology."
+  },
+  "answer_and_solution": {
+    "Wrong Answer": "Wrong answer or flawed, inaccurate reasoning.",
+    "Unjustified or Unsupported Claims": "Solution skips steps or asserts without justification so the work cannot be fully reproduced.",
+    "Unstated Assumption": "An assumption that would change the answer if changed is not stated and justified.",
+    "Step Error": "There is an error in an individual step but the final answer is still correct."
+  },
+  "all": {
+    "Major LaTeX or Formatting Issues": "Wrong delimiters, unsupported commands, missing project-specific formatting.",
+    "Major Grammar or Language Issues": "Unclear phrasing or imprecise scientific language that makes intent ambiguous.",
+    "Other": "Wrong domain, closed quota, missing justification, or any other error."
+  },
+  "notes": [
+    "Minor LaTeX or grammar issues are fixed in review and are not alone grounds for Needs Revision.",
+    "Reject only for clear spam, low effort, or completely ignoring project rules."
+  ]
+}

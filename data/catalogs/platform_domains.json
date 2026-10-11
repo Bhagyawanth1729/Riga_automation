@@ -1,0 +1,20 @@
+{
+  "Biology": [
+    "Cell Biology",
+    "Biochemistry and Metabolism",
+    "Evolutionary Biology",
+    "Ecology",
+    "Experimental Biology and Biostatistics",
+    "Immunology",
+    "Physiology and Homeostasis",
+    "Plant Biology",
+    "Bioinformatics and Computational Biology",
+    "Developmental Biology",
+    "Microbiology and Virology",
+    "Anatomy and Morphology",
+    "Neuroscience and Behavior",
+    "Taxonomy and Biodiversity",
+    "Molecular Biology"
+  ],
+  "notes": "Live Snorkel dropdown for Biology (user-confirmed). Genetics and Genomics appears in the V1.3 PDF but is not selectable here. Prefer this list over the PDF tree when they disagree."
+}

@@ -1,0 +1,15 @@
+{
+  "shared_forms": [
+    "Exact computation",
+    "Symbolic expression",
+    "Numerical approximation",
+    "Solve for unknowns",
+    "Construction under constraints",
+    "Optimization",
+    "Exhaustive enumeration",
+    "Canonicalization or normalization",
+    "Transformation between representations",
+    "Parameter identification"
+  ],
+  "notes": "Assign the form that best reflects what the FINAL response must provide. Do not assign based on methods used along the way. Avoid proof, derivation-as-answer, or essay forms."
+}

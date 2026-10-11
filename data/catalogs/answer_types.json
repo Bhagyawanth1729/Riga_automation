@@ -1,0 +1,48 @@
+{
+  "Biology": [
+    "Exact scalar",
+    "Numerical scalar approximation",
+    "Exact symbolic expression",
+    "Biological sequence",
+    "Genotype or genetic notation",
+    "Biological species or structure",
+    "Quantity with units",
+    "Tuple or ordered list",
+    "Set or multiset of objects",
+    "Sequence or pathway representation",
+    "Function, model, or mapping",
+    "Canonical form",
+    "Classification label"
+  ],
+  "Chemistry": [
+    "Exact scalar",
+    "Numerical scalar approximation",
+    "Exact symbolic expression",
+    "Chemical formula or composition",
+    "Balanced chemical equation",
+    "Chemical species or structure",
+    "Concentration or quantity with units",
+    "Tuple or ordered list",
+    "Set or multiset of objects",
+    "Sequence or pathway representation",
+    "Function, law, or mapping",
+    "Canonical form",
+    "Classification label"
+  ],
+  "Physics": [
+    "Exact scalar",
+    "Numerical scalar approximation",
+    "Exact symbolic expression",
+    "Physical quantity with units",
+    "Equation or physical law",
+    "Vector",
+    "Matrix, tensor, or operator",
+    "Interval, range, or region",
+    "Tuple or ordered list",
+    "Set or multiset of objects",
+    "Function, field, or model",
+    "Sequence or process representation",
+    "Canonical form",
+    "Classification label"
+  ]
+}
